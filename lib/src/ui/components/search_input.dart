@@ -1,4 +1,3 @@
-
 import 'package:dhis2_flutter_ui/src/ui/core/app_contants.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
 import 'package:flutter/material.dart';
