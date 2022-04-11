@@ -1,6 +1,6 @@
 name: dhis2_flutter_ui
 description: This is Dhis2 flutter ui components used in hisp Tanzania.
-version: 0.0.1
+version: 1.0.0
 repository: https://github.com/hisptz/dhis2-flutter-ui
 
 environment:
@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^1.0.3
+  geolocator: ^8.2.0
+  collection: ^1.15.0
 
 dev_dependencies:
   flutter_test:
