@@ -1,4 +1,4 @@
-import 'package:dhis2_flutter_ui/src/ui/components/check_box_input_field.dart';
+import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
 import 'package:flutter/material.dart';

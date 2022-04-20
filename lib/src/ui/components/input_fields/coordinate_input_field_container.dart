@@ -1,4 +1,4 @@
-import 'package:dhis2_flutter_ui/src/ui/components/circular_process_loader.dart';
+import 'package:dhis2_flutter_ui/src/ui/components/generic_components/circular_process_loader.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/utils/app_util.dart';
 import 'package:flutter/material.dart';

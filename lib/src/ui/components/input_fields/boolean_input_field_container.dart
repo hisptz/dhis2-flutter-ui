@@ -1,4 +1,4 @@
-import 'package:dhis2_flutter_ui/src/ui/components/radio_input_field_container.dart';
+import 'package:dhis2_flutter_ui/src/ui/components/input_fields/radio_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
 import 'package:flutter/material.dart';
