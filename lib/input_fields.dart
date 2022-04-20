@@ -23,5 +23,5 @@ export './src/ui/components/input_fields/input_field_container.dart'
 export './src/ui/components/input_fields/percentage_input_field_container.dart'
     show PercentageInputFieldContainer;
 export './src/ui/components/input_fields/time_input_field.dart' show TimeInputFieldContainer;
-export './src/ui/components/form_field_input_icon.dart'
+export './src/ui/components/input_fields//form_field_input_icon.dart'
     show FormFieldInputIcon;
