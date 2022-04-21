@@ -1,4 +1,4 @@
-library dhis2_flutter_ui;
+
 
 export 'src/ui/components/input_fields/search_input.dart' show SearchInput;
 export './src/ui/components/input_fields/boolean_input_field_container.dart'
