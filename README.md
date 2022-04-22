@@ -78,18 +78,12 @@ list of models
 |  DataElement | String? id;  String? valueType;  String? optionSet;  List<DataElementOption>? options;|
 |  Dhis2EventDataValue |  String? id;  String? event; String? dataElement;String? value;  |
 |  InputField |   String id;String name; String? translatedName;String? description; String? translatedDescription;  String valueType;  Color? labelColor;  Color? inputColor; Color? background;  bool? renderAsRadio;  bool? isReadOnly;  bool? isPasswordField;  bool? shouldCapitalize;bool? allowFuturePeriod;  bool? showCountryLevelTree;  bool? disablePastPeriod;  bool? hasError;  int? minAgeInYear;  int? maxAgeInYear;  int? numberOfMonth;  bool? shouldUserCustomAgeLimit; String? suffixLabel;  String? hint;  String? translatedHint;  List<InputFieldOption>? options;  bool? hasSubInputField;  InputField? subInputField;  List<int>? allowedSelectedLevels;List<String>? filteredPrograms;|
- |  InputFieldOption |     String name; String? translatedName; dynamic code;
- |
- |  datata |   String? id;  String? event;  String? eventDate;  String? orgUnit;  String? program;  String? programStage;  String? storedBy;  String? completedDate;  String? status;  String? syncStatus;List<Dhis2EventDataValue>? dataValues; 
- |
-|  MetadataSyncItem |   String? id;  String? name; String? progressPercentage;  bool? isDefault; bool? isCompleted; List<MetadataSyncItem>? subItems;
-|
+ |  InputFieldOption |     String name; String? translatedName; dynamic code;|
+|  MetadataSyncItem |   String? id;  String? name; String? progressPercentage;  bool? isDefault; bool? isCompleted; List<MetadataSyncItem>? subItems;|
 |  OrganisationUnit |  String? id;  String? name;  String? parent;  String? code;  String? path;  int? level;List<String>? dataSets; List<String>? programs;  List<String>? children;|
-|  ProgramIndicator |   String? id; String? aggregationType;  String? expression;  String? filter;  String? program;
-|
-|  ProgramRuleAction |  String? id;  String? programRule;  String? data;  String? content;  String? programRuleActionType;  String? location;  String? dataElement;  String? trackedEntityAttribute;String? programStageSection; String? programStage;
-  |
-|  Dhis2Event |   String? id;  String? event;  String? eventDate;  String? orgUnit;  String? program;  String? programStage;  String? storedBy;  String? completedDate;  String? status;  String? syncStatus;List<Dhis2EventDataValue>? dataValues; |
+|  ProgramIndicator |   String? id; String? aggregationType;  String? expression;  String? filter;  String? program;|
+|  ProgramRuleAction |  String? id;  String? programRule;  String? data;  String? content;  String? programRuleActionType;  String? location;  String? dataElement;  String? trackedEntityAttribute;String? programStageSection; String? programStage;|
+|  Dhis2Event |   String? id;  String? event;  String? eventDate;  String? orgUnit;  String? program;  String? programStage;  String? storedBy;  String? completedDate;  String? status;  String? syncStatus;List<Dhis2EventDataValue>? dataValues; |   
  |  MetadataSyncItem |   String? id;  String? name; String? progressPercentage;  bool? isDefault; bool? isCompleted; List<MetadataSyncItem>? subItems;|
  |  OrganisationUnit |  String? id;  String? name;  String? parent;  String? code;  String? path;  int? level;List<String>? dataSets; List<String>? programs;  List<String>? children;|
  |  ProgramIndicator |   String? id; String? aggregationType;  String? expression;  String? filter;  String? program;|
