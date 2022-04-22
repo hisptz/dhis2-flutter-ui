@@ -1,5 +1,4 @@
-import 'package:dhis2_flutter_ui/generic_component.dart';
-import 'package:dhis2_flutter_ui/input_fields.dart';
+import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart' show SearchInput,CircularProcessLoader,InputField;
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -25,6 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Text(
                 'You have pushed the button this many times:',
               ),
+              
               SearchInput(
                 onSearch: null,
               ),
@@ -37,3 +37,4 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 }
+
