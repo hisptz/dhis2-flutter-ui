@@ -1,6 +1,6 @@
 name: dhis2_flutter_ui
-description: This is Dhis2 flutter ui components used in hisp Tanzania.
-version: 1.0.1
+description: This is Dhis2 flutter ui components used in Hisp Tanzania.
+version: 1.0.2
 repository: https://github.com/hisptz/dhis2-flutter-ui
 
 environment:
