@@ -89,9 +89,14 @@ list of models
 |
 |  ProgramRuleAction |  String? id;  String? programRule;  String? data;  String? content;  String? programRuleActionType;  String? location;  String? dataElement;  String? trackedEntityAttribute;String? programStageSection; String? programStage;
   |
+|  Dhis2Event |   String? id;  String? event;  String? eventDate;  String? orgUnit;  String? program;  String? programStage;  String? storedBy;  String? completedDate;  String? status;  String? syncStatus;List<Dhis2EventDataValue>? dataValues; |
+ |  MetadataSyncItem |   String? id;  String? name; String? progressPercentage;  bool? isDefault; bool? isCompleted; List<MetadataSyncItem>? subItems;|
+ |  OrganisationUnit |  String? id;  String? name;  String? parent;  String? code;  String? path;  int? level;List<String>? dataSets; List<String>? programs;  List<String>? children;|
+ |  ProgramIndicator |   String? id; String? aggregationType;  String? expression;  String? filter;  String? program;|
+|  ProgramRuleAction |  String? id;  String? programRule;  String? data;  String? content;  String? programRuleActionType;  String? location;  String? dataElement;  String? trackedEntityAttribute;String? programStageSection; String? programStage;|
 |  ProgramRule |   String? id; String? condition; String? program;  List<ProgramRuleAction>? programRuleActions;  |
-|  ProgramRuleVariable  |   String? id;   String? name;  String? programRuleVariableSourceType; String? program;  String? dataElement;  String? trackedEntityAttribute; String? programStageSection;String? programStage; 
-  |  SystemInfo |   String? contextPath;  String? systemId;  String? systemName;  String? userAgent;  String? calendar;  String? dateFormat;  String? lastAnalyticsTableSuccess;  String? lastAnalyticsTableRuntime;  String? revision;  String? jasperReportsVersion;  String? environmentVariable;  String? fileStoreProvider;  String? readOnlyMode;  String? javaVersion;  String? osName;  String? osArchitecture;  String? osVersion; String? memoryInfo;  String? cpuCores; 
+|  ProgramRuleVariable  |   String? id;   String? name;  String? programRuleVariableSourceType; String? program;  String? dataElement;  String? trackedEntityAttribute; String? programStageSection;String? programStage; |
+| SystemInfo |   String? contextPath;  String? systemId;  String? systemName;  String? userAgent;  String? calendar;  String? dateFormat;  String? lastAnalyticsTableSuccess;  String? lastAnalyticsTableRuntime;  String? revision;  String? jasperReportsVersion;  String? environmentVariable;  String? fileStoreProvider;  String? readOnlyMode;  String? javaVersion;  String? osName;  String? osArchitecture;  String? osVersion; String? memoryInfo;  String? cpuCores; |
 
 
 
