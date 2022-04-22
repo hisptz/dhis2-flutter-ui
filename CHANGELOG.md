@@ -1,3 +1,11 @@
-## 1.0.1
+## 1.0.2
 
-* TODO: Describe initial release.
+
+## Bug Fixing
+
+ 
+
+ -  Add Support to exports Models 
+
+
+        
