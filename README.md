@@ -33,9 +33,9 @@ The structure of this project folders is as summarized bellow:
 |-package
 |  |-lib
 |     |-dhis2_flutter_ui.dart
-|    |-src
-|      |-main_directive.dart
-|      |-ui
+|     |-src
+|       |-main_directive.dart
+|       |-ui
 |         |-components
 |         |-core
 |         |-models
