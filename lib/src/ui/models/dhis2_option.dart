@@ -1,11 +1,11 @@
-class DataElementOption {
+class Dhis2Option {
   String? id;
   String? name;
   String? code;
   String? optionSet;
   int? sortOrder;
 
-  DataElementOption(
+  Dhis2Option(
       {required this.id,
       required this.name,
       required this.code,
@@ -22,7 +22,7 @@ class DataElementOption {
     return data;
   }
 
-  DataElementOption.fromMap(Map<String, dynamic> mapData) {
+  Dhis2Option.fromMap(Map<String, dynamic> mapData) {
     id = mapData['id'];
     name = mapData['name'];
     code = mapData['code'];
@@ -30,10 +30,10 @@ class DataElementOption {
     sortOrder = int.parse(mapData['sortOrder']);
   }
 
-  factory DataElementOption.fromJson(
+  factory Dhis2Option.fromJson(
     dynamic json,
   ) {
-    return DataElementOption(
+    return Dhis2Option(
       id: json['id'] ?? '',
       name: json['name'] ?? '',
       code: json['code'] ?? '',

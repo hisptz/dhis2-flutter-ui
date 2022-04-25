@@ -1,15 +1,16 @@
-
-import 'package:dhis2_flutter_ui/src/ui/models/data_element_option.dart';
+import 'package:dhis2_flutter_ui/src/ui/models/dhis2_option.dart';
 
 class DataElement {
   String? id;
+  String? displayName;
   String? valueType;
   String? optionSet;
-  List<DataElementOption>? options;
+  List<Dhis2Option>? options;
 
   DataElement({
     required this.id,
     required this.valueType,
+    required this.displayName,
     this.optionSet = '',
     this.options = const [],
   });
@@ -17,6 +18,7 @@ class DataElement {
   Map<String, dynamic> toMap() {
     var data = <String, dynamic>{};
     data['id'] = id;
+    data['displayName'] = displayName;
     data['valueType'] = valueType;
     data['optionSet'] = optionSet;
     return data;
@@ -24,6 +26,7 @@ class DataElement {
 
   DataElement.fromMap(Map<String, dynamic> mapData) {
     id = mapData['id'];
+    displayName = mapData['displayName'];
     valueType = mapData['valueType'];
     optionSet = mapData['optionSet'];
   }
@@ -34,6 +37,7 @@ class DataElement {
     Map optionSetObj = json['optionSet'] ?? {};
     return DataElement(
       id: json['id'] ?? '',
+      displayName: json['displayName'] ?? '',
       valueType: json['valueType'] ?? '',
       optionSet: optionSetObj['id'] ?? '',
     );

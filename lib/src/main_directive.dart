@@ -3,8 +3,8 @@
 
 export './ui/models/application.dart'  
   show  Application;
-export './ui/models/data_element_option.dart'
-  show DataElementOption;
+export 'ui/models/dhis2_option.dart'
+  show Dhis2Option;
 export './ui/models/input_field_option.dart'
   show InputFieldOption;
   export './ui/models/input_field.dart'
@@ -40,8 +40,6 @@ export './ui/components/generic_components/circular_process_loader.dart'
     show CircularProcessLoader;
 export './ui/components/generic_components/material_card.dart' 
     show MaterialCard;
-export './ui/components/generic_components/sub_page_app_bar.dart' 
-    show SubPageAppBar;
 export './ui/core/line_separator.dart' 
     show LineSeparator;
 
