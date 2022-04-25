@@ -1,4 +1,4 @@
-/// Input Models
+///  Models
 
 
 export './ui/models/application.dart'  
@@ -31,7 +31,7 @@ export './ui/models/system_info.dart'
   show SystemInfo;
   
 /**
- * Input general components
+ *  general components
  */
 
 
