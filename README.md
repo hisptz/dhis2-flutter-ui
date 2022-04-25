@@ -29,9 +29,11 @@ The implementation of this project was based on [**Flutter and Dart**](https://f
 The structure of this project folders is as summarized bellow:
 
 ```
-|-lib
-|  |-dhis2_flutter_ui.dart
-|  |-src
+|-doc
+|-package
+|  |-lib
+|     |-dhis2_flutter_ui.dart
+|    |-src
 |      |-main_directive.dart
 |      |-ui
 |         |-components
