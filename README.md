@@ -12,36 +12,14 @@
 ##  Table of Contents
 
 - [About](#about)
-- [Project Structure](#structure)
 - [Getting Started](#getting_started)
 - [Supported Components](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
 
 ##  About <a name = "about"></a>
 
 DHIS2 Flutter UI is a library combine different UI experience used to in DHIS2 to deliver solution.It is consists of different form components ,common components and models that support dhis2 api data structure with reference to their metadata.
 
-## <a name='structure'></a>Project Structure
 
-The implementation of this project was based on [**Flutter and Dart**](https://flutter.dev/).
-
-The structure of this project folders is as summarized bellow:
-
-```
-|-doc
-|-package
-|  |-lib
-|     |-dhis2_flutter_ui.dart
-|     |-src
-|       |-main_directive.dart
-|       |-ui
-|         |-components
-|         |-core
-|         |-models
-|         |-utils
-|      
-```
 ### Supported Components
 
 The following are list of supported components and models in the packages.
@@ -110,40 +88,6 @@ These instructions will get you a copy of the project up and running on your loc
  git clone <github_repository_url>
 ```
 
-
-
-### How to Deploy
-
-The following are step by step instruction that will help you deploy this package.
-
- ### Login into you local environment (terminal)
-```
- dart pub login
-
-```
-This will create a link to redirect you into supported web browser ,then login through your supported email you have used in  <a href="https://pub.dev/"> pubdev<a/> 
-
- ### Dry run to format package  before deploy
- This will run and check best practice that recommended by pub dev , it will check formats , file structure , required content of pubspec.yalm file , package size and version of the package control.
- Use the following  command for dry run of your package.
-```
- dart pub publish -n
-
-```
-
-or 
-
-```
- dart pub publish --dry-run
-
-```
- ### Publish package
- Use the following command to publish package into  <a href="https://pub.dev/"> pubdev<a/> 
-
-```
- dart pub publish
-
-```
 
 
 
