@@ -42,6 +42,8 @@ export './ui/components/generic_components/material_card.dart'
     show MaterialCard;
 export './ui/core/line_separator.dart' 
     show LineSeparator;
+export './ui/components/generic_components/custom_button.dart' 
+    show CustomButton;
 
 /**
  * Input components
