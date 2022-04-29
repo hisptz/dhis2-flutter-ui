@@ -57,6 +57,7 @@ list of generic components
 |  CircularProcessLoader |   |
 |  MaterialCard |   |
 |  LineSeparator |   |
+|  CustomButton |   |
 ### iii. Models Supported
 
 ```
