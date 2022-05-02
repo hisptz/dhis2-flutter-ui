@@ -74,5 +74,6 @@ export './ui/components/input_fields/percentage_input_field_container.dart'
 export './ui/components/input_fields/time_input_field.dart' show TimeInputFieldContainer;
 export './ui/components/input_fields//form_field_input_icon.dart'
     show FormFieldInputIcon;
+export './ui/components/input_fields/email_input_field_container.dart' show EmailInputFieldContainer;
 
  
