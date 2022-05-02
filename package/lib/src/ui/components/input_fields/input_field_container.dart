@@ -6,7 +6,6 @@ import 'package:dhis2_flutter_ui/src/ui/components/input_fields/phone_number_inp
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/select_input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/text_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/true_only_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/core/app_contants.dart';
 import 'package:dhis2_flutter_ui/src/ui/core/line_separator.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
@@ -164,7 +163,7 @@ class InputFieldContainer extends StatelessWidget {
                     : _getInputFieldLabel(inputField),
               ),
             ),
-            LineSeparator(color: AppConstants.appInputBorderColor)
+            LineSeparator(color: inputField.inputColor!)
           ],
         ),
       ),
