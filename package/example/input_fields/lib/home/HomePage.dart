@@ -1,4 +1,5 @@
-import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart' show SearchInput,CircularProcessLoader,InputField;
+import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
+    show CircularProcessLoader, InputField, InputFieldContainer, SearchInput;
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -20,15 +21,24 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Text(
+            children: <Widget>[
+              const Text(
                 'You have pushed the button this many times:',
               ),
-              
-              SearchInput(
+              InputFieldContainer(
+                inputField:
+                    InputField(id: 'id', name: 'name', valueType: 'EMAIL'),
+                onInputValueChange: (String id, dynamic value) =>
+                    print("$id => $value"),
+                hiddenInputFieldOptions: const {},
+                dataObject: const {},
+                mandatoryFieldObject: const {},
+                hiddenFields: const {},
+              ),
+              const SearchInput(
                 onSearch: null,
               ),
-              CircularProcessLoader(
+              const CircularProcessLoader(
                 color: Colors.blue,
                 size: 5,
               ),
@@ -37,4 +47,3 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 }
-
