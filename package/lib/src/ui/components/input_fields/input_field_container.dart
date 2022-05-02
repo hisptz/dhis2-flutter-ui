@@ -1,7 +1,9 @@
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/boolean_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_list_input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/date_input_field_container.dart';
+import 'package:dhis2_flutter_ui/src/ui/components/input_fields/email_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/numerical_input_field_container.dart';
+import 'package:dhis2_flutter_ui/src/ui/components/input_fields/percentage_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/phone_number_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/select_input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/text_input_field_container.dart';
@@ -170,6 +172,10 @@ class InputFieldContainer extends StatelessWidget {
     );
   }
 
+  setValidationError(bool hasValidationError) {
+    //TODO set validations error messages
+  }
+
   Widget _getInputFieldLabel(InputField? inputField) {
     dynamic value =
         inputField != null && '${dataObject![inputField.id]}' != 'null'
@@ -269,39 +275,44 @@ class InputFieldContainer extends StatelessWidget {
                                           onInputValueChange!(
                                               inputField.id, value),
                                     )
-                                  : inputField.valueType == 'PHONE_NUMBER'
-                                      ? PhoneNumberInputFieldContainer(
+                                  : inputField.valueType == 'EMAIL'
+                                      ? EmailInputFieldContainer(
                                           inputField: inputField,
                                           inputValue:
                                               dataObject![inputField.id],
+                                          setValidationError:
+                                              setValidationError,
                                           onInputValueChange: (dynamic value) =>
                                               onInputValueChange!(
                                                   inputField.id, value),
                                         )
-                                      : inputField.valueType == 'BOOLEAN'
-                                          ? BooleanInputFieldContainer(
+                                      : inputField.valueType == 'PERCENTAGE'
+                                          ? PercentageInputFieldContainer(
                                               inputField: inputField,
                                               inputValue:
                                                   dataObject![inputField.id],
+                                              setValidationError:
+                                                  setValidationError,
                                               onInputValueChange:
                                                   (dynamic value) =>
                                                       onInputValueChange!(
                                                           inputField.id, value),
                                             )
-                                          : inputField.valueType == 'TRUE_ONLY'
-                                              ? TrueOnlyInputFieldContainer(
+                                          : inputField.valueType ==
+                                                  'PHONE_NUMBER'
+                                              ? PhoneNumberInputFieldContainer(
                                                   inputField: inputField,
                                                   inputValue: dataObject![
                                                       inputField.id],
                                                   onInputValueChange:
-                                                      (dynamic value) {
-                                                    onInputValueChange!(
-                                                        inputField.id,
-                                                        '$value');
-                                                  },
+                                                      (dynamic value) =>
+                                                          onInputValueChange!(
+                                                              inputField.id,
+                                                              value),
                                                 )
-                                              : inputField.valueType == 'DATE'
-                                                  ? DateInputFieldContainer(
+                                              : inputField.valueType ==
+                                                      'BOOLEAN'
+                                                  ? BooleanInputFieldContainer(
                                                       inputField: inputField,
                                                       inputValue: dataObject![
                                                           inputField.id],
@@ -311,9 +322,41 @@ class InputFieldContainer extends StatelessWidget {
                                                                   inputField.id,
                                                                   value),
                                                     )
-                                                  : Text(
-                                                      '${inputField.valueType} is not supported',
-                                                    ),
+                                                  : inputField.valueType ==
+                                                          'TRUE_ONLY'
+                                                      ? TrueOnlyInputFieldContainer(
+                                                          inputField:
+                                                              inputField,
+                                                          inputValue:
+                                                              dataObject![
+                                                                  inputField
+                                                                      .id],
+                                                          onInputValueChange:
+                                                              (dynamic value) {
+                                                            onInputValueChange!(
+                                                                inputField.id,
+                                                                '$value');
+                                                          },
+                                                        )
+                                                      : inputField.valueType ==
+                                                              'DATE'
+                                                          ? DateInputFieldContainer(
+                                                              inputField:
+                                                                  inputField,
+                                                              inputValue:
+                                                                  dataObject![
+                                                                      inputField
+                                                                          .id],
+                                                              onInputValueChange: (dynamic
+                                                                      value) =>
+                                                                  onInputValueChange!(
+                                                                      inputField
+                                                                          .id,
+                                                                      value),
+                                                            )
+                                                          : Text(
+                                                              '${inputField.valueType} is not supported',
+                                                            ),
                 ),
               ],
             )
