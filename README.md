@@ -12,14 +12,34 @@
 ##  Table of Contents
 
 - [About](#about)
+- [Project Structure](#structure)
 - [Getting Started](#getting_started)
 - [Supported Components](#deployment)
+- [Usage](#usage)
+- [Built Using](#built_using)
 
 ##  About <a name = "about"></a>
 
 DHIS2 Flutter UI is a library combine different UI experience used to in DHIS2 to deliver solution.It is consists of different form components ,common components and models that support dhis2 api data structure with reference to their metadata.
 
+## <a name='structure'></a>Project Structure
 
+The implementation of this project was based on [**Flutter and Dart**](https://flutter.dev/).
+
+The structure of this project folders is as summarized bellow:
+
+```
+|-lib
+|  |-dhis2_flutter_ui.dart
+|  |-src
+|      |-main_directive.dart
+|      |-ui
+|         |-components
+|         |-core
+|         |-models
+|         |-utils
+|      
+```
 ### Supported Components
 
 The following are list of supported components and models in the packages.
@@ -57,7 +77,6 @@ list of generic components
 |  CircularProcessLoader |   |
 |  MaterialCard |   |
 |  LineSeparator |   |
-|  CustomButton |   |
 ### iii. Models Supported
 
 ```
@@ -72,14 +91,14 @@ list of models
 |  Dhis2EventDataValue |  String? id;  String? event; String? dataElement;String? value;  |
 |  InputField |   String id;String name; String? translatedName;String? description; String? translatedDescription;  String valueType;  Color? labelColor;  Color? inputColor; Color? background;  bool? renderAsRadio;  bool? isReadOnly;  bool? isPasswordField;  bool? shouldCapitalize;bool? allowFuturePeriod;  bool? showCountryLevelTree;  bool? disablePastPeriod;  bool? hasError;  int? minAgeInYear;  int? maxAgeInYear;  int? numberOfMonth;  bool? shouldUserCustomAgeLimit; String? suffixLabel;  String? hint;  String? translatedHint;  List<InputFieldOption>? options;  bool? hasSubInputField;  InputField? subInputField;  List<int>? allowedSelectedLevels;List<String>? filteredPrograms;|
  |  InputFieldOption |     String name; String? translatedName; dynamic code;|
-|  Dhis2Event |   String? id;  String? event;  String? eventDate;  String? orgUnit;  String? program;  String? programStage;  String? storedBy;  String? completedDate;  String? status;  String? syncStatus;List<Dhis2EventDataValue>? dataValues; |   
- |  MetadataSyncItem |   String? id;  String? name; String? progressPercentage;  bool? isDefault; bool? isCompleted; List<MetadataSyncItem>? subItems;|
- |  OrganisationUnit |  String? id;  String? name;  String? parent;  String? code;  String? path;  int? level;List<String>? dataSets; List<String>? programs;  List<String>? children;|
- |  ProgramIndicator |   String? id; String? aggregationType;  String? expression;  String? filter;  String? program;|
+|  Dhis2Event |   String? id;  String? event;  String? eventDate;  String? orgUnit;  String? program;  String? programStage;  String? storedBy;  String? completedDate;  String? status;  String? syncStatus;List<Dhis2EventDataValue>? dataValues; |  
+|  MetadataSyncItem |   String? id;  String? name; String? progressPercentage;  bool? isDefault; bool? isCompleted; List<MetadataSyncItem>? subItems;|
+|  OrganisationUnit |  String? id;  String? name;  String? parent;  String? code;  String? path;  int? level;List<String>? dataSets; List<String>? programs;  List<String>? children;|
+|  ProgramIndicator |   String? id; String? aggregationType;  String? expression;  String? filter;  String? program;|
 |  ProgramRuleAction |  String? id;  String? programRule;  String? data;  String? content;  String? programRuleActionType;  String? location;  String? dataElement;  String? trackedEntityAttribute;String? programStageSection; String? programStage;|
 |  ProgramRule |   String? id; String? condition; String? program;  List<ProgramRuleAction>? programRuleActions;  |
-|  ProgramRuleVariable  |   String? id;   String? name;  String? programRuleVariableSourceType; String? program;  String? dataElement;  String? trackedEntityAttribute; String? programStageSection;String? programStage; |
-| SystemInfo |   String? contextPath;  String? systemId;  String? systemName;  String? userAgent;  String? calendar;  String? dateFormat;  String? lastAnalyticsTableSuccess;  String? lastAnalyticsTableRuntime;  String? revision;  String? jasperReportsVersion;  String? environmentVariable;  String? fileStoreProvider;  String? readOnlyMode;  String? javaVersion;  String? osName;  String? osArchitecture;  String? osVersion; String? memoryInfo;  String? cpuCores; |
+|  ProgramRuleVariable  |   String? id;   String? name;  String? programRuleVariableSourceType; String? program;  String? dataElement;  String? trackedEntityAttribute; String? programStageSection;String? programStage; 
+|  SystemInfo |   String? contextPath;  String? systemId;  String? systemName;  String? userAgent;  String? calendar;  String? dateFormat;  String? lastAnalyticsTableSuccess;  String? lastAnalyticsTableRuntime;  String? revision;  String? jasperReportsVersion;  String? environmentVariable;  String? fileStoreProvider;  String? readOnlyMode;  String? javaVersion;  String? osName;  String? osArchitecture;  String? osVersion; String? memoryInfo;  String? cpuCores; 
 
 ##  Getting Started <a name = "getting_started"></a>
 
@@ -89,6 +108,40 @@ These instructions will get you a copy of the project up and running on your loc
  git clone <github_repository_url>
 ```
 
+
+
+### How to Deploy
+
+The following are step by step instruction that will help you deploy this package.
+
+ ### Login into you local environment (terminal)
+```
+ dart pub login
+
+```
+This will create a link to redirect you into supported web browser ,then login through your supported email you have used in  <a href="https://pub.dev/"> pubdev<a/> 
+
+ ### Dry run to format package  before deploy
+ This will run and check best practice that recommended by pub dev , it will check formats , file structure , required content of pubspec.yalm file , package size and version of the package control.
+ Use the following  command for dry run of your package.
+```
+ dart pub publish -n
+
+```
+
+or 
+
+```
+ dart pub publish --dry-run
+
+```
+ ### Publish package
+ Use the following command to publish package into  <a href="https://pub.dev/"> pubdev<a/> 
+
+```
+ dart pub publish
+
+```
 
 
 
