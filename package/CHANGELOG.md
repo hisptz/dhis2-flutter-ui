@@ -1,4 +1,17 @@
 
+
+## 1.0.4
+
+
+## Support for  Components  
+
+ - Add support for email field into input components
+ - Add support for percentage and email input fields
+## Improvements on components
+ - Set default color separator to input color  
+
+
+
 ## 1.0.3
 
 
