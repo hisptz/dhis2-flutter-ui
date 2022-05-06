@@ -1,4 +1,13 @@
 
+## 1.0.5
+
+
+## Add support to show icons   
+
+ - Add svg icons used in input field components
+ 
+
+
 
 ## 1.0.4
 
