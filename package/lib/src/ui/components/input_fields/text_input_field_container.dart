@@ -137,6 +137,7 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
                                       ? 'assets/icons/login-close-eye.svg'
                                       : 'assets/icons/login-open-eye.svg',
                                   color: widget.inputField.inputColor,
+                                   package: 'dhis2_flutter_ui'
                                 ),
                               ),
                             ),

@@ -22,5 +22,5 @@ dev_dependencies:
 
 
 flutter:
-   assets:
+  assets:
     - assets/icons/
