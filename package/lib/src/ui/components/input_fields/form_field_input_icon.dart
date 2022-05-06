@@ -28,8 +28,7 @@ class FormFieldInputIcon extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.all(9.0),
           child: SvgPicture.asset(
-            svgIcon!,
-             package: 'dhis2_flutter_ui'
+            svgIcon!
           ),
         ),
       ),

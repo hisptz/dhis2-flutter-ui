@@ -1,6 +1,6 @@
 name: dhis2_flutter_ui
 description: DHIS2 Flutter UI is a library combine different UI experience used to in DHIS2 to Build app.
-version: 1.0.5
+version: 1.0.6
 repository: https://github.com/hisptz/dhis2-flutter-ui
 
 environment:

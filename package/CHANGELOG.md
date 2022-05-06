@@ -1,4 +1,12 @@
 
+## 1.0.6
+
+
+## Fix   
+
+ - Remove icon reference from components which not depend on package built in component
+ 
+
 ## 1.0.5
 
 
