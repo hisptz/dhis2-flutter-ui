@@ -1,4 +1,3 @@
-
 import 'package:dhis2_flutter_ui/src/ui/models/program_rule_action.dart';
 
 class ProgramRule {
