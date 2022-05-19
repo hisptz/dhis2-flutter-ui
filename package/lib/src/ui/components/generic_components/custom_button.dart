@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
-      {Key? key, required this.onTap, required this.label,this.highlightedColor= Colors.white10})
+      {Key? key,
+      required this.onTap,
+      required this.label,
+      this.highlightedColor = Colors.white10})
       : super(key: key);
 
   final VoidCallback onTap;
   final String label;
-   final dynamic highlightedColor ;
-  
+  final dynamic highlightedColor;
+
 // ignore: todo
-/// TODO: add suppport for icon button 
+  /// TODO: add suppport for icon button
   @override
   Widget build(BuildContext context) {
     return Container(
