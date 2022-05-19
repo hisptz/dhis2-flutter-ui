@@ -27,3 +27,5 @@
 .dart_tool/
 .packages
 build/
+.metadata
+example/input_fields/.metadata
