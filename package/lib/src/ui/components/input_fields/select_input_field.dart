@@ -54,7 +54,8 @@ class _SelectInputFieldState extends State<SelectInputField> {
   void didUpdateWidget(covariant SelectInputField oldWidget) {
     super.didUpdateWidget(widget);
     if (oldWidget.selectedOption != widget.selectedOption ||
-        oldWidget.hiddenInputFieldOptions != widget.hiddenInputFieldOptions) {
+        oldWidget.hiddenInputFieldOptions != widget.hiddenInputFieldOptions ||
+        oldWidget.options != widget.options) {
       updateInputValueState(widget.selectedOption);
     }
   }
@@ -116,11 +117,8 @@ class SelectionOptionContainer extends StatelessWidget {
             isExpanded: true,
             icon: SizedBox(
               height: 20.0,
-              child: SvgPicture.asset(
-                'assets/icons/chevron_down.svg',
-                color: color ?? Colors.black,
-                 package: 'dhis2_flutter_ui'
-              ),
+              child: SvgPicture.asset('assets/icons/chevron_down.svg',
+                  color: color ?? Colors.black, package: 'dhis2_flutter_ui'),
             ),
             elevation: 16,
             style: TextStyle(color: color ?? Colors.black),
