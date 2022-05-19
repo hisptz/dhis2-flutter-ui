@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class Application {
   String id;
   String label;

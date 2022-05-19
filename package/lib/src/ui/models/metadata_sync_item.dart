@@ -1,4 +1,3 @@
-
 import 'package:dhis2_flutter_ui/src/ui/utils/app_util.dart';
 
 class MetadataSyncItem {

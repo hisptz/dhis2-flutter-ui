@@ -133,12 +133,11 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
                                 color: widget.inputField.inputColor!
                                     .withOpacity(0.01),
                                 child: SvgPicture.asset(
-                                  _isPasswordVisible!
-                                      ? 'assets/icons/login-close-eye.svg'
-                                      : 'assets/icons/login-open-eye.svg',
-                                  color: widget.inputField.inputColor,
-                                   package: 'dhis2_flutter_ui'
-                                ),
+                                    _isPasswordVisible!
+                                        ? 'assets/icons/login-close-eye.svg'
+                                        : 'assets/icons/login-open-eye.svg',
+                                    color: widget.inputField.inputColor,
+                                    package: 'dhis2_flutter_ui'),
                               ),
                             ),
                           ),

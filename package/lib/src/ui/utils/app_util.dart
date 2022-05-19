@@ -34,7 +34,7 @@ class AppUtil {
     }
     return uid;
   }
-  
+
   static String formattedTimeOfDayIntoString(TimeOfDay timeOfDay) {
     String hour =
         timeOfDay.hour > 9 ? '${timeOfDay.hour}' : '0${timeOfDay.hour}';

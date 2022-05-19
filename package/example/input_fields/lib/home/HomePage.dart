@@ -1,5 +1,10 @@
 import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
-    show CircularProcessLoader, InputField, InputFieldContainer, SearchInput, SelectInputField;
+    show
+        CircularProcessLoader,
+        InputField,
+        InputFieldContainer,
+        SearchInput,
+        SelectInputField;
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -35,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 mandatoryFieldObject: const {},
                 hiddenFields: const {},
               ),
-          
               const SearchInput(
                 onSearch: null,
               ),
