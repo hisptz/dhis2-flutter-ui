@@ -55,9 +55,7 @@ class _SearchInputState extends State<SearchInput> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * 0.1,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 8.0,
