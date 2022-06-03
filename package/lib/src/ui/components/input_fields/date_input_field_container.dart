@@ -37,16 +37,17 @@ class _DateInputFieldContainerState extends State<DateInputFieldContainer> {
     super.didUpdateWidget(widget);
     if (oldWidget.inputValue != widget.inputValue) {
       if (widget.inputValue == null || widget.inputValue == '') {
-        resetDate();
+        resetDate(null);
+      } else {
+        resetDate(widget.inputValue);
       }
     }
   }
 
-  resetDate() {
-    setState(() {
-      _date = null;
-      dateController = TextEditingController(text: _date);
-    });
+  resetDate(dynamic value) {
+    _date = value;
+    dateController = TextEditingController(text: _date);
+    setState(() {});
   }
 
   DateTime getDateFromGivenYear(int year,
