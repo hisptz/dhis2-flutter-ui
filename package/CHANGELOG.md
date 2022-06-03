@@ -1,3 +1,8 @@
+## 1.0.8
+
+- Support for dynamic change on value of date input fields
+- Fixing height of search input fields
+
 ## 1.0.7
 
 - Add support for dynamic changes of option list on selection inputs
