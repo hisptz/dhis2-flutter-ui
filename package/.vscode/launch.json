@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "package",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "package (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "package (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "input_fields",
+            "cwd": "example/input_fields",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "input_fields (profile mode)",
+            "cwd": "example/input_fields",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "input_fields (release mode)",
+            "cwd": "example/input_fields",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

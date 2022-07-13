@@ -3,9 +3,13 @@ import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
         CircularProcessLoader,
         InputField,
         InputFieldContainer,
+        InputMask,
+        Mask,
         SearchInput,
-        SelectInputField;
+        SelectInputField,
+        Validators;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -19,6 +23,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
@@ -33,13 +38,33 @@ class _MyHomePageState extends State<MyHomePage> {
               InputFieldContainer(
                 inputField:
                     InputField(id: 'id', name: 'name', valueType: 'EMAIL'),
-                onInputValueChange: (String id, dynamic value) =>
-                    print("$id => $value"),
+                onInputValueChange: (String id, dynamic value) => {},
                 hiddenInputFieldOptions: const {},
                 dataObject: const {},
                 mandatoryFieldObject: const {},
                 hiddenFields: const {},
               ),
+              Form(
+                  key: _formKey,
+                  child: InputFieldContainer(
+                    inputField:
+                        InputField(id: 'id', name: 'name', valueType: 'TEXT'),
+                    onInputValueChange: (String id, dynamic value) => {},
+                    hiddenInputFieldOptions: const {},
+                    dataObject: const {},
+                    mandatoryFieldObject: const {},
+                    hiddenFields: const {},
+                    validators: [
+                      Validators.pattern("[0-9]", "Enter Valid ID number. "),
+                    ],
+                    inputFormaters: [
+                      InputMask(pattern: "X—XXXX—XXXX", separator: "—"),
+                    ],
+                    onError: (err) => {},
+                  )),
+              ElevatedButton(
+                  onPressed: () => _formKey.currentState!.validate(),
+                  child: const Text("Submit")),
               const SearchInput(
                 onSearch: null,
               ),
