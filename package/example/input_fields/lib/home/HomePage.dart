@@ -55,7 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     mandatoryFieldObject: const {},
                     hiddenFields: const {},
                     validators: [
-                      Validators.pattern("[0-9]", "Enter Valid ID number. "),
+                      Validators.pattern("T—[\\d+\$]{4}—[\\d+\$]{4}",
+                          "Enter Valid ID number. "),
                     ],
                     inputFormaters: [
                       InputMask(pattern: "X—XXXX—XXXX", separator: "—"),
