@@ -5,6 +5,10 @@
 - Add support for Validators for TEXT type InputField
 - Add support for InputMask for TEXT type InputField
 
+## Fix
+  
+- Check for onError function if defined before reference on it. 
+
 ## 1.0.8
 
 - Support for dynamic change on value of date input fields
