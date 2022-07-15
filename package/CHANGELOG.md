@@ -1,6 +1,6 @@
 
 
-## 1.0.8
+## 1.0.9
 
 - Add support for Validators for TEXT type InputField
 - Add support for InputMask for TEXT type InputField

@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           "Enter Valid ID number. "),
                     ],
                     inputFormaters: [
-                      InputMask(pattern: "X—XXXX—XXXX", separator: "—"),
+                      InputMask(pattern: "XXXX XXXX XXXX XXXX", separator: " "),
                     ],
                     onError: (err) => {},
                   )),
