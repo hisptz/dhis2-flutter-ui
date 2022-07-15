@@ -4,7 +4,6 @@ import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
         InputField,
         InputFieldContainer,
         InputMask,
-        Mask,
         SearchInput,
         SelectInputField,
         Validators;

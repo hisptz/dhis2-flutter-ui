@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/boolean_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_list_input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/date_input_field_container.dart';
@@ -316,8 +318,13 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                   onInputValueChange: (String value) {
                                     widget.onInputValueChange!(
                                         inputField.id, value);
-                                    setState(() => widget.onError!(error =
-                                        value.validate(widget.validators)));
+                                    error = value.validate(widget.validators);
+                                    if (error != null &&
+                                        widget.onError != null) {
+                                      setState(() {
+                                        widget.onError!(error);
+                                      });
+                                    }
                                   })
                               : inputField.valueType ==
                                           'INTEGER_ZERO_OR_POSITIVE' ||
