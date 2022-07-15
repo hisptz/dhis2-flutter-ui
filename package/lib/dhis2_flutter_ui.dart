@@ -33,4 +33,6 @@ export './src/main_directive.dart'
         InputFieldContainer,
         PercentageInputFieldContainer,
         TimeInputFieldContainer,
-        FormFieldInputIcon;
+        FormFieldInputIcon,
+        Validators,
+        InputMask;
