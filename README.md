@@ -101,6 +101,17 @@ list of models
 |  ProgramRuleVariable  |   String? id;   String? name;  String? programRuleVariableSourceType; String? program;  String? dataElement;  String? trackedEntityAttribute; String? programStageSection;String? programStage; 
 |  SystemInfo |   String? contextPath;  String? systemId;  String? systemName;  String? userAgent;  String? calendar;  String? dateFormat;  String? lastAnalyticsTableSuccess;  String? lastAnalyticsTableRuntime;  String? revision;  String? jasperReportsVersion;  String? environmentVariable;  String? fileStoreProvider;  String? readOnlyMode;  String? javaVersion;  String? osName;  String? osArchitecture;  String? osVersion; String? memoryInfo;  String? cpuCores; 
 
+### iv. Utils Supported
+```
+ List of Utils
+```
+
+Name | Functions |
+|--|--|
+FormValidator | ``Validators.pattern('regex','message')``
+InputMask | `` InputMask(pattern:'xxxx-xxx-xxx',separator:'-')``
+
+
 ##  Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
@@ -120,7 +131,7 @@ The following are step by step instruction that will help you deploy this packag
  dart pub login
 
 ```
-This will create a link to redirect you into supported web browser ,then login through your supported email you have used in  <a href="https://pub.dev/"> pubdev<a/> 
+This will create a link to redirect you into supported web browser ,then login through your supported email you have used in  <a href="https://pub.dev/"> pubdev</a> 
 
  ### Dry run to format package  before deploy
  This will run and check best practice that recommended by pub dev , it will check formats , file structure , required content of pubspec.yalm file , package size and version of the package control.
