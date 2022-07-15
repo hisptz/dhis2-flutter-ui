@@ -40,7 +40,36 @@ class InputFieldContainer extends StatefulWidget {
   final Map hiddenInputFieldOptions;
   final bool showClearIcon;
   final Map? hiddenFields;
+
+  /// Validate input based on pre-defined valiadtors[FormValidator] or your own custom functions
+  ///
+  /// If you are using your own function ,
+  ///
+  /// It should return string containing error message when there is error otherwise null
+  ///
+  /// ```
+  ///    InputFieldContainer(
+  ///                  inputField:
+  ///                      InputField(id: 'id', name: 'name', valueType: 'TEXT'),
+  ///                  validators: [
+  ///                    Validators.pattern("T—[\\d+\$]{4}—[\\d+\$]{4}",
+  ///                        "Enter Valid ID number. "),
+  ///                  ],
+  ///                ))
+  ///  ```
   final List<FormValidator>? validators;
+
+  /// Format input based on pre-defined pattern[InputMask] or your own custom fommater
+  ///
+  /// ```
+  ///    InputFieldContainer(
+  ///                  inputField:
+  ///                      InputField(id: 'id', name: 'name', valueType: 'TEXT'),
+  ///                  inputFormaters: [
+  ///                    InputMask(pattern: "X—XXXX—XXXX", separator: "—"),
+  ///                 ],
+  ///                ))
+  ///  ```
   final List<TextInputFormatter>? inputFormaters;
   final Function(String?)? onError;
 
