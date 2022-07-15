@@ -11,21 +11,26 @@ import 'package:dhis2_flutter_ui/src/ui/components/input_fields/true_only_input_
 import 'package:dhis2_flutter_ui/src/ui/core/line_separator.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
+import 'package:dhis2_flutter_ui/src/ui/utils/validator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/services.dart';
 
-class InputFieldContainer extends StatelessWidget {
-  const InputFieldContainer({
-    Key? key,
-    required this.inputField,
-    required this.hiddenInputFieldOptions,
-    required this.hiddenFields,
-    this.onInputValueChange,
-    this.dataObject,
-    this.mandatoryFieldObject,
-    this.isEditableMode = true,
-    this.showClearIcon = true,
-  }) : super(key: key);
+class InputFieldContainer extends StatefulWidget {
+  const InputFieldContainer(
+      {Key? key,
+      required this.inputField,
+      required this.hiddenInputFieldOptions,
+      required this.hiddenFields,
+      this.onInputValueChange,
+      this.dataObject,
+      this.mandatoryFieldObject,
+      this.isEditableMode = true,
+      this.showClearIcon = true,
+      this.validators,
+      this.inputFormaters,
+      this.onError})
+      : super(key: key);
 
   final InputField inputField;
   final bool? isEditableMode;
@@ -36,11 +41,52 @@ class InputFieldContainer extends StatelessWidget {
   final bool showClearIcon;
   final Map? hiddenFields;
 
+  /// Validate input based on pre-defined valiadtors[FormValidator] or your own custom functions
+  ///
+  /// If you are using your own function ,
+  ///
+  /// It should return string containing error message when there is error otherwise null
+  ///
+  /// ```
+  ///    InputFieldContainer(
+  ///                  inputField:
+  ///                      InputField(id: 'id', name: 'name', valueType: 'TEXT'),
+  ///                  validators: [
+  ///                    Validators.pattern("T—[\\d+\$]{4}—[\\d+\$]{4}",
+  ///                        "Enter Valid ID number. "),
+  ///                  ],
+  ///                ))
+  ///  ```
+  final List<FormValidator>? validators;
+
+  /// Format input based on pre-defined pattern[InputMask] or your own custom fommater
+  ///
+  /// ```
+  ///    InputFieldContainer(
+  ///                  inputField:
+  ///                      InputField(id: 'id', name: 'name', valueType: 'TEXT'),
+  ///                  inputFormaters: [
+  ///                    InputMask(pattern: "X—XXXX—XXXX", separator: "—"),
+  ///                 ],
+  ///                ))
+  ///  ```
+  final List<TextInputFormatter>? inputFormaters;
+  final Function(String?)? onError;
+
+  @override
+  State<InputFieldContainer> createState() => _InputFieldContainerState();
+}
+
+class _InputFieldContainerState extends State<InputFieldContainer> {
+  String? error;
+
+  bool get hasError => (error != null || widget.inputField.hasError as bool);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: inputField.background),
-      padding: inputField.background != Colors.transparent
+      decoration: BoxDecoration(color: widget.inputField.background),
+      padding: widget.inputField.background != Colors.transparent
           ? const EdgeInsets.only(
               top: 10.0,
               bottom: 0.0,
@@ -56,25 +102,27 @@ class InputFieldContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Visibility(
-              visible: inputField.name != '',
+              visible: widget.inputField.name != '',
               child: Row(
                 children: [
                   Expanded(
                     child: RichText(
                       text: TextSpan(
-                        text: inputField.name,
+                        text: widget.inputField.name,
                         style: TextStyle(
-                          color: inputField.hasError != null &&
-                                  inputField.hasError!
+                          color: widget.inputField.hasError != null &&
+                                  widget.inputField.hasError!
                               ? Colors.red
-                              : inputField.labelColor,
+                              : widget.inputField.labelColor,
                           fontSize: 13.0,
                           fontWeight: FontWeight.normal,
                         ),
                         children: [
                           TextSpan(
-                            text: mandatoryFieldObject != null &&
-                                    mandatoryFieldObject![inputField.id] == true
+                            text: widget.mandatoryFieldObject != null &&
+                                    widget.mandatoryFieldObject![
+                                            widget.inputField.id] ==
+                                        true
                                 ? ' *'
                                 : '',
                             style: const TextStyle(
@@ -90,16 +138,16 @@ class InputFieldContainer extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: inputField.description != '',
+              visible: widget.inputField.description != '',
               child: Container(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: Row(
                   children: [
                     Expanded(
                       child: Text(
-                        inputField.description!,
+                        widget.inputField.description!,
                         style: const TextStyle().copyWith(
-                          color: inputField.labelColor,
+                          color: widget.inputField.labelColor,
                           fontSize: 12.0,
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.normal,
@@ -111,41 +159,40 @@ class InputFieldContainer extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: inputField.hasSubInputField! &&
-                  inputField.subInputField != null &&
-                  (hiddenFields == null ||
-                      '${hiddenFields![inputField.id]}'.trim() != 'true'),
+              visible: widget.inputField.hasSubInputField! &&
+                  widget.inputField.subInputField != null &&
+                  (widget.hiddenFields == null ||
+                      '${widget.hiddenFields![widget.inputField.id]}'.trim() !=
+                          'true'),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     child: Container(
-                      child: isEditableMode == true
-                          ? _getInputField(
-                              inputField.subInputField,
-                              isEditableMode,
-                            )
-                          : _getInputFieldLabel(inputField),
+                      child: widget.isEditableMode == true
+                          ? _getInputField(widget.inputField.subInputField,
+                              widget.isEditableMode)
+                          : _getInputFieldLabel(widget.inputField),
                     ),
                   ),
                   Visibility(
-                    visible: inputField.subInputField != null,
+                    visible: widget.inputField.subInputField != null,
                     child: Expanded(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            inputField.subInputField != null
-                                ? inputField.subInputField!.name
+                            widget.inputField.subInputField != null
+                                ? widget.inputField.subInputField!.name
                                 : '',
                           ),
                           Container(
-                            child: isEditableMode == true
+                            child: widget.isEditableMode == true
                                 ? _getInputField(
-                                    inputField.subInputField,
-                                    isEditableMode,
-                                  )
-                                : _getInputFieldLabel(inputField.subInputField),
+                                    widget.inputField.subInputField,
+                                    widget.isEditableMode)
+                                : _getInputFieldLabel(
+                                    widget.inputField.subInputField),
                           ),
                         ],
                       ),
@@ -155,17 +202,23 @@ class InputFieldContainer extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: !inputField.hasSubInputField!,
+              visible: !widget.inputField.hasSubInputField!,
               child: Container(
-                child: isEditableMode == true
-                    ? _getInputField(
-                        inputField,
-                        isEditableMode,
-                      )
-                    : _getInputFieldLabel(inputField),
+                child: widget.isEditableMode == true
+                    ? _getInputField(widget.inputField, widget.isEditableMode)
+                    : _getInputFieldLabel(widget.inputField),
               ),
             ),
-            LineSeparator(color: inputField.inputColor!)
+            LineSeparator(
+                color:
+                    error == null ? widget.inputField.inputColor! : Colors.red),
+            Container(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                error ?? "",
+                style: const TextStyle(color: Colors.red),
+              ),
+            )
           ],
         ),
       ),
@@ -178,8 +231,8 @@ class InputFieldContainer extends StatelessWidget {
 
   Widget _getInputFieldLabel(InputField? inputField) {
     dynamic value =
-        inputField != null && '${dataObject![inputField.id]}' != 'null'
-            ? '${dataObject![inputField.id]}'
+        inputField != null && '${widget.dataObject![inputField.id]}' != 'null'
+            ? '${widget.dataObject![inputField.id]}'
             : '   ';
     if (inputField != null) {
       if (inputField.valueType == "BOOLEAN") {
@@ -202,7 +255,7 @@ class InputFieldContainer extends StatelessWidget {
           ? CheckBoxListInputField(
               inputField: inputField,
               isReadOnly: true,
-              dataObject: dataObject,
+              dataObject: widget.dataObject,
             )
           : Row(
               children: [
@@ -227,10 +280,7 @@ class InputFieldContainer extends StatelessWidget {
     );
   }
 
-  Widget _getInputField(
-    InputField? inputField,
-    bool? isEditableMode,
-  ) {
+  Widget _getInputField(InputField? inputField, bool? isEditableMode) {
     return Container(
       child: inputField != null
           ? Row(
@@ -240,100 +290,105 @@ class InputFieldContainer extends StatelessWidget {
                       ? CheckBoxListInputField(
                           inputField: inputField,
                           onInputValueChange: (id, value) {
-                            onInputValueChange!(id, value);
+                            widget.onInputValueChange!(id, value);
                           },
-                          dataObject: dataObject,
+                          dataObject: widget.dataObject,
                         )
                       : inputField.options!.isNotEmpty
                           ? SelectInputField(
-                              hiddenInputFieldOptions:
-                                  hiddenInputFieldOptions[inputField.id] ??
-                                      const {},
+                              hiddenInputFieldOptions: widget
+                                      .hiddenInputFieldOptions[inputField.id] ??
+                                  const {},
                               color: inputField.inputColor,
                               isReadOnly: inputField.isReadOnly,
                               renderAsRadio: inputField.renderAsRadio,
-                              onInputValueChange: (dynamic value) =>
-                                  onInputValueChange!(inputField.id, value),
+                              onInputValueChange: (dynamic value) => widget
+                                  .onInputValueChange!(inputField.id, value),
                               options: inputField.options,
-                              selectedOption: dataObject![inputField.id],
+                              selectedOption: widget.dataObject![inputField.id],
                             )
                           : inputField.valueType == 'TEXT' ||
                                   inputField.valueType == 'LONG_TEXT'
                               ? TextInputFieldContainer(
                                   inputField: inputField,
-                                  inputValue: dataObject![inputField.id],
-                                  onInputValueChange: (dynamic value) =>
-                                      onInputValueChange!(inputField.id, value),
-                                )
+                                  inputValue: widget.dataObject![inputField.id],
+                                  inputFormatters: widget.inputFormaters,
+                                  onInputValueChange: (String value) {
+                                    widget.onInputValueChange!(
+                                        inputField.id, value);
+                                    setState(() => widget.onError!(error =
+                                        value.validate(widget.validators)));
+                                  })
                               : inputField.valueType ==
                                           'INTEGER_ZERO_OR_POSITIVE' ||
                                       inputField.valueType == 'NUMBER'
                                   ? NumericalInputFieldContainer(
                                       inputField: inputField,
-                                      inputValue: dataObject![inputField.id],
-                                      onInputValueChange: (dynamic value) =>
-                                          onInputValueChange!(
-                                              inputField.id, value),
-                                    )
+                                      inputValue:
+                                          widget.dataObject![inputField.id],
+                                      onInputValueChange: (dynamic value) {
+                                        widget.onInputValueChange!(
+                                            inputField.id, value);
+                                      })
                                   : inputField.valueType == 'EMAIL'
                                       ? EmailInputFieldContainer(
                                           inputField: inputField,
                                           inputValue:
-                                              dataObject![inputField.id],
+                                              widget.dataObject![inputField.id],
                                           setValidationError:
                                               setValidationError,
                                           onInputValueChange: (dynamic value) =>
-                                              onInputValueChange!(
+                                              widget.onInputValueChange!(
                                                   inputField.id, value),
                                         )
                                       : inputField.valueType == 'PERCENTAGE'
                                           ? PercentageInputFieldContainer(
                                               inputField: inputField,
-                                              inputValue:
-                                                  dataObject![inputField.id],
+                                              inputValue: widget
+                                                  .dataObject![inputField.id],
                                               setValidationError:
                                                   setValidationError,
                                               onInputValueChange:
-                                                  (dynamic value) =>
-                                                      onInputValueChange!(
-                                                          inputField.id, value),
+                                                  (dynamic value) => widget
+                                                          .onInputValueChange!(
+                                                      inputField.id, value),
                                             )
                                           : inputField.valueType ==
                                                   'PHONE_NUMBER'
                                               ? PhoneNumberInputFieldContainer(
                                                   inputField: inputField,
-                                                  inputValue: dataObject![
-                                                      inputField.id],
-                                                  onInputValueChange:
-                                                      (dynamic value) =>
-                                                          onInputValueChange!(
-                                                              inputField.id,
-                                                              value),
+                                                  inputValue:
+                                                      widget.dataObject![
+                                                          inputField.id],
+                                                  onInputValueChange: (dynamic
+                                                          value) =>
+                                                      widget.onInputValueChange!(
+                                                          inputField.id, value),
                                                 )
                                               : inputField.valueType ==
                                                       'BOOLEAN'
                                                   ? BooleanInputFieldContainer(
                                                       inputField: inputField,
-                                                      inputValue: dataObject![
-                                                          inputField.id],
-                                                      onInputValueChange:
-                                                          (dynamic value) =>
-                                                              onInputValueChange!(
-                                                                  inputField.id,
-                                                                  value),
+                                                      inputValue:
+                                                          widget.dataObject![
+                                                              inputField.id],
+                                                      onInputValueChange: (dynamic
+                                                              value) =>
+                                                          widget.onInputValueChange!(
+                                                              inputField.id,
+                                                              value),
                                                     )
                                                   : inputField.valueType ==
                                                           'TRUE_ONLY'
                                                       ? TrueOnlyInputFieldContainer(
                                                           inputField:
                                                               inputField,
-                                                          inputValue:
-                                                              dataObject![
-                                                                  inputField
-                                                                      .id],
+                                                          inputValue: widget
+                                                                  .dataObject![
+                                                              inputField.id],
                                                           onInputValueChange:
                                                               (dynamic value) {
-                                                            onInputValueChange!(
+                                                            widget.onInputValueChange!(
                                                                 inputField.id,
                                                                 '$value');
                                                           },
@@ -343,13 +398,13 @@ class InputFieldContainer extends StatelessWidget {
                                                           ? DateInputFieldContainer(
                                                               inputField:
                                                                   inputField,
-                                                              inputValue:
-                                                                  dataObject![
-                                                                      inputField
-                                                                          .id],
+                                                              inputValue: widget
+                                                                      .dataObject![
+                                                                  inputField
+                                                                      .id],
                                                               onInputValueChange: (dynamic
                                                                       value) =>
-                                                                  onInputValueChange!(
+                                                                  widget.onInputValueChange!(
                                                                       inputField
                                                                           .id,
                                                                       value),
