@@ -40,7 +40,7 @@ list of input components
 |  InputClearIcon |   |
 |  NumericalInputFieldContainer |   |
 |  SelectInputField |   |
-|  TextInputFieldContainer |   |
+|  TextInputFieldContainer |  |
 |  TrueOnlyInputFieldContainer |   |
 |  InputFieldContainer |   |
 |  PercentageInputFieldContainer |   |
@@ -80,6 +80,16 @@ list of models
 |  ProgramRule |   String? id; String? condition; String? program;  List<ProgramRuleAction>? programRuleActions;  |
 |  ProgramRuleVariable  |   String? id;   String? name;  String? programRuleVariableSourceType; String? program;  String? dataElement;  String? trackedEntityAttribute; String? programStageSection;String? programStage; |
 | SystemInfo |   String? contextPath;  String? systemId;  String? systemName;  String? userAgent;  String? calendar;  String? dateFormat;  String? lastAnalyticsTableSuccess;  String? lastAnalyticsTableRuntime;  String? revision;  String? jasperReportsVersion;  String? environmentVariable;  String? fileStoreProvider;  String? readOnlyMode;  String? javaVersion;  String? osName;  String? osArchitecture;  String? osVersion; String? memoryInfo;  String? cpuCores; |
+
+### iv. Utils Supported
+```
+ List of Utils
+```
+
+Name | Functions |
+|--|--|
+FormValidator | ``Validators.pattern('regex','message')``
+InputMask | `` InputMask(pattern:'xxxx-xxx-xxx',separator:'-')``
 
 ##  Getting Started <a name = "getting_started"></a>
 
