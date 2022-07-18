@@ -319,8 +319,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                     widget.onInputValueChange!(
                                         inputField.id, value);
                                     error = value.validate(widget.validators);
-                                    if (error != null &&
-                                        widget.onError != null) {
+                                    if (widget.onError != null) {
                                       setState(() {
                                         widget.onError!(error);
                                       });
