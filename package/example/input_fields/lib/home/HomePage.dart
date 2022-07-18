@@ -47,11 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   key: _formKey,
                   child: InputFieldContainer(
                     inputField: InputField(
-                      id: 'id',
-                      name: 'name',
-                      valueType: 'TEXT',
-                      prefixLabel: "T—",
-                    ),
+                        id: 'id',
+                        name: 'name',
+                        valueType: 'TEXT',
+                        // prefixLabel: "T—",
+                        hint: "XXXX—XXXX"),
                     onInputValueChange: (String id, dynamic value) => {},
                     hiddenInputFieldOptions: const {},
                     dataObject: const {},

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/boolean_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_list_input_field.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/date_input_field_container.dart';

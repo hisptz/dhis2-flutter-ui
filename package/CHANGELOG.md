@@ -1,3 +1,6 @@
+## 1.0.11
+
+- Add support for prefixLabel for TEXT type InputField
 
 ## 1.0.10
 
