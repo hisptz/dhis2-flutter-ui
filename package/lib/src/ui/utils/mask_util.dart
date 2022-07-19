@@ -51,15 +51,15 @@ class InputMask extends TextInputFormatter {
           : placeholder;
     }).join();
 
+    int oldOffset = oldValue.selection.baseOffset;
+
     return TextEditingValue(
         text: text,
         selection: TextSelection.fromPosition(TextPosition(
             offset: offset >= pattern.length
-                ? oldValue.selection.baseOffset +
-                    oldValue.text
-                        .substring(0, oldValue.selection.baseOffset)
-                        .split(separator)
-                        .length
+                ? oldOffset < pattern.length
+                    ? oldOffset + 1
+                    : oldOffset
                 : offset)));
   }
 }

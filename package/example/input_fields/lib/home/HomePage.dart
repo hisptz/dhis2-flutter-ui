@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         name: 'name',
                         valueType: 'TEXT',
                         // prefixLabel: "T—",
-                        hint: "XXXX—XXXX-XX"),
+                        hint: "XXXX—XXXX—XXX—X"),
                     onInputValueChange: (String id, dynamic value) => {},
                     hiddenInputFieldOptions: const {},
                     dataObject: const {},
@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           "Enter Valid ID number. "),
                     ],
                     inputFormaters: [
-                      InputMask(pattern: "XXXX—XXXX—XX", separator: "—"),
+                      InputMask(pattern: "XXXX—XXXX—XXX—X", separator: "—"),
                     ],
                     onError: (err) => {},
                   )),
