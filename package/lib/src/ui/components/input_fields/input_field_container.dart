@@ -316,8 +316,12 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                   onInputValueChange: (String value) {
                                     widget.onInputValueChange!(
                                         inputField.id, value);
-                                    setState(() => widget.onError!(error =
-                                        value.validate(widget.validators)));
+                                    error = value.validate(widget.validators);
+                                    if (widget.onError != null) {
+                                      setState(() {
+                                        widget.onError!(error);
+                                      });
+                                    }
                                   })
                               : inputField.valueType ==
                                           'INTEGER_ZERO_OR_POSITIVE' ||

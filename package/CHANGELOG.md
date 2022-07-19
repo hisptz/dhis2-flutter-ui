@@ -1,4 +1,15 @@
+## 1.0.11
 
+- Add support for prefixLabel for TEXT type InputField
+
+## 1.0.10
+
+- Add support for Validators for TEXT type InputField
+- Add support for InputMask for TEXT type InputField
+
+## Fix
+  
+- Check for onError function if defined before reference on it. 
 
 ## 1.0.9
 
@@ -6,7 +17,7 @@
 - Add support for InputMask for TEXT type InputField
 
 ## 1.0.8
-
+  
 - Support for dynamic change on value of date input fields
 - Fixing height of search input fields
 

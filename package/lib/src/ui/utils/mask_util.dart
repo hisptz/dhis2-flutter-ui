@@ -13,23 +13,28 @@ class InputMask extends TextInputFormatter {
       if (newValue.text.length >= pattern.length) {
         int offset = newValue.text.length > pattern.length
             ? pattern.length
-            : newValue.selection.baseOffset;
-        return getFormatText(TextEditingValue(
-            text: newValue.text.substring(0, pattern.length),
-            selection:
-                TextSelection.fromPosition(TextPosition(offset: offset))));
+            : newValue.selection.end;
+
+        return getFormatText(
+            oldValue,
+            TextEditingValue(
+                text: newValue.text.substring(0, pattern.length),
+                selection:
+                    TextSelection.fromPosition(TextPosition(offset: offset))));
       }
 
       if (newValue.text.length < pattern.length &&
           pattern[newValue.text.length - 1] == separator) {
-        return getFormatText(newValue);
+        return getFormatText(oldValue, newValue);
       }
     }
     return newValue;
   }
 
-  TextEditingValue getFormatText(TextEditingValue newValue) {
-    int offset = newValue.selection.end;
+  TextEditingValue getFormatText(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    int offset = newValue.selection.baseOffset;
+
     String text = List.generate(pattern.length, (index) {
       if (pattern[index] == separator) {
         if (index < newValue.text.length && newValue.text[index] != separator) {
@@ -46,8 +51,15 @@ class InputMask extends TextInputFormatter {
           : placeholder;
     }).join();
 
+    int oldOffset = oldValue.selection.baseOffset;
+
     return TextEditingValue(
         text: text,
-        selection: TextSelection.fromPosition(TextPosition(offset: offset)));
+        selection: TextSelection.fromPosition(TextPosition(
+            offset: offset >= pattern.length
+                ? oldOffset < pattern.length
+                    ? oldOffset + 1
+                    : oldOffset
+                : offset)));
   }
 }
