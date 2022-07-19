@@ -109,6 +109,17 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
               hintText: widget.inputField.hint ?? '',
               border: InputBorder.none,
               errorText: null,
+              prefixIcon: Visibility(
+                child: Text(widget.inputField.prefixLabel ?? '',
+                    style: const TextStyle().copyWith(
+                      color: widget.inputField.inputColor,
+                    )),
+                visible: widget.inputField.prefixLabel != '',
+              ),
+              prefixIconConstraints: const BoxConstraints(
+                maxHeight: 16.0,
+                minHeight: 16.0,
+              ),
               suffixIconConstraints: const BoxConstraints(
                 maxHeight: 20.0,
                 minHeight: 20.0,

@@ -46,19 +46,23 @@ class _MyHomePageState extends State<MyHomePage> {
               Form(
                   key: _formKey,
                   child: InputFieldContainer(
-                    inputField:
-                        InputField(id: 'id', name: 'name', valueType: 'TEXT'),
+                    inputField: InputField(
+                        id: 'id',
+                        name: 'name',
+                        valueType: 'TEXT',
+                        // prefixLabel: "T—",
+                        hint: "XXXX—XXXX—XXX—X"),
                     onInputValueChange: (String id, dynamic value) => {},
                     hiddenInputFieldOptions: const {},
                     dataObject: const {},
                     mandatoryFieldObject: const {},
                     hiddenFields: const {},
                     validators: [
-                      Validators.pattern("T—[\\d+\$]{4}—[\\d+\$]{4}",
+                      Validators.pattern("[0-9]{4}—[0-9]{4}—[0-9]{2}",
                           "Enter Valid ID number. "),
                     ],
                     inputFormaters: [
-                      InputMask(pattern: "X—XXXX—XXXX", separator: "—"),
+                      InputMask(pattern: "XXXX—XXXX—XXX—X", separator: "—"),
                     ],
                     onError: (err) => {},
                   )),

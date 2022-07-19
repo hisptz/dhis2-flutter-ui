@@ -24,6 +24,7 @@ class InputField {
   int? numberOfMonth;
   bool? shouldUserCustomAgeLimit;
   String? suffixLabel;
+  String? prefixLabel;
   String? hint;
   String? translatedHint;
   List<InputFieldOption>? options;
@@ -57,6 +58,7 @@ class InputField {
     this.maxAgeInYear,
     this.minAgeInYear,
     this.numberOfMonth,
+    this.prefixLabel,
     this.suffixLabel,
     this.filteredPrograms,
     this.hasError,
