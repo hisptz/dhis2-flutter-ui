@@ -1,4 +1,6 @@
+import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/http_service.dart';
 import 'package:dhis2_flutter_ui/src/ui/visualization/utils/utils.dart';
+import 'package:flutter/foundation.dart';
 
 class Visualization {
   late String id;
@@ -26,11 +28,19 @@ class Visualization {
   late dynamic visualizationData;
   DateTime lastUpdated = DateTime.now();
   bool fromNetwork = true;
+  HttpService http;
 
-  Visualization({required this.id, required this.type, required this.resource});
+  Visualization(
+      {required this.id,
+      required this.type,
+      required this.resource,
+      required this.http});
 
   Visualization.fromJson(Map<String, dynamic> json,
-      {required this.id, required this.type, required this.resource}) {
+      {required this.id,
+      required this.type,
+      required this.resource,
+      required this.http}) {
     name = json['name'];
     columns = json['columns'].cast<Map<String, dynamic>>();
     rows = json['rows'].cast<Map<String, dynamic>>();
@@ -178,14 +188,49 @@ class Visualization {
   }
 
   Future<Map<String, dynamic>?> getJsonFromOnline() async {
-    return {};
+    try {
+      String url = 'api/$resource/$id';
+      var response = await http.httpGet(url);
+      return http.getDataFromResponse(response);
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      configError = true;
+    }
   }
 
-  Future<void> getData() async {}
+  Future<void> getData() async {
+    String url = 'api/analytics';
 
-  Future<Visualization?> get() async {}
+    if (http == null) {
+      return;
+    }
 
-  Future<Visualization> save() async {
-    return this;
+    Map<String, List<String>> dimensions = getDimensions();
+    Map<String, List<String>> filters = getFilters();
+
+    Map<String, String> formattedDimensions =
+        dimensions.map((key, value) => MapEntry(key, value.join(";")));
+    Map<String, String> formattedFilters =
+        filters.map((key, value) => MapEntry(key, value.join(";")));
+    var response = await http.httpGet(url, queryParameters: {
+      "dimension": formattedDimensions.entries
+          .map((e) => "${e.key}:${e.value}")
+          .join(","),
+      "filter":
+          formattedFilters.entries.map((e) => "${e.key}:${e.value}").join(",")
+    });
+
+    analyticsData = http.getDataFromResponse(response);
+  }
+
+  Future<Visualization?> get() async {
+    Map<String, dynamic>? data = await getJsonFromOnline();
+    if (data != null) {
+      return Visualization.fromJson(data,
+          id: id, resource: resource, type: type, http: http);
+    }
+    return null;
   }
 }

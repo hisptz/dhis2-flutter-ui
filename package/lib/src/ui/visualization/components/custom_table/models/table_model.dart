@@ -1,22 +1,25 @@
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/custom_table/models/table_data.dart';
+import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/http_service.dart';
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/visualization_model.dart';
 
 class TableVisualizationModel extends Visualization {
-  TableVisualizationModel({required String id})
-      : super(id: id, type: "REPORT_TABLE", resource: "reportTables");
+  TableVisualizationModel({required String id, required HttpService http})
+      : super(
+            id: id, type: "REPORT_TABLE", resource: "reportTables", http: http);
 
   @override
   Future<TableVisualizationModel?> get() async {
     Map<String, dynamic>? json = await getJsonFromOnline();
     if (json != null) {
-      return TableVisualizationModel.fromJson(json, id: id);
+      return TableVisualizationModel.fromJson(json, id: id, http: http);
     }
     return null;
   }
 
-  TableVisualizationModel.fromJson(Map<String, dynamic> json, {required String id})
+  TableVisualizationModel.fromJson(Map<String, dynamic> json,
+      {required String id, required HttpService http})
       : super.fromJson(json,
-            id: id, type: "REPORT_TABLE", resource: "reportTables");
+            id: id, type: "REPORT_TABLE", resource: "reportTables", http: http);
 
   @override
   Future<void> getData() async {

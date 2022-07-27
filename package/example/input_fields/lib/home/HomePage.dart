@@ -1,14 +1,16 @@
 import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
     show
-        CircularProcessLoader,
-        InputField,
-        InputFieldContainer,
-        InputMask,
-        SearchInput,
-        SelectInputField,
-        Validators;
+    CircularProcessLoader,
+    InputField,
+    InputFieldContainer,
+    InputMask,
+    SearchInput,
+    SelectInputField,
+    Validators;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:input_fields/visualization/VisualizationPage.dart';
+import 'package:input_fields/visualization/services/dio_service.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -36,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               InputFieldContainer(
                 inputField:
-                    InputField(id: 'id', name: 'name', valueType: 'EMAIL'),
+                InputField(id: 'id', name: 'name', valueType: 'EMAIL'),
                 onInputValueChange: (String id, dynamic value) => {},
                 hiddenInputFieldOptions: const {},
                 dataObject: const {},
@@ -69,6 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ElevatedButton(
                   onPressed: () => _formKey.currentState!.validate(),
                   child: const Text("Submit")),
+              ElevatedButton(
+                  onPressed: () async {
+                    await initDio();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const VisualizationPage()));
+                  },
+                  child: const Text("Visualizations")),
               const SearchInput(
                 onSearch: null,
               ),

@@ -17,6 +17,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   dhis2_flutter_ui:
       path: ../..
+  dio: ^4.0.6
+  sqlite3_flutter_libs: ^0.5.8
+  dio_cache_interceptor_db_store: ^4.2.0
+  dio_cache_interceptor: ^3.3.0
+  sqflite: ^2.0.2+1
+
 
 dev_dependencies:
   flutter_test:
