@@ -13,6 +13,11 @@ dependencies:
   flutter_svg: ^1.0.3
   geolocator: ^8.2.0
   collection: ^1.15.0
+  syncfusion_flutter_core: ^20.1.60
+  syncfusion_flutter_charts: ^20.1.60+1
+  syncfusion_flutter_datagrid: ^20.1.60
+  syncfusion_flutter_pdfviewer: ^20.2.36-beta
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

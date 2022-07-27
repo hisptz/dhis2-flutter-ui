@@ -1,6 +1,17 @@
 # This is a generated file; do not edit or check into version control.
-geolocator=/home/baraka/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-8.2.1/
-geolocator_android=/home/baraka/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_android-3.2.1/
-geolocator_apple=/home/baraka/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_apple-2.2.0/
-geolocator_web=/home/baraka/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_web-2.1.5/
-geolocator_windows=/home/baraka/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_windows-0.1.1/
+geolocator=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-8.2.1/
+geolocator_android=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_android-3.2.1/
+geolocator_apple=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_apple-2.2.1/
+geolocator_web=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_web-2.1.6/
+geolocator_windows=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_windows-0.1.1/
+syncfusion_flutter_pdfviewer=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_pdfviewer-20.2.40-beta/
+syncfusion_pdfviewer_macos=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_pdfviewer_macos-20.2.40-beta/
+syncfusion_pdfviewer_web=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_pdfviewer_web-20.2.40-beta/
+syncfusion_pdfviewer_windows=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_pdfviewer_windows-20.2.40-beta/
+url_launcher=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.1.5/
+url_launcher_android=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.17/
+url_launcher_ios=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_ios-6.0.17/
+url_launcher_linux=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-3.0.1/
+url_launcher_macos=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-3.0.1/
+url_launcher_web=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-2.0.12/
+url_launcher_windows=/home/gnnko/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-3.0.1/
