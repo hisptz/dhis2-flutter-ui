@@ -77,19 +77,19 @@ class VisualizationUtils {
       case "CHART":
         switch (visualization.chartType) {
           case "COLUMN":
-            Chart chart = visualization as Chart;
+            CustomChartVisualization chart = visualization as CustomChartVisualization;
             return CustomColumnChart(
               chart,
               fullScreen: fullScreen,
             );
           case "BAR":
-            Chart chart = visualization as Chart;
+            CustomChartVisualization chart = visualization as CustomChartVisualization;
             return CustomBarChart(
               chart,
               fullScreen: fullScreen,
             );
           case "LINE":
-            Chart chart = visualization as Chart;
+            CustomChartVisualization chart = visualization as CustomChartVisualization;
             return CustomLineChart(
               chart,
               fullScreen: fullScreen,
@@ -98,20 +98,20 @@ class VisualizationUtils {
             return const Center(child: Text("Chart type not supported"));
         }
       case "CASCADE":
-        CascadeChart chart = visualization as CascadeChart;
+        CascadeChartVisualization chart = visualization as CascadeChartVisualization;
         return CustomCascadeChart(
           chart,
           fullScreen: fullScreen,
         );
       case "PDF":
-        PDFModel pdf = visualization as PDFModel;
-        return PDFView(pdf);
+        PDFVisualizationModel pdf = visualization as PDFVisualizationModel;
+        return CustomPDFViewer(pdf);
       case "ZIP":
-        ZipModel zip = visualization as ZipModel;
-        return ZipViewer(zip);
+        ZipVisualizationModel zip = visualization as ZipVisualizationModel;
+        return CustomZipViewer(zip);
       case "DOC":
-        DocModel doc = visualization as DocModel;
-        return DocViewer(doc);
+        DocVisualizationModel doc = visualization as DocVisualizationModel;
+        return CustomDocViewer(doc);
       default:
         return const Center(
             child: Text("Unknown/Unsupported visualization type"));

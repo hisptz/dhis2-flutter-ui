@@ -9,7 +9,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../utils/chart_utils.dart';
 
 class CustomColumnChart extends StatelessWidget {
-  final Chart? chart;
+  final CustomChartVisualization? chart;
   final bool? horizontal;
   final bool fullScreen;
 

@@ -1,8 +1,8 @@
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/docs/models/doc_data.dart';
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/visualization_model.dart';
 
-class DocModel extends Visualization {
-  DocModel({required String id, required String link})
+class DocVisualizationModel extends Visualization {
+  DocVisualizationModel({required String id, required String link})
       : super(resource: link, type: "DOC", id: id);
 
   @override

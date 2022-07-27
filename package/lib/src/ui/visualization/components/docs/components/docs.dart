@@ -2,10 +2,10 @@ import 'package:dhis2_flutter_ui/src/ui/visualization/components/docs/models/doc
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DocViewer extends StatelessWidget {
-  final DocModel doc;
+class CustomDocViewer extends StatelessWidget {
+  final DocVisualizationModel doc;
 
-  const DocViewer(this.doc, {Key? key}) : super(key: key);
+  const CustomDocViewer(this.doc, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

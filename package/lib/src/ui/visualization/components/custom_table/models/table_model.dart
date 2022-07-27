@@ -1,20 +1,20 @@
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/custom_table/models/table_data.dart';
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/visualization_model.dart';
 
-class TableModel extends Visualization {
-  TableModel({required String id})
+class TableVisualizationModel extends Visualization {
+  TableVisualizationModel({required String id})
       : super(id: id, type: "REPORT_TABLE", resource: "reportTables");
 
   @override
-  Future<TableModel?> get() async {
+  Future<TableVisualizationModel?> get() async {
     Map<String, dynamic>? json = await getJsonFromOnline();
     if (json != null) {
-      return TableModel.fromJson(json, id: id);
+      return TableVisualizationModel.fromJson(json, id: id);
     }
     return null;
   }
 
-  TableModel.fromJson(Map<String, dynamic> json, {required String id})
+  TableVisualizationModel.fromJson(Map<String, dynamic> json, {required String id})
       : super.fromJson(json,
             id: id, type: "REPORT_TABLE", resource: "reportTables");
 

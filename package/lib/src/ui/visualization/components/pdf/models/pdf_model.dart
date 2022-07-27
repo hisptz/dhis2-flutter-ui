@@ -2,11 +2,11 @@ import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/
 
 import 'pdf_data.dart';
 
-class PDFModel extends Visualization {
+class PDFVisualizationModel extends Visualization {
   final String link;
   final String title;
 
-  PDFModel({required String id, required this.link, required this.title})
+  PDFVisualizationModel({required String id, required this.link, required this.title})
       : super(id: id, type: "PDF", resource: "");
 
   @override

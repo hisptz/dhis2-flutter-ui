@@ -2,19 +2,19 @@ import 'package:dhis2_flutter_ui/src/ui/visualization/components/chart/models/ch
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/visualization_data.dart';
 import 'package:dhis2_flutter_ui/src/ui/visualization/components/generic/models/visualization_model.dart';
 
-class Chart extends Visualization {
-  Chart({required String id})
+class CustomChartVisualization extends Visualization {
+  CustomChartVisualization({required String id})
       : super(id: id, type: "CHART", resource: "charts");
 
   @override
-  Chart.fromJson(Map<String, dynamic> json, {required String id})
+  CustomChartVisualization.fromJson(Map<String, dynamic> json, {required String id})
       : super.fromJson(json, id: id, type: "CHART", resource: "charts");
 
   @override
-  Future<Chart?> get() async {
+  Future<CustomChartVisualization?> get() async {
     Map<String, dynamic>? json = await getJsonFromOnline();
     if (json != null) {
-      return Chart.fromJson(json, id: id);
+      return CustomChartVisualization.fromJson(json, id: id);
     }
     return null;
   }
@@ -54,19 +54,19 @@ class Chart extends Visualization {
   }
 }
 
-class CascadeChart extends Visualization {
-  CascadeChart({required String id})
+class CascadeChartVisualization extends Visualization {
+  CascadeChartVisualization({required String id})
       : super(id: id, type: "CASCADE", resource: "charts");
 
   @override
-  CascadeChart.fromJson(Map<String, dynamic> json, {required String id})
+  CascadeChartVisualization.fromJson(Map<String, dynamic> json, {required String id})
       : super.fromJson(json, id: id, type: "CASCADE", resource: "charts");
 
   @override
-  Future<CascadeChart?> get() async {
+  Future<CascadeChartVisualization?> get() async {
     Map<String, dynamic>? json = await getJsonFromOnline();
     if (json != null) {
-      return CascadeChart.fromJson(json, id: id);
+      return CascadeChartVisualization.fromJson(json, id: id);
     }
     return null;
   }

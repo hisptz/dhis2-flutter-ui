@@ -1,5 +1,29 @@
 library dhis2_flutter_ui;
 
+export './src/ui/visualization/directive.dart'
+    show
+        CustomBarChart,
+        CustomCascadeChart,
+        CustomColumnChart,
+        CustomLegendItem,
+        CustomLineChart,
+        ChartData,
+        CustomChartVisualization,
+        CascadeChartVisualization,
+        ReportTable,
+        CustomTable,
+        TableVisualizationData,
+        TableVisualizationModel,
+        CustomPDFViewer,
+        PDFData,
+        PDFVisualizationModel,
+        CustomDocViewer,
+        DocData,
+        DocVisualizationModel,
+        CustomZipViewer,
+        ZipData,
+        ZipVisualizationModel;
+
 export './src/main_directive.dart'
     show
         Application,

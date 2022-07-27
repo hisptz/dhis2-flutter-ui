@@ -2,10 +2,10 @@ import 'package:dhis2_flutter_ui/src/ui/visualization/components/pdf/models/pdf_
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-class PDFView extends StatelessWidget {
-  final PDFModel pdf;
+class CustomPDFViewer extends StatelessWidget {
+  final PDFVisualizationModel pdf;
 
-  const PDFView(this.pdf, {Key? key}) : super(key: key);
+  const CustomPDFViewer(this.pdf, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

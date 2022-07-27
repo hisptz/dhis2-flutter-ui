@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ZipViewer extends StatelessWidget {
-  final ZipModel zip;
+class CustomZipViewer extends StatelessWidget {
+  final ZipVisualizationModel zip;
 
-  const ZipViewer(this.zip, {Key? key}) : super(key: key);
+  const CustomZipViewer(this.zip, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

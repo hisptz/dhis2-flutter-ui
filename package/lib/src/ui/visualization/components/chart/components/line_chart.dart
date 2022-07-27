@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class CustomLineChart extends StatelessWidget {
-  final Chart? visualization;
+  final CustomChartVisualization? visualization;
   final bool fullScreen;
 
   CustomLineChart(this.visualization, {Key? key, required this.fullScreen})

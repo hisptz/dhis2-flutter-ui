@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class CustomCascadeChart extends StatelessWidget {
-  final CascadeChart? chart;
+  final CascadeChartVisualization? chart;
   final bool? horizontal;
   final bool fullScreen;
 
