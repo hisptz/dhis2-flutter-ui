@@ -21,5 +21,6 @@ Future initDio() async {
       maxStale: const Duration(days: 30),
       priority: CachePriority.normal);
   cacheInterceptor ??= DioCacheInterceptor(options: options!);
-  dioInstance = Dio()..interceptors.add(cacheInterceptor!);
+
+  dioInstance = Dio();
 }
