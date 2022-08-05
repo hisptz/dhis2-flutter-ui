@@ -5,16 +5,21 @@ import 'package:input_fields/visualization/services/http_service.dart';
 
 const visualizationsJson = [
   {
-    "id": "ABAT25fOGK4",
+    "id": "UlfTKWZWV4u",
     "type": VisualizationTypes.chart,
-    "chart": {"id": "LW0O27b7TdD"}
+    "chart": {"id": "UlfTKWZWV4u"}
   },
-  // {
-  //   "id": "IvXcdp2cFHa",
-  //   "type": VisualizationTypes.chart,
-  //   "chart": {"id": "IvXcdp2cFHa"}
-  // }
+  {
+    "id": "Tun9tJb3sQt",
+    "type": VisualizationTypes.chart,
+    "chart": {"id": "Tun9tJb3sQt"}
+  }
 ];
+
+CustomHttpService http = CustomHttpService(
+    username: 'admin',
+    password: 'district',
+    baseUrl: 'https://play.dhis2.org/2.35.14');
 
 class VisualizationPage extends StatefulWidget {
   const VisualizationPage({Key? key}) : super(key: key);
@@ -24,10 +29,7 @@ class VisualizationPage extends StatefulWidget {
 }
 
 class _VisualizationPageState extends State<VisualizationPage> {
-  CustomHttpService http = CustomHttpService(
-      username: 'admin',
-      password: 'district',
-      baseUrl: 'https://play.dhis2.org/2.35.14');
+
 
   List<VisualizationConfig> visualizations = [];
 
@@ -45,7 +47,6 @@ class _VisualizationPageState extends State<VisualizationPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(visualizations);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Visualization'),

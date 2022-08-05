@@ -9,18 +9,18 @@ DioCacheInterceptor? cacheInterceptor;
 Dio? dioInstance;
 
 Future initDio() async {
-  if (cacheStore == null) {
-    var databasePath = await getDatabasesPath();
-    cacheStore = DbCacheStore(
-      databasePath: databasePath,
-    );
-  }
-  options ??= CacheOptions(
-      store: cacheStore,
-      policy: CachePolicy.request,
-      maxStale: const Duration(days: 30),
-      priority: CachePriority.normal);
-  cacheInterceptor ??= DioCacheInterceptor(options: options!);
+  // if (cacheStore == null) {
+  //   var databasePath = await getDatabasesPath();
+  //   cacheStore = DbCacheStore(
+  //     databasePath: databasePath,
+  //   );
+  // }
+  // options ??= CacheOptions(
+  //     store: cacheStore,
+  //     policy: CachePolicy.refreshForceCache,
+  //     maxStale: const Duration(days: 30),
+  //     priority: CachePriority.normal);
+  // cacheInterceptor ??= DioCacheInterceptor(options: options!);
 
   dioInstance = Dio();
 }

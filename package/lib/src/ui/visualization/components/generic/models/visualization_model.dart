@@ -197,32 +197,41 @@ class Visualization {
         print(e);
       }
       configError = true;
+      rethrow;
     }
   }
 
   Future<void> getData() async {
-    String url = 'api/analytics';
+    try {
+      String url = 'api/analytics';
 
-    if (http == null) {
-      return;
+      if (http == null) {
+        return;
+      }
+
+      Map<String, List<String>> dimensions = getDimensions();
+      Map<String, List<String>> filters = getFilters();
+
+      Map<String, String> formattedDimensions =
+          dimensions.map((key, value) => MapEntry(key, value.join(";")));
+      Map<String, String> formattedFilters =
+          filters.map((key, value) => MapEntry(key, value.join(";")));
+      var response = await http.httpGet(url, queryParameters: {
+        "dimension": formattedDimensions.entries
+            .map((e) => "${e.key}:${e.value}")
+            .join(","),
+        "filter":
+            formattedFilters.entries.map((e) => "${e.key}:${e.value}").join(",")
+      });
+
+      analyticsData = http.getDataFromResponse(response);
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      configError = true;
+      rethrow;
     }
-
-    Map<String, List<String>> dimensions = getDimensions();
-    Map<String, List<String>> filters = getFilters();
-
-    Map<String, String> formattedDimensions =
-        dimensions.map((key, value) => MapEntry(key, value.join(";")));
-    Map<String, String> formattedFilters =
-        filters.map((key, value) => MapEntry(key, value.join(";")));
-    var response = await http.httpGet(url, queryParameters: {
-      "dimension": formattedDimensions.entries
-          .map((e) => "${e.key}:${e.value}")
-          .join(","),
-      "filter":
-          formattedFilters.entries.map((e) => "${e.key}:${e.value}").join(",")
-    });
-
-    analyticsData = http.getDataFromResponse(response);
   }
 
   Future<Visualization?> get() async {
