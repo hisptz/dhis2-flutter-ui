@@ -1,7 +1,7 @@
 ## 1.0.12
 
 ## Fix
-- fixed input-mask cusor position
+- Fixed input-mask cusor position
 
 ## 1.0.11
 
