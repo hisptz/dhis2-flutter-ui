@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
 
+typedef Pattern = Function(int separatorIndex);
+
 class InputMask extends TextInputFormatter {
   final String pattern;
   final String separator;
@@ -11,20 +13,16 @@ class InputMask extends TextInputFormatter {
       TextEditingValue oldValue, TextEditingValue newValue) {
     if (newValue.text.isNotEmpty) {
       if (newValue.text.length >= pattern.length) {
-        int offset = newValue.text.length > pattern.length
-            ? pattern.length
-            : newValue.selection.end;
+        String text = transformText(text: newValue.text);
+        int offset = getOffset(oldValue, newValue, text);
 
-        return getFormatText(
-            oldValue,
-            TextEditingValue(
-                text: newValue.text.substring(0, pattern.length),
-                selection:
-                    TextSelection.fromPosition(TextPosition(offset: offset))));
+        return TextEditingValue(
+            text: text.substring(0, pattern.length),
+            selection:
+                TextSelection.fromPosition(TextPosition(offset: offset)));
       }
 
-      if (newValue.text.length < pattern.length &&
-          pattern[newValue.text.length - 1] == separator) {
+      if (newValue.text.length < pattern.length) {
         return getFormatText(oldValue, newValue);
       }
     }
@@ -35,31 +33,48 @@ class InputMask extends TextInputFormatter {
       TextEditingValue oldValue, TextEditingValue newValue) {
     int offset = newValue.selection.baseOffset;
 
-    String text = List.generate(pattern.length, (index) {
-      if (pattern[index] == separator) {
-        if (index < newValue.text.length && newValue.text[index] != separator) {
-          offset += 1;
-          return "$separator${newValue.text[index]}";
-        }
-        return separator;
-      }
-
-      return index < newValue.text.length
-          ? newValue.text[index] == separator
-              ? placeholder
-              : newValue.text[index]
-          : placeholder;
-    }).join();
-
-    int oldOffset = oldValue.selection.baseOffset;
+    String text = transformText(
+        text: newValue.text,
+        onPattern: (int separatorIndex) =>
+            separatorIndex + 1 == offset ? offset += 1 : offset);
 
     return TextEditingValue(
         text: text,
         selection: TextSelection.fromPosition(TextPosition(
-            offset: offset >= pattern.length
-                ? oldOffset < pattern.length
-                    ? oldOffset + 1
-                    : oldOffset
-                : offset)));
+            offset: offset >= pattern.length ? pattern.length : offset)));
+  }
+
+  String transformText({required String text, Pattern? onPattern}) {
+    return List.generate(pattern.length, (index) {
+      if (pattern[index] == separator) {
+        if (index < text.length && text[index] != separator) {
+          if (onPattern != null) onPattern(index);
+          return "$separator${text[index]}";
+        }
+        return separator;
+      }
+
+      return index < text.length
+          ? text[index] == separator
+              ? placeholder
+              : text[index]
+          : placeholder;
+    }).join();
+  }
+
+  getOffset(TextEditingValue oldValue, TextEditingValue newValue, String text) {
+    int newOffset = newValue.selection.baseOffset;
+    int oldOffset = oldValue.selection.baseOffset;
+
+    if (text.length - 1 > newOffset &&
+        (text[newOffset] == separator || text[newOffset - 1] == separator)) {
+      return newOffset + 1;
+    }
+
+    if (oldOffset < newOffset && newOffset >= pattern.length - 1) {
+      return pattern.length;
+    }
+
+    return newOffset;
   }
 }

@@ -50,9 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         id: 'id',
                         name: 'name',
                         valueType: 'TEXT',
-                        // prefixLabel: "T—",
+                        prefixLabel: "T—",
                         hint: "XXXX—XXXX—XXX—X"),
-                    onInputValueChange: (String id, dynamic value) => {},
+                    onInputValueChange: (String id, dynamic value) {
+                      // print(value);
+                    },
                     hiddenInputFieldOptions: const {},
                     dataObject: const {},
                     mandatoryFieldObject: const {},
