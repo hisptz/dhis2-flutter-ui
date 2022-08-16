@@ -1,16 +1,6 @@
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/boolean_input_field_container.dart';
+import 'package:dhis2_flutter_ui/src/main_directive.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_list_input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/date_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/email_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/numerical_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/percentage_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/phone_number_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/select_input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/text_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/true_only_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/core/line_separator.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
 import 'package:dhis2_flutter_ui/src/ui/utils/validator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
@@ -229,6 +219,14 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
     //TODO set validations error messages
   }
 
+  getInputMaskSeparator() {
+    return widget.inputFormaters
+            ?.where((element) => element.runtimeType == InputMask)
+            .map((e) => (e as InputMask).separator)
+            .firstOrNull ??
+        "";
+  }
+
   Widget _getInputFieldLabel(InputField? inputField) {
     dynamic value =
         inputField != null && '${widget.dataObject![inputField.id]}' != 'null'
@@ -315,7 +313,9 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                   inputFormatters: widget.inputFormaters,
                                   onInputValueChange: (String value) {
                                     widget.onInputValueChange!(
-                                        inputField.id, value);
+                                        inputField.id,
+                                        value.replaceAll(
+                                            getInputMaskSeparator(), ""));
                                     error = value.validate(widget.validators);
                                     if (widget.onError != null) {
                                       setState(() {
