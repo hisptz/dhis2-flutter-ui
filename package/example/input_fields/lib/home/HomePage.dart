@@ -8,7 +8,6 @@ import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
         SelectInputField,
         Validators;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -20,6 +19,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void onInputValueChange(String id, dynamic value) {
+    print("$id => $value");
+  }
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -27,7 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Center(
+        body: Container(
+          margin: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 30.0,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -35,9 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 'You have pushed the button this many times:',
               ),
               InputFieldContainer(
-                inputField:
-                    InputField(id: 'id', name: 'name', valueType: 'EMAIL'),
-                onInputValueChange: (String id, dynamic value) => {},
+                inputField: InputField(
+                  id: 'id-email',
+                  name: 'name',
+                  valueType: 'EMAIL',
+                ),
+                onInputValueChange: onInputValueChange,
                 hiddenInputFieldOptions: const {},
                 dataObject: const {},
                 mandatoryFieldObject: const {},
@@ -47,12 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   key: _formKey,
                   child: InputFieldContainer(
                     inputField: InputField(
-                        id: 'id',
+                        id: 'id-formatted',
                         name: 'name',
                         valueType: 'TEXT',
-                        // prefixLabel: "T—",
+                        prefixLabel: "T—",
                         hint: "XXXX—XXXX—XXX—X"),
-                    onInputValueChange: (String id, dynamic value) => {},
+                    onInputValueChange: onInputValueChange,
                     hiddenInputFieldOptions: const {},
                     dataObject: const {},
                     mandatoryFieldObject: const {},
@@ -71,10 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: const Text("Submit")),
               const SearchInput(
                 onSearch: null,
-              ),
-              const CircularProcessLoader(
-                color: Colors.blue,
-                size: 5,
               ),
             ],
           ),

@@ -1,3 +1,8 @@
+## 1.0.12
+
+## Fix
+- Fixed input-mask cusor position
+
 ## 1.0.11
 
 - Add support for prefixLabel for TEXT type InputField
