@@ -1,17 +1,6 @@
 import 'package:dhis2_flutter_ui/src/main_directive.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/boolean_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_list_input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/date_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/email_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/numerical_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/percentage_input_field_container.dart';
 import 'package:dhis2_flutter_ui/src/ui/components/input_fields/phone_number_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/select_input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/text_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/true_only_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/core/line_separator.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
 import 'package:dhis2_flutter_ui/src/ui/utils/validator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
