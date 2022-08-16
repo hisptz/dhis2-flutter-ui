@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:input_fields/home/HomePage.dart';
+import 'package:input_fields/home/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

@@ -1,12 +1,5 @@
 import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
-    show
-        CircularProcessLoader,
-        InputField,
-        InputFieldContainer,
-        InputMask,
-        SearchInput,
-        SelectInputField,
-        Validators;
+    show InputField, InputFieldContainer, InputMask, SearchInput, Validators;
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -20,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   void onInputValueChange(String id, dynamic value) {
-    print("$id => $value");
+    debugPrint("$id => $value");
   }
 
   @override

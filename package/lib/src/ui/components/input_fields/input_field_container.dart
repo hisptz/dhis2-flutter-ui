@@ -215,9 +215,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
     );
   }
 
-  setValidationError(bool hasValidationError) {
-    //TODO set validations error messages
-  }
+  setValidationError(bool hasValidationError) {}
 
   getInputMaskSeparator() {
     return widget.inputFormaters
