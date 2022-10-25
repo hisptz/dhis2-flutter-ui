@@ -64,12 +64,12 @@ class _DateInputFieldContainerState extends State<DateInputFieldContainer> {
     int limit = 200;
     int minYear = widget.inputField.minYear ?? limit;
     int maxYear = widget.inputField.maxYear ?? -limit;
-    DateTime lastDate = widget.inputField.minDate ??
+    DateTime lastDate = widget.inputField.maxDate ??
         getDateFromGivenYear(
-            widget.inputField.minYear != null ? minYear : -limit);
-    DateTime firstDate = widget.inputField.maxDate ??
+            widget.inputField.maxYear != null ? maxYear : -limit);
+    DateTime firstDate = widget.inputField.minDate ??
         getDateFromGivenYear(
-            widget.inputField.maxYear != null ? maxYear : limit,
+            widget.inputField.minYear != null ? minYear : limit,
             numberOfMonth: widget.inputField.numberOfMonth != null
                 ? widget.inputField.numberOfMonth! + 1
                 : 0,
