@@ -62,16 +62,18 @@ class _DateInputFieldContainerState extends State<DateInputFieldContainer> {
 
   void onOpenDateSelection(BuildContext context) async {
     int limit = 200;
-    int minAgeInYear = widget.inputField.minAgeInYear ?? limit;
-    int maxAgeInYear = widget.inputField.maxAgeInYear ?? -limit;
-    DateTime lastDate = getDateFromGivenYear(
-        widget.inputField.minAgeInYear != null ? minAgeInYear : -limit);
-    DateTime firstDate = getDateFromGivenYear(
-        widget.inputField.maxAgeInYear != null ? maxAgeInYear : limit,
-        numberOfMonth: widget.inputField.numberOfMonth != null
-            ? widget.inputField.numberOfMonth! + 1
-            : 0,
-        numberOfDays: 1);
+    int minYear = widget.inputField.minYear ?? limit;
+    int maxYear = widget.inputField.maxYear ?? -limit;
+    DateTime lastDate = widget.inputField.maxDate ??
+        getDateFromGivenYear(
+            widget.inputField.maxYear != null ? maxYear : -limit);
+    DateTime firstDate = widget.inputField.minDate ??
+        getDateFromGivenYear(
+            widget.inputField.minYear != null ? minYear : limit,
+            numberOfMonth: widget.inputField.numberOfMonth != null
+                ? widget.inputField.numberOfMonth! + 1
+                : 0,
+            numberOfDays: 1);
     DateTime currentDate = DateTime.now();
     int numberOfYearBetweenCurrentAndMaxDate = currentDate.year - lastDate.year;
     _date = _date ??
@@ -93,7 +95,7 @@ class _DateInputFieldContainerState extends State<DateInputFieldContainer> {
       fieldLabelText: widget.inputField.name,
       initialDate: AppUtil.getDateIntoDateTimeFormat(_date!),
       firstDate:
-          widget.inputField.disablePastPeriod! ? DateTime.now() : firstDate,
+          widget.inputField.disablePastPeriod!&&widget.inputField.minDate==null ? DateTime.now() : firstDate,
       confirmText: 'Ok',
       cancelText: 'Cancel',
       lastDate: widget.inputField.allowFuturePeriod! ||
