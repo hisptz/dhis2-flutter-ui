@@ -19,8 +19,8 @@ class InputField {
   bool? showCountryLevelTree;
   bool? disablePastPeriod;
   bool? hasError;
-  int? minAgeInYear;
-  int? maxAgeInYear;
+  int? minYear;
+  int? maxYear;
   int? numberOfMonth;
   bool? shouldUserCustomAgeLimit;
   String? suffixLabel;
@@ -32,6 +32,8 @@ class InputField {
   InputField? subInputField;
   List<int>? allowedSelectedLevels;
   List<String>? filteredPrograms;
+  DateTime? minDate;
+  DateTime? maxDate;
 
   InputField({
     required this.id,
@@ -55,8 +57,8 @@ class InputField {
     this.translatedDescription,
     this.hint,
     this.translatedHint,
-    this.maxAgeInYear,
-    this.minAgeInYear,
+    this.maxYear,
+    this.minYear,
     this.numberOfMonth,
     this.prefixLabel,
     this.suffixLabel,
@@ -64,6 +66,8 @@ class InputField {
     this.hasError,
     this.shouldUserCustomAgeLimit,
     this.showCountryLevelTree,
+    this.minDate,
+    this.maxDate
   }) {
     isPasswordField = isPasswordField ?? false;
     shouldCapitalize = shouldCapitalize ?? false;

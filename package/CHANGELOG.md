@@ -1,3 +1,8 @@
+## 1.0.13
+- Renamed minAgeInYear to minYear
+- Renamed maxAgeInYear to maxYear
+- Added minDate and maxDate
+
 ## 1.0.12
 
 ## Fix

@@ -53,6 +53,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 mandatoryFieldObject: const {},
                 hiddenFields: const {},
               ),
+               InputFieldContainer(
+                inputField: InputField(
+                  id: 'id-date',
+                  name: 'datepicker',
+                  valueType: 'DATE',
+                  minDate: DateTime(2022,4,01),
+                  maxDate: DateTime(2022,10,26)
+                ),
+                onInputValueChange: onInputValueChange,
+                hiddenInputFieldOptions: const {},
+                dataObject: const {},
+                mandatoryFieldObject: const {},
+                hiddenFields: const {},
+              ),
               Form(
                   key: _formKey,
                   child: InputFieldContainer(
