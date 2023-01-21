@@ -1,19 +1,8 @@
 ///  Models
 
 export './ui/models/application.dart' show Application;
-export 'ui/models/dhis2_option.dart' show Dhis2Option;
 export './ui/models/input_field_option.dart' show InputFieldOption;
 export './ui/models/input_field.dart' show InputField;
-export './ui/models/data_element.dart' show DataElement;
-export './ui/models/dhis2_event_data_value.dart' show Dhis2EventDataValue;
-export './ui/models/dhis2_event.dart' show Dhis2Event;
-export './ui/models/metadata_sync_item.dart' show MetadataSyncItem;
-export './ui/models/organisation_unit.dart' show OrganisationUnit;
-export './ui/models/program_indicator.dart' show ProgramIndicator;
-export './ui/models/program_rule_action.dart' show ProgramRuleAction;
-export './ui/models/program_rule_variable.dart' show ProgramRuleVariable;
-export './ui/models/program_rule.dart' show ProgramRule;
-export './ui/models/system_info.dart' show SystemInfo;
 
 /**
  *  general components
