@@ -1,5 +1,5 @@
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/utils/app_util.dart';
+import 'package:dhis2_flutter_ui/src/ui/utils/entry_form_util.dart';
 import 'package:flutter/material.dart';
 
 class TimeInputFieldContainer extends StatefulWidget {
@@ -52,7 +52,7 @@ class _TimeInputFieldContainerState extends State<TimeInputFieldContainer> {
 
   onOpenTimeSelection(BuildContext context) async {
     String time =
-        _time ?? AppUtil.formattedTimeOfDayIntoString(TimeOfDay.now());
+        _time ?? EntryFormUtil.formattedTimeOfDayIntoString(TimeOfDay.now());
     final TimeOfDay? timeOfDay = await showTimePicker(
       builder: (BuildContext context, Widget? child) {
         return Theme(
@@ -65,7 +65,7 @@ class _TimeInputFieldContainerState extends State<TimeInputFieldContainer> {
         );
       },
       context: context,
-      initialTime: AppUtil.getTimeIntoDTimeOfDayFormat(time),
+      initialTime: EntryFormUtil.getTimeIntoDTimeOfDayFormat(time),
       initialEntryMode: TimePickerEntryMode.dial,
       confirmText: 'Ok',
       cancelText: 'Cancel',
@@ -74,7 +74,7 @@ class _TimeInputFieldContainerState extends State<TimeInputFieldContainer> {
     );
     if (timeOfDay != null) {
       setState(() {
-        _time = AppUtil.formattedTimeOfDayIntoString(timeOfDay);
+        _time = EntryFormUtil.formattedTimeOfDayIntoString(timeOfDay);
         timeController = TextEditingController(text: _time);
         widget.onInputValueChange(_time);
       });

@@ -1,5 +1,5 @@
 import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/utils/app_util.dart';
+import 'package:dhis2_flutter_ui/src/ui/utils/entry_form_util.dart';
 import 'package:flutter/material.dart';
 
 class DateInputFieldContainer extends StatefulWidget {
@@ -77,7 +77,7 @@ class _DateInputFieldContainerState extends State<DateInputFieldContainer> {
     DateTime currentDate = DateTime.now();
     int numberOfYearBetweenCurrentAndMaxDate = currentDate.year - lastDate.year;
     _date = _date ??
-        AppUtil.formattedDateTimeIntoString(
+        EntryFormUtil.formattedDateTimeIntoString(
           numberOfYearBetweenCurrentAndMaxDate >= 0 ? lastDate : currentDate,
         );
     DateTime? date = await showDatePicker(
@@ -93,9 +93,11 @@ class _DateInputFieldContainerState extends State<DateInputFieldContainer> {
       },
       context: context,
       fieldLabelText: widget.inputField.name,
-      initialDate: AppUtil.getDateIntoDateTimeFormat(_date!),
-      firstDate:
-          widget.inputField.disablePastPeriod!&&widget.inputField.minDate==null ? DateTime.now() : firstDate,
+      initialDate: EntryFormUtil.getDateIntoDateTimeFormat(_date!),
+      firstDate: widget.inputField.disablePastPeriod! &&
+              widget.inputField.minDate == null
+          ? DateTime.now()
+          : firstDate,
       confirmText: 'Ok',
       cancelText: 'Cancel',
       lastDate: widget.inputField.allowFuturePeriod! ||
@@ -109,7 +111,7 @@ class _DateInputFieldContainerState extends State<DateInputFieldContainer> {
 
     if (date != null) {
       setState(() {
-        _date = AppUtil.formattedDateTimeIntoString(date);
+        _date = EntryFormUtil.formattedDateTimeIntoString(date);
         dateController = TextEditingController(text: _date);
         widget.onInputValueChange(_date);
       });

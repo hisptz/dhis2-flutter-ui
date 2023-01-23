@@ -39,9 +39,13 @@ class InputMask extends TextInputFormatter {
             separatorIndex + 1 == offset ? offset += 1 : offset);
 
     return TextEditingValue(
-        text: text,
-        selection: TextSelection.fromPosition(TextPosition(
-            offset: offset >= pattern.length ? pattern.length : offset)));
+      text: text,
+      selection: TextSelection.fromPosition(
+        TextPosition(
+          offset: offset >= pattern.length ? pattern.length : offset,
+        ),
+      ),
+    );
   }
 
   String transformText({required String text, Pattern? onPattern}) {
