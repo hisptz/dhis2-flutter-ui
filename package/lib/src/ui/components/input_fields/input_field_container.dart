@@ -1,10 +1,22 @@
-import 'package:dhis2_flutter_ui/src/main_directive.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_list_input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/phone_number_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/utils/validator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
+
+import '../../models/input_field.dart';
+import '../../models/input_field_option.dart';
+import '../../models/input_mask.dart';
+import '../../models/validators.dart';
+import '../generic_components/line_separator.dart';
+import 'boolean_input_field_container.dart';
+import 'check_box_list_input_field.dart';
+import 'date_input_field_container.dart';
+import 'email_input_field_container.dart';
+import 'numerical_input_field_container.dart';
+import 'percentage_input_field_container.dart';
+import 'phone_number_input_field_container.dart';
+import 'select_input_field.dart';
+import 'text_input_field_container.dart';
+import 'true_only_input_field_container.dart';
 
 class InputFieldContainer extends StatefulWidget {
   const InputFieldContainer(
@@ -31,7 +43,7 @@ class InputFieldContainer extends StatefulWidget {
   final bool showClearIcon;
   final Map? hiddenFields;
 
-  /// Validate input based on pre-defined valiadtors[FormValidator] or your own custom functions
+  /// Validate input based on pre-defined validators[FormValidator] or your own custom functions
   ///
   /// If you are using your own function ,
   ///
@@ -390,9 +402,11 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                                               inputField.id],
                                                           onInputValueChange:
                                                               (dynamic value) {
-                                                            widget.onInputValueChange!(
-                                                                inputField.id,
-                                                                '$value');
+                                                            widget
+                                                                .onInputValueChange!(
+                                                              inputField.id,
+                                                              '$value',
+                                                            );
                                                           },
                                                         )
                                                       : inputField.valueType ==
@@ -404,12 +418,14 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                                                       .dataObject![
                                                                   inputField
                                                                       .id],
-                                                              onInputValueChange: (dynamic
-                                                                      value) =>
-                                                                  widget.onInputValueChange!(
-                                                                      inputField
-                                                                          .id,
-                                                                      value),
+                                                              onInputValueChange:
+                                                                  (dynamic
+                                                                          value) =>
+                                                                      widget
+                                                                          .onInputValueChange!(
+                                                                inputField.id,
+                                                                value,
+                                                              ),
                                                             )
                                                           : Text(
                                                               '${inputField.valueType} is not supported',

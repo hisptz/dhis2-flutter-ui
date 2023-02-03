@@ -69,11 +69,11 @@ class _SearchInputState extends State<SearchInput> {
             border: const OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                    color: AppConstants.appInputBorderColor, width: 1.0)),
+                    color: AppConstants.defaultBorderColor, width: 1.0)),
             hintText: widget.placeHolder,
             prefixIcon: const Icon(
               Icons.search,
-              color: AppConstants.appDefaultColor,
+              color: AppConstants.defaultColor,
             ),
             suffixIcon: Visibility(
               visible: canClear,
@@ -81,7 +81,7 @@ class _SearchInputState extends State<SearchInput> {
                 onPressed: onClearSearchInput,
                 icon: const Icon(
                   Icons.clear,
-                  color: AppConstants.appDefaultColor,
+                  color: AppConstants.defaultColor,
                 ),
               ),
             ),

@@ -1,8 +1,9 @@
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/utils/validator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../models/input_field.dart';
+import '../../models/validators.dart';
 
 class TextInputFieldContainer extends StatefulWidget {
   const TextInputFieldContainer(

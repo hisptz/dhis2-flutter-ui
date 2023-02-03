@@ -1,13 +1,11 @@
 // Copyright (c) 2023, HISP Tanzania Developers.
 // All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 ///
-/// EntryFormUtil is a collection of utility functions to facilitate form evaluations and rendering
+/// `EntryFormUtil` is a collection of utility functions to facilitate form evaluations and rendering
 ///
 class EntryFormUtil {
   ///
