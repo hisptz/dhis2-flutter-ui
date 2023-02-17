@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/input_field_constants.dart';
 import '../../models/input_field.dart';
 import '../../models/input_field_option.dart';
 import '../../models/input_mask.dart';
@@ -250,13 +251,13 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
             ? '${widget.dataObject![inputField.id]}'
             : '   ';
     if (inputField != null) {
-      if (inputField.valueType == "BOOLEAN") {
+      if (inputField.valueType == InputFieldConstants.boolean) {
         value = value == 'true'
             ? 'Yes'
             : value == 'false'
                 ? 'No'
                 : value;
-      } else if (inputField.valueType == 'TRUE_ONLY') {
+      } else if (inputField.valueType == InputFieldConstants.trueOnly) {
         value = value == 'true' ? 'Yes' : value;
       } else if (inputField.options!.isNotEmpty) {
         InputFieldOption? option = inputField.options!.firstWhereOrNull(
@@ -266,7 +267,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
       }
     }
     return Container(
-      child: inputField != null && inputField.valueType == 'CHECK_BOX'
+      child: inputField != null &&
+              inputField.valueType == InputFieldConstants.checkBox
           ? CheckBoxListInputField(
               inputField: inputField,
               isReadOnly: true,
@@ -301,7 +303,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
           ? Row(
               children: [
                 Expanded(
-                  child: inputField.valueType == 'CHECK_BOX'
+                  child: inputField.valueType == InputFieldConstants.checkBox
                       ? CheckBoxListInputField(
                           inputField: inputField,
                           onInputValueChange: (id, value) {
@@ -328,8 +330,9 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                               options: inputField.options,
                               selectedOption: widget.dataObject![inputField.id],
                             )
-                          : inputField.valueType == 'TEXT' ||
-                                  inputField.valueType == 'LONG_TEXT'
+                          : inputField.valueType == InputFieldConstants.text ||
+                                  inputField.valueType ==
+                                      InputFieldConstants.longText
                               ? TextInputFieldContainer(
                                   inputField: inputField,
                                   inputValue: widget.dataObject![inputField.id],
@@ -347,8 +350,10 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                     }
                                   })
                               : inputField.valueType ==
-                                          'INTEGER_ZERO_OR_POSITIVE' ||
-                                      inputField.valueType == 'NUMBER'
+                                          InputFieldConstants
+                                              .integerZeroOrPositive ||
+                                      inputField.valueType ==
+                                          InputFieldConstants.number
                                   ? NumericalInputFieldContainer(
                                       inputField: inputField,
                                       inputValue:
@@ -359,7 +364,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                           value,
                                         );
                                       })
-                                  : inputField.valueType == 'EMAIL'
+                                  : inputField.valueType ==
+                                          InputFieldConstants.email
                                       ? EmailInputFieldContainer(
                                           inputField: inputField,
                                           inputValue:
@@ -372,7 +378,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                             value,
                                           ),
                                         )
-                                      : inputField.valueType == 'PERCENTAGE'
+                                      : inputField.valueType ==
+                                              InputFieldConstants.percentage
                                           ? PercentageInputFieldContainer(
                                               inputField: inputField,
                                               inputValue: widget
@@ -387,7 +394,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                               ),
                                             )
                                           : inputField.valueType ==
-                                                  'PHONE_NUMBER'
+                                                  InputFieldConstants
+                                                      .phoneNumber
                                               ? PhoneNumberInputFieldContainer(
                                                   inputField: inputField,
                                                   inputValue:
@@ -401,7 +409,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                                   ),
                                                 )
                                               : inputField.valueType ==
-                                                      'BOOLEAN'
+                                                      InputFieldConstants
+                                                          .boolean
                                                   ? BooleanInputFieldContainer(
                                                       inputField: inputField,
                                                       inputValue:
@@ -416,7 +425,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                                       ),
                                                     )
                                                   : inputField.valueType ==
-                                                          'TRUE_ONLY'
+                                                          InputFieldConstants
+                                                              .trueOnly
                                                       ? TrueOnlyInputFieldContainer(
                                                           inputField:
                                                               inputField,
@@ -433,7 +443,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                                           },
                                                         )
                                                       : inputField.valueType ==
-                                                              'DATE'
+                                                              InputFieldConstants
+                                                                  .date
                                                           ? DateInputFieldContainer(
                                                               inputField:
                                                                   inputField,
