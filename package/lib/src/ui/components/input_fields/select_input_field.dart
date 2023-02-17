@@ -1,9 +1,42 @@
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/radio_input_field_container.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../dhis2_flutter_ui.dart';
+import '../../models/input_field_option.dart';
+
+/// `SelectInputField` is a select input field for rendering selectable options
 class SelectInputField extends StatefulWidget {
+  /// `Color` for the select
+  final Color? color;
+
+  /// `bool` to show wether or not a select input is readonly
+  final bool? isReadOnly;
+
+  ///  `List<InputFieldOption>` that is a list of options on the select input
+  final List<InputFieldOption>? options;
+
+  /// `dynamic` value of the selected option
+  final dynamic selectedOption;
+
+  /// `Function` callback called when input values had changed
+  final Function onInputValueChange;
+
+  /// `bool` to show wether or not a select input is rendered as radio
+  final bool? renderAsRadio;
+
+  /// `Map` if input field options that are hidden
+  ///  example `{"inputId": true}`
+  ///
+  final Map hiddenInputFieldOptions;
+
+  ///
+  /// this is a default constructor for the `SelectInputField`
+  /// the constructor accepts `List<InputFieldOption>`, `dynamic` selected value, `bool` to show if input is readonly, `bool` if the input is rendered as radio and `Map` of hidden options
+  ///
+  ///
   const SelectInputField({
     Key? key,
     this.color,
@@ -15,16 +48,8 @@ class SelectInputField extends StatefulWidget {
     this.renderAsRadio,
   }) : super(key: key);
 
-  final Color? color;
-  final bool? isReadOnly;
-  final List<InputFieldOption>? options;
-  final dynamic selectedOption;
-  final Function onInputValueChange;
-  final bool? renderAsRadio;
-  final Map hiddenInputFieldOptions;
-
   @override
-  _SelectInputFieldState createState() => _SelectInputFieldState();
+  State<SelectInputField> createState() => _SelectInputFieldState();
 }
 
 class _SelectInputFieldState extends State<SelectInputField> {
@@ -117,8 +142,11 @@ class SelectionOptionContainer extends StatelessWidget {
             isExpanded: true,
             icon: SizedBox(
               height: 20.0,
-              child: SvgPicture.asset('assets/icons/chevron_down.svg',
-                  color: color ?? Colors.black, package: 'dhis2_flutter_ui'),
+              child: SvgPicture.asset(
+                'assets/icons/chevron_down.svg',
+                color: color ?? Colors.black,
+                package: 'dhis2_flutter_ui',
+              ),
             ),
             elevation: 16,
             style: TextStyle(color: color ?? Colors.black),

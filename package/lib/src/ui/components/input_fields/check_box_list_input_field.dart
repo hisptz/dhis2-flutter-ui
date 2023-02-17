@@ -1,9 +1,32 @@
-import 'package:dhis2_flutter_ui/src/ui/components/input_fields/check_box_input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
+import '../../models/input_field.dart';
+import '../../models/input_field_option.dart';
+import 'check_box_input_field.dart';
+
+///
+/// `CheckBoxListInputField` this is a container widget for displaying a list of check box inputs
+///
 class CheckBoxListInputField extends StatefulWidget {
+  /// `InputField` is the input field metadata for the checkbox input
+  final InputField inputField;
+
+  /// `Map` key values pair for the values of the form object
+  final Map? dataObject;
+
+  /// `Function` callback called when input values had changed
+  final Function? onInputValueChange;
+
+  /// `bool` value to show whether the values are to be rendered as readonly or not
+  final bool isReadOnly;
+
+  ///
+  /// this is the default constructor for the `CheckBoxListInputField`
+  /// the parameter accepts `InputField` metadata, `Map` form data objects, `bool` readonly indicators and `Function` callback
+  ///
   const CheckBoxListInputField({
     Key? key,
     required this.inputField,
@@ -12,13 +35,8 @@ class CheckBoxListInputField extends StatefulWidget {
     this.onInputValueChange,
   }) : super(key: key);
 
-  final InputField inputField;
-  final Map? dataObject;
-  final Function? onInputValueChange;
-  final bool isReadOnly;
-
   @override
-  _CheckBoxListInputFieldState createState() => _CheckBoxListInputFieldState();
+  State<CheckBoxListInputField> createState() => _CheckBoxListInputFieldState();
 }
 
 class _CheckBoxListInputFieldState extends State<CheckBoxListInputField> {
@@ -30,6 +48,7 @@ class _CheckBoxListInputFieldState extends State<CheckBoxListInputField> {
     updateInputValueState();
   }
 
+  /// this function is called when the the input value is changed
   updateInputValueState() {
     setState(() {
       for (InputFieldOption option in widget.inputField.options!) {

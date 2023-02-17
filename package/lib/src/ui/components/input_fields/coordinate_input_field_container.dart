@@ -1,23 +1,38 @@
-import 'package:dhis2_flutter_ui/src/ui/components/generic_components/circular_process_loader.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/utils/app_util.dart';
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
-class CoordinateInputFieldContainer extends StatefulWidget {
-  const CoordinateInputFieldContainer(
-      {Key? key,
-      required this.inputField,
-      required this.onInputValueChange,
-      this.inputValue})
-      : super(key: key);
+import '../../../../dhis2_flutter_ui.dart';
+import '../../models/input_field.dart';
+import '../../utils/entry_form_util.dart';
 
+///
+/// `CoordinateInputFieldContainer` isn the input field container for the coordinate field container
+///
+class CoordinateInputFieldContainer extends StatefulWidget {
+  /// `InputField` is the input field metadata for the  coordinate input field
   final InputField inputField;
+
+  /// `Function` callback called when input values had changed
   final Function onInputValueChange;
+
+  /// `String` value for the coordinate input field
   final String? inputValue;
 
+  ///
+  ///  this is the default constructor for the `CoordinateInputFieldContainer`
+  ///  the constructor accepts inputs as `InputField` metadata, `String` value and callback `Function` for when the coordinate value changes
+  ///
+  const CoordinateInputFieldContainer({
+    Key? key,
+    required this.inputField,
+    required this.onInputValueChange,
+    this.inputValue,
+  }) : super(key: key);
   @override
-  _CoordinateInputFieldContainerState createState() =>
+  State<CoordinateInputFieldContainer> createState() =>
       _CoordinateInputFieldContainerState();
 }
 
@@ -33,9 +48,10 @@ class _CoordinateInputFieldContainerState
     setCurrentLocation(widget.inputValue);
   }
 
+  ///  a setter function for setting the current location coordinates
   setCurrentLocation(String? value) async {
     if (value == null) {
-      Position currentPosition = await AppUtil.getCurrentLocation();
+      Position currentPosition = await EntryFormUtil.getCurrentLocation();
       value =
           '${currentPosition.longitude.toString()},${currentPosition.latitude.toString()}';
     }

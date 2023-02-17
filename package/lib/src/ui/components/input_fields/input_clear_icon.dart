@@ -1,14 +1,24 @@
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:flutter/material.dart';
 
+/// `InputClearIcon` is a an input clear icon for the  input fields
 class InputClearIcon extends StatelessWidget {
+  /// a `bool` variable for wether or not to show clear icon
+  final bool showClearIcon;
+
+  /// a `Function` callback for when the clear icon is clicked
+  final Function onClearInput;
+
+  ///
+  /// this is a default constructor for the `InputClearIcon`
+  /// the constructor accepts `bool` value to decide wether on not to show icon and a callback `Function` for when the icon is clicked
+  ///
   const InputClearIcon({
     Key? key,
     required this.showClearIcon,
     required this.onClearInput,
   }) : super(key: key);
-
-  final bool showClearIcon;
-  final Function onClearInput;
 
   @override
   Widget build(BuildContext context) {

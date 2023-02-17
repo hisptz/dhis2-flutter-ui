@@ -1,16 +1,32 @@
-import 'package:dhis2_flutter_ui/src/ui/core/app_contants.dart';
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
+import '../../core/app_constants.dart';
+import '../../models/input_field.dart';
+
+/// `SearchInput` is the widget for a search input
 class SearchInput extends StatefulWidget {
+  /// a callback `Function` called on searching
+  final Function? onSearch;
+
+  ///  `String` placeholder for the search input
+  final String? placeHolder;
+
+  /// `Color` for the search input borders, placeholder and icons
+  final Color? color;
+
+  ///
+  /// is a default constructor for `SearchInput`
+  ///  the constructor accepts a callback `Function` called on searching, `Color` for the search input and `String` placeholder
+  ///
   const SearchInput({
     Key? key,
     this.onSearch,
     this.placeHolder = 'Search',
+    this.color = AppConstants.defaultColor,
   }) : super(key: key);
-
-  final Function? onSearch;
-  final String? placeHolder;
 
   @override
   State<SearchInput> createState() => _SearchInputState();
@@ -68,20 +84,23 @@ class _SearchInputState extends State<SearchInput> {
           decoration: InputDecoration(
             border: const OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: AppConstants.appInputBorderColor, width: 1.0)),
+              borderSide: BorderSide(
+                color: widget.color!,
+                width: 1.0,
+              ),
+            ),
             hintText: widget.placeHolder,
-            prefixIcon: const Icon(
+            prefixIcon: Icon(
               Icons.search,
-              color: AppConstants.appDefaultColor,
+              color: widget.color,
             ),
             suffixIcon: Visibility(
               visible: canClear,
               child: IconButton(
                 onPressed: onClearSearchInput,
-                icon: const Icon(
+                icon: Icon(
                   Icons.clear,
-                  color: AppConstants.appDefaultColor,
+                  color: widget.color,
                 ),
               ),
             ),

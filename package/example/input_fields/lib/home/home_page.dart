@@ -46,13 +46,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 mandatoryFieldObject: const {},
                 hiddenFields: const {},
               ),
-               InputFieldContainer(
+              InputFieldContainer(
                 inputField: InputField(
                   id: 'id-date',
                   name: 'datepicker',
                   valueType: 'DATE',
-                  minDate: DateTime(2022,4,01),
-                  maxDate: DateTime(2022,10,26)
+                  disablePastPeriod: true,
+                  allowFuturePeriod: true,
+                  minDate: DateTime(2022, 10, 05),
+                  // maxDate: DateTime(2022, 10, 27),
                 ),
                 onInputValueChange: onInputValueChange,
                 hiddenInputFieldOptions: const {},
@@ -78,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Validators.pattern("[0-9]{4}—[0-9]{4}—[0-9]{2}",
                           "Enter Valid ID number. "),
                     ],
-                    inputFormaters: [
+                    inputFormatters: [
                       InputMask(pattern: "XXXX—XXXX—XXX—X", separator: "—"),
                     ],
                     onError: (err) => {},
