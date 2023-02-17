@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../core/app_constants.dart';
 import 'input_field_option.dart';
 
 ///
@@ -113,7 +114,7 @@ class InputField {
     this.numberOfMonth,
     this.minDate,
     this.maxDate,
-    this.inputColor = Colors.black,
+    this.inputColor = AppConstants.defaultColor,
     this.labelColor = const Color(0xFF1A3518),
     this.background = Colors.transparent,
     this.options = const [],

@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Validators.pattern("[0-9]{4}—[0-9]{4}—[0-9]{2}",
                           "Enter Valid ID number. "),
                     ],
-                    inputFormaters: [
+                    inputFormatters: [
                       InputMask(pattern: "XXXX—XXXX—XXX—X", separator: "—"),
                     ],
                     onError: (err) => {},

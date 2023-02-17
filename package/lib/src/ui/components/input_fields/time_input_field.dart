@@ -1,18 +1,35 @@
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/utils/entry_form_util.dart';
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
+import '../../models/input_field.dart';
+import '../../utils/entry_form_util.dart';
+
+///
+/// `TimeInputFieldContainer` is an input field container for time
+///
 class TimeInputFieldContainer extends StatefulWidget {
+  /// `InputField` is the input field metadata for the time input
+  final InputField inputField;
+
+  /// `Function` callback called when input values had changed
+  final Function onInputValueChange;
+
+  /// `String` value of the time input
+  final String? inputValue;
+
+  /// `String` value for the invalid time error message
+  final String? errorInvalidText;
+
+  /// this is  a default constructor for the `TimeInputFieldContainer`
   const TimeInputFieldContainer({
     Key? key,
     required this.inputField,
     required this.onInputValueChange,
     this.inputValue,
+    this.errorInvalidText,
   }) : super(key: key);
-
-  final InputField inputField;
-  final Function onInputValueChange;
-  final String? inputValue;
 
   @override
   State<TimeInputFieldContainer> createState() =>
@@ -70,7 +87,8 @@ class _TimeInputFieldContainerState extends State<TimeInputFieldContainer> {
       confirmText: 'Ok',
       cancelText: 'Cancel',
       helpText: widget.inputField.hint ?? widget.inputField.name,
-      errorInvalidText: 'Enter ${widget.inputField.name} in valid time',
+      errorInvalidText: widget.errorInvalidText ??
+          'Enter ${widget.inputField.name} in valid time',
     );
     if (timeOfDay != null) {
       setState(() {

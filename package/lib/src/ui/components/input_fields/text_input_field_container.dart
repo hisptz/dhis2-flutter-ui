@@ -1,3 +1,6 @@
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,24 +8,39 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../models/input_field.dart';
 import '../../models/validators.dart';
 
+/// `TextInputFieldContainer` is the input field container for a text field
 class TextInputFieldContainer extends StatefulWidget {
-  const TextInputFieldContainer(
-      {Key? key,
-      required this.inputField,
-      this.onInputValueChange,
-      this.inputValue,
-      this.showInputCheckedIcon = true,
-      this.validators,
-      this.inputFormatters})
-      : super(key: key);
-
+  /// `InputField` is the input field metadata for a text field
   final InputField inputField;
+
+  /// `Function` callback called when input values had changed
   final Function? onInputValueChange;
+
+  /// `String` value for the input field
   final String? inputValue;
+
+  /// `bool` variable to indicate wether or not a check icon for text input should be shown
   final bool showInputCheckedIcon;
+
+  /// `List` of `FormValidator` for the text input field
   final List<FormValidator>? validators;
+
+  /// `List` of the `TextInputFormatter` for the text input field
   final List<TextInputFormatter>? inputFormatters;
 
+  ///
+  /// this is a default constructor for the `TextInputFieldContainer`
+  /// the constructor accepts `InputField` metadata, `String` value, `List<FormValidator>` of form validators, a callback `Function` that is called when the value changed and a `List<TextInputFormatter>` of text field formatters
+  ///
+  const TextInputFieldContainer({
+    Key? key,
+    required this.inputField,
+    this.onInputValueChange,
+    this.inputValue,
+    this.showInputCheckedIcon = true,
+    this.validators,
+    this.inputFormatters,
+  }) : super(key: key);
   @override
   _TextInputFieldContainerState createState() =>
       _TextInputFieldContainerState();
@@ -111,11 +129,13 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
               border: InputBorder.none,
               errorText: null,
               prefixIcon: Visibility(
-                child: Text(widget.inputField.prefixLabel ?? '',
-                    style: const TextStyle().copyWith(
-                      color: widget.inputField.inputColor,
-                    )),
                 visible: widget.inputField.prefixLabel != '',
+                child: Text(
+                  widget.inputField.prefixLabel ?? '',
+                  style: const TextStyle().copyWith(
+                    color: widget.inputField.inputColor,
+                  ),
+                ),
               ),
               prefixIconConstraints: const BoxConstraints(
                 maxHeight: 16.0,
@@ -129,13 +149,15 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Visibility(
-                    child: Text(widget.inputField.suffixLabel ?? '',
-                        style: const TextStyle().copyWith(
-                          color: widget.inputField.inputColor,
-                        )),
                     visible: widget.inputField.suffixLabel != '' &&
                         _value != null &&
                         '$_value'.trim() != '',
+                    child: Text(
+                      widget.inputField.suffixLabel ?? '',
+                      style: const TextStyle().copyWith(
+                        color: widget.inputField.inputColor,
+                      ),
+                    ),
                   ),
                   Container(
                     child: !widget.inputField.isPasswordField!
@@ -152,11 +174,12 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
                                 color: widget.inputField.inputColor!
                                     .withOpacity(0.01),
                                 child: SvgPicture.asset(
-                                    _isPasswordVisible!
-                                        ? 'assets/icons/login-close-eye.svg'
-                                        : 'assets/icons/login-open-eye.svg',
-                                    color: widget.inputField.inputColor,
-                                    package: 'dhis2_flutter_ui'),
+                                  _isPasswordVisible!
+                                      ? 'assets/icons/login-close-eye.svg'
+                                      : 'assets/icons/login-open-eye.svg',
+                                  color: widget.inputField.inputColor,
+                                  package: 'dhis2_flutter_ui',
+                                ),
                               ),
                             ),
                           ),

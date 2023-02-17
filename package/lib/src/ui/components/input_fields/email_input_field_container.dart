@@ -1,8 +1,29 @@
-import 'package:dhis2_flutter_ui/src/ui/models/input_field.dart';
-import 'package:dhis2_flutter_ui/src/ui/utils/entry_form_util.dart';
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
+import '../../models/input_field.dart';
+import '../../utils/entry_form_util.dart';
+
+/// `EmailInputFieldContainer` is a class for the email input field container
 class EmailInputFieldContainer extends StatefulWidget {
+  /// `InputField` is the input field metadata for the email inputs
+  final InputField inputField;
+
+  /// `Function` callback called when the input value has changed
+  final Function onInputValueChange;
+
+  /// `Function` callback for setting validation errors when email validations have failed
+  final Function setValidationError;
+
+  /// `String` value for the email input field
+  final String? inputValue;
+
+  ///
+  ///  this is the default constructor for `EmailInputFieldContainer`
+  /// the constructor accepts `InputField` metadata, `String` value, a callback `Function` that is called when the value changed and a callback `Function` to set validation error messaged
+  ///
   const EmailInputFieldContainer({
     Key? key,
     required this.inputField,
@@ -10,11 +31,6 @@ class EmailInputFieldContainer extends StatefulWidget {
     required this.setValidationError,
     this.inputValue,
   }) : super(key: key);
-
-  final InputField inputField;
-  final Function onInputValueChange;
-  final Function setValidationError;
-  final String? inputValue;
 
   @override
   _EmailInputFieldContainerState createState() =>
@@ -28,10 +44,10 @@ class _EmailInputFieldContainerState extends State<EmailInputFieldContainer> {
   void initState() {
     super.initState();
     setState(() {});
-    updateNumericalValue(value: widget.inputValue);
+    updateEmailValue(value: widget.inputValue);
   }
 
-  updateNumericalValue({String? value = ''}) {
+  updateEmailValue({String? value = ''}) {
     emailController = TextEditingController(text: value);
     setState(() {});
   }
@@ -59,10 +75,10 @@ class _EmailInputFieldContainerState extends State<EmailInputFieldContainer> {
     super.didUpdateWidget(widget);
     if (oldWidget.inputValue != widget.inputValue) {
       if (widget.inputField.isReadOnly!) {
-        updateNumericalValue(value: widget.inputValue);
+        updateEmailValue(value: widget.inputValue);
       }
       if (widget.inputValue == null || widget.inputValue == '') {
-        updateNumericalValue();
+        updateEmailValue();
       }
     }
   }

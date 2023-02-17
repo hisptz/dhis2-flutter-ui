@@ -11,13 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^1.0.3
-  geolocator: ^8.2.0
+  geolocator: ^9.0.2
   collection: ^1.15.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
   flutter_test_ui: ^2.0.0
 
 
