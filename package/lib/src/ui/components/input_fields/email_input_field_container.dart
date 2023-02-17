@@ -33,7 +33,7 @@ class EmailInputFieldContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _EmailInputFieldContainerState createState() =>
+  State<EmailInputFieldContainer> createState() =>
       _EmailInputFieldContainerState();
 }
 

@@ -29,7 +29,7 @@ class DateInputFieldContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _DateInputFieldContainerState createState() =>
+  State<DateInputFieldContainer> createState() =>
       _DateInputFieldContainerState();
 }
 

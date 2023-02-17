@@ -32,7 +32,7 @@ class CoordinateInputFieldContainer extends StatefulWidget {
     this.inputValue,
   }) : super(key: key);
   @override
-  _CoordinateInputFieldContainerState createState() =>
+  State<CoordinateInputFieldContainer> createState() =>
       _CoordinateInputFieldContainerState();
 }
 

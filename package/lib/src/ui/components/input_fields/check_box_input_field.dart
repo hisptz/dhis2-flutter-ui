@@ -36,7 +36,7 @@ class CheckBoxInputField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CheckBoxInputFieldState createState() => _CheckBoxInputFieldState();
+  State<CheckBoxInputField> createState() => _CheckBoxInputFieldState();
 }
 
 class _CheckBoxInputFieldState extends State<CheckBoxInputField> {

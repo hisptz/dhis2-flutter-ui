@@ -36,7 +36,7 @@ class RadioInputFieldContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _RadioInputFieldContainerState createState() =>
+  State<RadioInputFieldContainer> createState() =>
       _RadioInputFieldContainerState();
 }
 

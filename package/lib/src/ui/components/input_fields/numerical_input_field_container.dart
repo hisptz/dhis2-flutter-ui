@@ -28,7 +28,7 @@ class NumericalInputFieldContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _NumericalInputFieldContainerState createState() =>
+  State<NumericalInputFieldContainer> createState() =>
       _NumericalInputFieldContainerState();
 }
 

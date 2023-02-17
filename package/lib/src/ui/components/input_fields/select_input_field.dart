@@ -49,7 +49,7 @@ class SelectInputField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SelectInputFieldState createState() => _SelectInputFieldState();
+  State<SelectInputField> createState() => _SelectInputFieldState();
 }
 
 class _SelectInputFieldState extends State<SelectInputField> {

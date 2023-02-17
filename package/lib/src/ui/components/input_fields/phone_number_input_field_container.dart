@@ -26,7 +26,7 @@ class PhoneNumberInputFieldContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _PhoneNumberInputFieldContainerState createState() =>
+  State<PhoneNumberInputFieldContainer> createState() =>
       _PhoneNumberInputFieldContainerState();
 }
 

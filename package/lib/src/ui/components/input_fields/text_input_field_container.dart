@@ -42,7 +42,7 @@ class TextInputFieldContainer extends StatefulWidget {
     this.inputFormatters,
   }) : super(key: key);
   @override
-  _TextInputFieldContainerState createState() =>
+  State<TextInputFieldContainer> createState() =>
       _TextInputFieldContainerState();
 }
 

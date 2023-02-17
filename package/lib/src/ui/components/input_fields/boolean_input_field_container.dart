@@ -32,7 +32,7 @@ class BooleanInputFieldContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BooleanInputFieldContainerState createState() =>
+  State<BooleanInputFieldContainer> createState() =>
       _BooleanInputFieldContainerState();
 }
 
