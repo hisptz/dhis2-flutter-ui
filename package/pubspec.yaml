@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^1.0.3
+  flutter_svg: ^2.0.1
   geolocator: ^9.0.2
   collection: ^1.15.0
 
