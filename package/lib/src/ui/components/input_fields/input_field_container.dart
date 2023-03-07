@@ -270,7 +270,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
           ? CheckBoxListInputField(
               inputField: inputField,
               isReadOnly: true,
-              dataObject: widget.dataObject,
+              dataObject: widget.dataObject ?? {},
             )
           : Row(
               children: [
@@ -310,7 +310,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                               value,
                             );
                           },
-                          dataObject: widget.dataObject,
+                          dataObject: widget.dataObject ?? {},
                         )
                       : inputField.options!.isNotEmpty
                           ? SelectInputField(
@@ -399,6 +399,8 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                                   inputValue:
                                                       widget.dataObject![
                                                           inputField.id],
+                                                  setValidationError:
+                                                      setValidationError,
                                                   onInputValueChange:
                                                       (dynamic value) => widget
                                                           .onInputValueChange!(
