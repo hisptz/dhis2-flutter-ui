@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/input_field.dart';
 import '../../models/input_field_option.dart';
-import 'check_box_input_field.dart';
+import 'check_box_input_field_container.dart';
 
 ///
 /// `CheckBoxListInputField` this is a container widget for displaying a list of check box inputs
@@ -15,7 +15,7 @@ class CheckBoxListInputField extends StatefulWidget {
   final InputField inputField;
 
   /// `Map` key values pair for the values of the form object
-  final Map? dataObject;
+  final Map dataObject;
 
   /// `Function` callback called when input values had changed
   final Function? onInputValueChange;
@@ -48,13 +48,11 @@ class _CheckBoxListInputFieldState extends State<CheckBoxListInputField> {
     updateInputValueState();
   }
 
-  /// this function is called when the the input value is changed
   updateInputValueState() {
-    setState(() {
-      for (InputFieldOption option in widget.inputField.options!) {
-        _inputValue[option.code] = widget.dataObject![option.code] ?? false;
-      }
-    });
+    for (InputFieldOption option in widget.inputField.options!) {
+      _inputValue[option.code] = widget.dataObject[option.code] ?? false;
+    }
+    setState(() {});
   }
 
   @override
@@ -65,19 +63,23 @@ class _CheckBoxListInputFieldState extends State<CheckBoxListInputField> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: widget.inputField.options!
-          .map(
-            (InputFieldOption option) => CheckBoxInputField(
-              isReadOnly: widget.isReadOnly,
-              label: option.name,
-              value: widget.dataObject![option.code],
-              color: widget.inputField.inputColor,
-              onInputValueChange: (dynamic value) =>
-                  widget.onInputValueChange!(option.code, '$value'),
-            ),
-          )
-          .toList(),
+    return Container(
+      margin: const EdgeInsets.symmetric(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: widget.inputField.options!
+            .map(
+              (InputFieldOption option) => CheckBoxInputFieldContainer(
+                isReadOnly: widget.isReadOnly,
+                label: option.name,
+                value: widget.dataObject[option.code],
+                color: widget.inputField.inputColor,
+                onInputValueChange: (dynamic value) =>
+                    widget.onInputValueChange!(option.code, '$value'),
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }

@@ -177,7 +177,10 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
                                   _isPasswordVisible!
                                       ? 'assets/icons/login-close-eye.svg'
                                       : 'assets/icons/login-open-eye.svg',
-                                  color: widget.inputField.inputColor,
+                                  colorFilter: ColorFilter.mode(
+                                    widget.inputField.inputColor!,
+                                    BlendMode.srcATop,
+                                  ),
                                   package: 'dhis2_flutter_ui',
                                 ),
                               ),

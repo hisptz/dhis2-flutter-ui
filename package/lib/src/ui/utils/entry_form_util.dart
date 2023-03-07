@@ -20,6 +20,17 @@ class EntryFormUtil {
   }
 
   ///
+  /// `isPhoneNumberValid` is a helper function that validates phoneNumbers
+  ///  @param: phoneNumber: this is the `String` phoneNumber to be validated
+  /// @return: a `bool` value to indicate wether or not the phoneNumber is valid
+  ///
+  static isPhoneNumberValid(String phoneNumber) {
+    return phoneNumber.isEmpty
+        ? true
+        : RegExp(r'^(?:[+0][1-9])?[0-9]{10,12}$').hasMatch(phoneNumber);
+  }
+
+  ///
   /// `getCurrentLocation` is a helper function for getting the current geographic location
   /// @return: the method returns `Position` that is of current for the device
   ///
