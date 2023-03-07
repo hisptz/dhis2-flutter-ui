@@ -56,7 +56,6 @@ list of input components
 | RadioInputFieldContainer      |       |
 | BooleanInputFieldContainer    |       |
 | CheckBoxInputField            |       |
-| CoordinateInputFieldContainer |       |
 | DateInputFieldContainer       |       |
 | InputClearIcon                |       |
 | NumericalInputFieldContainer  |       |

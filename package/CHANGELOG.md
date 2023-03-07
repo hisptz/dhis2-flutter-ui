@@ -1,4 +1,11 @@
+### 1.1.0
+
+- Support for Phone number input fields
+- Support for checkbox input fields
+- Bug fixing and other improvements
+
 ## 1.0.13
+
 - Renamed minAgeInYear to minYear
 - Renamed maxAgeInYear to maxYear
 - Added minDate and maxDate
@@ -6,6 +13,7 @@
 ## 1.0.12
 
 ## Fix
+
 - Fixed input-mask cusor position
 
 ## 1.0.11
@@ -18,8 +26,8 @@
 - Add support for InputMask for TEXT type InputField
 
 ## Fix
-  
-- Check for onError function if defined before reference on it. 
+
+- Check for onError function if defined before reference on it.
 
 ## 1.0.9
 
@@ -27,7 +35,7 @@
 - Add support for InputMask for TEXT type InputField
 
 ## 1.0.8
-  
+
 - Support for dynamic change on value of date input fields
 - Fixing height of search input fields
 
