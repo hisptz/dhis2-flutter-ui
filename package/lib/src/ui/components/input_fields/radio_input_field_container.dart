@@ -1,7 +1,31 @@
-import 'package:dhis2_flutter_ui/src/ui/models/input_field_option.dart';
+// Copyright (c) 2023, HISP Tanzania Developers.
+// All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
+import '../../models/input_field_option.dart';
+
+/// `RadioInputFieldContainer` is the radio input field container
 class RadioInputFieldContainer extends StatefulWidget {
+  ///  `List<InputFieldOption>` that is a list of options on the radio input
+  final List<InputFieldOption>? options;
+
+  /// `dynamic` value of the selected option
+  final dynamic currentValue;
+
+  /// `Function` callback called when input values had changed
+  final Function onInputValueChange;
+
+  /// `Color` for the actively selected option
+  final Color? activeColor;
+
+  /// `bool` to show wether or not a select input is rendered as readonly
+  final bool? isReadOnly;
+
+  ///
+  /// this is the default constructor for the `RadioInputFieldContainer`
+  ///  the constructor accepts inputs for `Function` callback called when input values had changed, `dynamic` value of the selected option, `bool` to show wether or not a select input is rendered as readonly, `Color` for the actively selected option and `List<InputFieldOption>` that is a list of options on the radio input
+  ///
   const RadioInputFieldContainer({
     Key? key,
     required this.options,
@@ -11,14 +35,8 @@ class RadioInputFieldContainer extends StatefulWidget {
     this.activeColor,
   }) : super(key: key);
 
-  final List<InputFieldOption>? options;
-  final dynamic currentValue;
-  final Function onInputValueChange;
-  final Color? activeColor;
-  final bool? isReadOnly;
-
   @override
-  _RadioInputFieldContainerState createState() =>
+  State<RadioInputFieldContainer> createState() =>
       _RadioInputFieldContainerState();
 }
 
@@ -52,7 +70,9 @@ class _RadioInputFieldContainerState extends State<RadioInputFieldContainer> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 10.0,
+      ),
       child: Wrap(
         children: widget.options!
             .map(
@@ -73,7 +93,7 @@ class _RadioInputFieldContainerState extends State<RadioInputFieldContainer> {
                           ? widget.activeColor
                           : null,
                     ),
-                  )
+                  ),
                 ],
               ),
             )
