@@ -1,4 +1,12 @@
-### 1.1.0
+## 1.1.2
+
+- Bug fixing and other improvements
+
+## 1.1.1
+
+- Bug fixing and other improvements
+
+## 1.1.0
 
 - Support for Phone number input fields
 - Support for checkbox input fields
