@@ -12,7 +12,6 @@ export './src/main_directive.dart'
         BooleanInputFieldContainer,
         RadioInputFieldContainer,
         CheckBoxInputField,
-        CoordinateInputFieldContainer,
         DateInputFieldContainer,
         InputClearIcon,
         NumericalInputFieldContainer,

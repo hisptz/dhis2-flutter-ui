@@ -142,7 +142,10 @@ class SelectionOptionContainer extends StatelessWidget {
               height: 20.0,
               child: SvgPicture.asset(
                 'assets/icons/chevron_down.svg',
-                color: color ?? Colors.black,
+                colorFilter: ColorFilter.mode(
+                  color ?? Colors.black,
+                  BlendMode.srcATop,
+                ),
                 package: 'dhis2_flutter_ui',
               ),
             ),
