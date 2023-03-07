@@ -1,11 +1,9 @@
 // Copyright (c) 2023, HISP Tanzania Developers.
 // All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
+import 'package:dhis2_flutter_ui/src/main_directive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../../dhis2_flutter_ui.dart';
-import '../../models/input_field_option.dart';
 
 /// `SelectInputField` is a select input field for rendering selectable options
 class SelectInputField extends StatefulWidget {

@@ -2,7 +2,6 @@
 // All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/input_field_constants.dart';
@@ -241,7 +240,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
     return widget.inputFormatters
             ?.where((element) => element.runtimeType == InputMask)
             .map((e) => (e as InputMask).separator)
-            .firstOrNull ??
+            .first ??
         "";
   }
 
@@ -260,10 +259,9 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
       } else if (inputField.valueType == InputFieldConstants.trueOnly) {
         value = value == 'true' ? 'Yes' : value;
       } else if (inputField.options!.isNotEmpty) {
-        InputFieldOption? option = inputField.options!.firstWhereOrNull(
-            (InputFieldOption option) =>
-                option.code != null && option.code == value);
-        value = option != null ? option.name : value;
+        InputFieldOption? option =
+            inputField.options!.firstWhere((element) => false);
+        value = option.toString() != 'null' ? option.name : value;
       }
     }
     return Container(

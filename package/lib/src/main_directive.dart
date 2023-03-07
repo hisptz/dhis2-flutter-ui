@@ -30,8 +30,6 @@ export './ui/components/input_fields/radio_input_field_container.dart'
     show RadioInputFieldContainer;
 export './ui/components/input_fields/check_box_input_field.dart'
     show CheckBoxInputField;
-export './ui/components/input_fields/coordinate_input_field_container.dart'
-    show CoordinateInputFieldContainer;
 export './ui/components/input_fields/date_input_field_container.dart'
     show DateInputFieldContainer;
 export './ui/components/input_fields/input_clear_icon.dart' show InputClearIcon;
