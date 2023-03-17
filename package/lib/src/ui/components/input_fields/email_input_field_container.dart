@@ -61,13 +61,10 @@ class _EmailInputFieldContainerState extends State<EmailInputFieldContainer> {
 
   void onValueChange(String value) {
     bool isValidEmail = EntryFormUtil.isEmailValid(value..trim());
-    widget.setValidationError(false);
-    if (isValidEmail) {
-      widget.setValidationError(false);
-      widget.onInputValueChange(value.trim());
-    } else {
-      widget.setValidationError(true);
-    }
+    widget.onInputValueChange(value.trim());
+    isValidEmail
+        ? widget.setValidationError(false)
+        : widget.setValidationError(true);
   }
 
   @override
