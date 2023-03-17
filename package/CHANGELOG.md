@@ -1,3 +1,5 @@
+## 1.1.4
+- Added allowedSelectedLevels in input field
 ## 1.1.3
 - Bug fixing email input field
 ## 1.1.2
