@@ -37,7 +37,15 @@ class CoordinateInputFieldContainer extends StatefulWidget {
 class _CoordinateInputFieldContainerState
     extends State<CoordinateInputFieldContainer> {
   // Text controller for the location input field
-  final TextEditingController _locationController = TextEditingController();
+  // final TextEditingController _locationController = TextEditingController();
+ 
+ TextEditingController? locationController;
+
+  @override
+  void initState() {
+    super.initState();
+    locationController = TextEditingController(text: widget.inputValue);
+  }
 
 // Function to get the current location
   Future<void> _getLocation() async {
@@ -72,9 +80,13 @@ class _CoordinateInputFieldContainerState
 
       setState(() {
         if (widget.inputField.disableUpdateLocation==false) {
-          _locationController.text = newLocation;
+          locationController?.text = newLocation;
         }
       });
+
+    // Call the onValueChange function with the new coordinates
+    onValueChange(newLocation);
+
     } catch (e) {
       debugPrint("Error: ${e.toString()}");
     }
@@ -85,15 +97,22 @@ class _CoordinateInputFieldContainerState
     final position = await Navigator.push<Position>(
       context,
       MaterialPageRoute(
-        builder: (context) => MapScreen(locationText: _locationController.text),
+        builder: (context) => MapScreen(locationText: locationController!.text),
       ),
     );
     if (position != null) {
-      setState(() {
-        _locationController.text =
-            "${position.latitude}, ${position.longitude}";
-      });
+      String newLocation = "${position.latitude}, ${position.longitude}";
+
+    setState(() {
+      locationController?.text = newLocation;
+    });
+       // Call the onValueChange function with the new coordinates
+    onValueChange(newLocation);
     }
+  }
+
+  void onValueChange(String value){
+    widget.onInputValueChange(value.trim());
   }
 
   @override
@@ -102,7 +121,9 @@ class _CoordinateInputFieldContainerState
       children: [
         Expanded(
           child: TextFormField(
-            controller: _locationController,
+            controller: locationController,
+            readOnly: widget.inputField.isReadOnly!,
+            onChanged: onValueChange,
             decoration: InputDecoration(
               suffixIcon: Row(
                 mainAxisSize: MainAxisSize.min,
