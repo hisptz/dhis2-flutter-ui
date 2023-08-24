@@ -16,7 +16,6 @@ class CoordinateInputFieldContainer extends StatefulWidget {
   /// `String` value for the numerical field
   final String? inputValue;
 
-
   ///
   /// this is a default constructor for `CoordinateInputFieldContainer`
   ///
@@ -35,7 +34,7 @@ class CoordinateInputFieldContainer extends StatefulWidget {
 class _CoordinateInputFieldContainerState
     extends State<CoordinateInputFieldContainer> {
   // Text controller for the location input field
- TextEditingController? locationController;
+  TextEditingController? locationController;
 
   @override
   void initState() {
@@ -43,7 +42,7 @@ class _CoordinateInputFieldContainerState
     setState(() {});
     updateLocationValue(value: widget.inputValue);
   }
- 
+
   // Function to update the location value
   updateLocationValue({String? value = ''}) {
     locationController = TextEditingController(text: value);
@@ -82,14 +81,14 @@ class _CoordinateInputFieldContainerState
       String newLocation = "${position.latitude}, ${position.longitude}";
 
       setState(() {
-        if (widget.inputField.disableUpdateLocation==false) {
+        if (widget.inputField.disableUpdateLocation == false &&
+            widget.inputField.isReadOnly == false) {
           locationController?.text = newLocation;
         }
       });
 
-    // Call the onValueChange function with the new coordinates
-    onValueChange(newLocation);
-
+      // Call the onValueChange function with the new coordinates
+      onValueChange(newLocation);
     } catch (e) {
       debugPrint("Error: ${e.toString()}");
     }
@@ -100,26 +99,35 @@ class _CoordinateInputFieldContainerState
     final position = await Navigator.push<Position>(
       context,
       MaterialPageRoute(
-        builder: (context) => MapScreen(locationText: locationController!.text),
+        builder: (context) => MapScreen(
+          locationPoint: locationController!.text,
+          label: widget.inputField.name,
+          color: widget.inputField.inputColor!,
+          isReadOnly: widget.inputField.isReadOnly,
+        ),
       ),
     );
     if (position != null) {
       String newLocation = "${position.latitude}, ${position.longitude}";
 
-    setState(() {
-      locationController?.text = newLocation;
-    });
-    // Call the onValueChange function with the new coordinates
-    onValueChange(newLocation);
+      // Call the onValueChange function with the new coordinates
+      if (widget.inputField.isReadOnly == false &&
+          widget.inputField.disableUpdateLocation == false) {
+        setState(() {
+          locationController?.text = newLocation;
+        });
+        onValueChange(newLocation);
+      }
     }
   }
+
 // Function to call the onValueChange function
-  void onValueChange(String value){
-     setState(() {});
+  void onValueChange(String value) {
+    setState(() {});
     widget.onInputValueChange(value.trim());
   }
 
-   @override
+  @override
   void didUpdateWidget(covariant CoordinateInputFieldContainer oldWidget) {
     super.didUpdateWidget(widget);
     if (oldWidget.inputValue != widget.inputValue) {
@@ -149,13 +157,18 @@ class _CoordinateInputFieldContainerState
               suffixIcon: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (widget.inputField.disableUpdateLocation==false)
-                    IconButton(
+                  Visibility(
+                    visible: widget.inputField.disableUpdateLocation == false &&
+                        widget.inputField.isReadOnly == false,
+                    child: IconButton(
                       icon: const Icon(Icons.my_location),
+                      color: widget.inputField.inputColor,
                       onPressed: _getLocation,
                     ),
+                  ),
                   IconButton(
                     icon: const Icon(Icons.map),
+                    color: widget.inputField.inputColor,
                     onPressed: _openMapForLocation,
                   ),
                 ],
