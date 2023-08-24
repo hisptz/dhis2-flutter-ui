@@ -16,7 +16,6 @@ class CoordinateInputFieldContainer extends StatefulWidget {
   /// `String` value for the numerical field
   final String? inputValue;
 
-  final bool? disableUpdateLocation;
 
   ///
   /// this is a default constructor for `CoordinateInputFieldContainer`
@@ -26,7 +25,6 @@ class CoordinateInputFieldContainer extends StatefulWidget {
     required this.inputField,
     required this.onInputValueChange,
     this.inputValue,
-    this.disableUpdateLocation = true,
   }) : super(key: key);
 
   @override
@@ -37,8 +35,6 @@ class CoordinateInputFieldContainer extends StatefulWidget {
 class _CoordinateInputFieldContainerState
     extends State<CoordinateInputFieldContainer> {
   // Text controller for the location input field
-  // final TextEditingController _locationController = TextEditingController();
- 
  TextEditingController? locationController;
 
   @override
@@ -106,11 +102,11 @@ class _CoordinateInputFieldContainerState
     setState(() {
       locationController?.text = newLocation;
     });
-       // Call the onValueChange function with the new coordinates
+    // Call the onValueChange function with the new coordinates
     onValueChange(newLocation);
     }
   }
-
+// Function to call the onValueChange function
   void onValueChange(String value){
     widget.onInputValueChange(value.trim());
   }
