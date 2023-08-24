@@ -40,7 +40,14 @@ class _CoordinateInputFieldContainerState
   @override
   void initState() {
     super.initState();
-    locationController = TextEditingController(text: widget.inputValue);
+    setState(() {});
+    updateLocationValue(value: widget.inputValue);
+  }
+ 
+  // Function to update the location value
+  updateLocationValue({String? value = ''}) {
+    locationController = TextEditingController(text: value);
+    setState(() {});
   }
 
 // Function to get the current location
@@ -108,7 +115,21 @@ class _CoordinateInputFieldContainerState
   }
 // Function to call the onValueChange function
   void onValueChange(String value){
+     setState(() {});
     widget.onInputValueChange(value.trim());
+  }
+
+   @override
+  void didUpdateWidget(covariant CoordinateInputFieldContainer oldWidget) {
+    super.didUpdateWidget(widget);
+    if (oldWidget.inputValue != widget.inputValue) {
+      if (widget.inputField.isReadOnly!) {
+        updateLocationValue(value: widget.inputValue);
+      }
+      if (widget.inputValue == null || widget.inputValue == '') {
+        updateLocationValue();
+      }
+    }
   }
 
   @override
@@ -117,8 +138,12 @@ class _CoordinateInputFieldContainerState
       children: [
         Expanded(
           child: TextFormField(
-            controller: locationController,
             readOnly: widget.inputField.isReadOnly!,
+            controller: widget.inputField.isReadOnly!
+                ? TextEditingController(
+                    text: widget.inputValue,
+                  )
+                : locationController,
             onChanged: onValueChange,
             decoration: InputDecoration(
               suffixIcon: Row(
