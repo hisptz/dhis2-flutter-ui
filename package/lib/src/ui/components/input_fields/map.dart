@@ -5,9 +5,18 @@ import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
 
 class MapScreen extends StatefulWidget {
-  final String locationText;
+  final String locationPoint;
+  final Color color;
+  final String label;
+  final bool? isReadOnly;
 
-  const MapScreen({Key? key, required this.locationText}) : super(key: key);
+  const MapScreen({
+    Key? key,
+    required this.locationPoint,
+    required this.label,
+    this.color = Colors.blue,
+    this.isReadOnly = false,
+  }) : super(key: key);
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -22,47 +31,49 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
 
-    if (widget.locationText.isNotEmpty) {
-      final coords = widget.locationText.split(',');
-      final latitude = double.parse(coords[0]);
-      final longitude = double.parse(coords[1]);
+    if (widget.locationPoint.isNotEmpty) {
+      final coordinates = widget.locationPoint.split(',');
+      final latitude = double.parse(coordinates.first);
+      final longitude = double.parse(coordinates.last);
 
       _userLocationMarker = Marker(
         width: 80.0,
         height: 80.0,
         point: LatLng(latitude, longitude),
-        builder: (ctx) => const Icon(
+        builder: (ctx) => Icon(
           Icons.location_pin,
-          color: Colors.blue,
+          color: widget.color,
           size: 40.0,
         ),
       );
     }
   }
 
-  void _onMapTap(TapPosition point, LatLng latlng) {
+  void _onTapMapCanvas(TapPosition point, LatLng coordinate) {
     setState(() {
-      _userLocationMarker = Marker(
-        width: 80.0,
-        height: 80.0,
-        point: latlng,
-        builder: (ctx) => const Icon(
-          Icons.location_pin,
-          color: Colors.blue,
-          size: 40.0,
-        ),
-      );
+      if (widget.isReadOnly == false) {
+        _userLocationMarker = Marker(
+          width: 80.0,
+          height: 80.0,
+          point: coordinate,
+          builder: (BuildContext context) => Icon(
+            Icons.location_pin,
+            color: widget.color,
+            size: 40.0,
+          ),
+        );
 
-      _selectedPosition = Position(
-        latitude: latlng.latitude,
-        longitude: latlng.longitude,
-        accuracy: 0.0,
-        altitude: 0.0,
-        heading: 0.0,
-        speed: 0.0,
-        speedAccuracy: 0.0,
-        timestamp: DateTime.now(),
-      );
+        _selectedPosition = Position(
+          latitude: coordinate.latitude,
+          longitude: coordinate.longitude,
+          accuracy: 0.0,
+          altitude: 0.0,
+          heading: 0.0,
+          speed: 0.0,
+          speedAccuracy: 0.0,
+          timestamp: DateTime.now(),
+        );
+      }
     });
   }
 
@@ -70,21 +81,24 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Location'),
+        backgroundColor: widget.color,
+        title: Text(widget.label),
       ),
       body: FlutterMap(
         mapController: _mapController,
         options: MapOptions(
-          center: widget.locationText.isNotEmpty
+          center: widget.locationPoint.isNotEmpty
               ? LatLng(
-                  double.parse(widget.locationText.split(',')[0]),
-                  double.parse(widget.locationText.split(',')[1]),
+                  double.parse(widget.locationPoint.split(',')[0]),
+                  double.parse(widget.locationPoint.split(',')[1]),
                 )
               : const LatLng(
-                  -6.76456, 39.2484481), // Default if input field is empty
+                  0,
+                  0,
+                ), // Default if input field is empty
           maxZoom: 18,
           zoom: 18.0,
-          onTap: _onMapTap,
+          onTap: _onTapMapCanvas,
         ),
         children: [
           TileLayer(
@@ -98,14 +112,18 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ],
       ),
-      floatingActionButton: _selectedPosition != null
-          ? FloatingActionButton(
-              onPressed: () {
-                Navigator.pop(context, _selectedPosition);
-              },
-              child: const Icon(Icons.check),
-            )
-          : null,
+      floatingActionButton:
+          _selectedPosition != null && widget.isReadOnly == false
+              ? FloatingActionButton(
+                  focusColor: widget.color,
+                  hoverColor: widget.color,
+                  backgroundColor: widget.color,
+                  onPressed: () {
+                    Navigator.pop(context, _selectedPosition);
+                  },
+                  child: const Icon(Icons.check),
+                )
+              : null,
     );
   }
 }
