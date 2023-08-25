@@ -104,6 +104,32 @@ list of models
 | FormValidator | `Validators.pattern('regex','message')`            |
 | InputMask     | ` InputMask(pattern:'xxxx-xxx-xxx',separator:'-')` |
 
+
+### Permissions
+
+When using the Coordinate Input Field component within the DHIS2 Flutter UI library, it's important to ensure that the necessary permissions are granted for the seamless functionality of location-related features. The following permissions are required:
+
+1. **Android Permissions:**: For Android, you need to add the required permissions to the AndroidManifest.xml file. You can find this file in the android/app/src/main directory of your Flutter project.
+
+Add the following lines within the <manifest> section of the AndroidManifest.xml file:
+```
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+```
+
+2. **iOS Permissions:**: For iOS, you need to include the appropriate keys in your app's Info.plist file. You can find this file in the ios/Runner directory of your Flutter project.
+
+Open the Info.plist file and add the following keys:
+```
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your app's explanation for using location services while in use</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Your app's explanation for using location services in the background</string>
+```
+
+
+
 ## Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
