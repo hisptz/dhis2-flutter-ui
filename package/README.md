@@ -91,7 +91,7 @@ When using the Coordinate Input Field component within the DHIS2 Flutter UI libr
 
 Add the following lines within the <manifest> section of the AndroidManifest.xml file:
 
-    ```xml
+    ```
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
@@ -101,11 +101,11 @@ Add the following lines within the <manifest> section of the AndroidManifest.xml
 
 Open the Info.plist file and add the following keys:
 
-    ```xml
-   <key>NSLocationWhenInUseUsageDescription</key>
-   <string>Your app's explanation for using location services while in use</string>
-   <key>NSLocationAlwaysUsageDescription</key>
-   <string>Your app's explanation for using location services in the background</string>
+    ```
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your app's explanation for using location services while in use</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Your app's explanation for using location services in the background</string>
     ```
 
 ## Getting Started <a name = "getting_started"></a>
