@@ -97,6 +97,9 @@ class InputField {
   /// this is selected levels field
   List<int> allowedSelectedLevels;
 
+  /// State variable for auto updating location
+  bool? disableUpdateLocation;
+
   ///
   /// This is the default constructor to the `InputField`
   ///
@@ -129,7 +132,9 @@ class InputField {
       this.hasError = false,
       this.allowFuturePeriod = false,
       this.disablePastPeriod = false,
-      this.allowedSelectedLevels = const []});
+      this.allowedSelectedLevels = const [],
+      this.disableUpdateLocation = false,
+      });
 
   /// `InputField.toString()` is the method to return the `String` representation of the `InputField`
   @override
