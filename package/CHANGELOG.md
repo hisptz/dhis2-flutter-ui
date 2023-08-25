@@ -1,3 +1,5 @@
+## 1.1.5
+- Add support for Coordinate Input field 
 ## 1.1.4
 - Added allowedSelectedLevels in input field
 ## 1.1.3
