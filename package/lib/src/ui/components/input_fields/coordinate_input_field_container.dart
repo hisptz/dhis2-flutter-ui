@@ -40,6 +40,7 @@ class _CoordinateInputFieldContainerState
   void initState() {
     super.initState();
     setState(() {});
+    _getLocation();
     updateLocationValue(value: widget.inputValue);
   }
 
