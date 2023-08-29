@@ -40,7 +40,7 @@ class _CoordinateInputFieldContainerState
   void initState() {
     super.initState();
     setState(() {});
-    _getLocation();
+    _getDefaultLocation();
     updateLocationValue(value: widget.inputValue);
   }
 
@@ -51,7 +51,9 @@ class _CoordinateInputFieldContainerState
   }
 
 // Function to get the current location
-  Future<void> _getLocation() async {
+  Future<void> _getDefaultLocation({
+    bool reset = false,
+  }) async {
     bool locationEnabled = await Geolocator.isLocationServiceEnabled();
     if (!locationEnabled) {
       // Handle if location services are disabled
@@ -75,18 +77,14 @@ class _CoordinateInputFieldContainerState
       return;
     }
     try {
-      Position position = await Geolocator.getCurrentPosition(
+      Position currentPosition = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.best,
       );
 
-      String newLocation = "${position.latitude}, ${position.longitude}";
-
-      setState(() {
-        if (widget.inputField.disableUpdateLocation == false &&
-            widget.inputField.isReadOnly == false) {
-          locationController?.text = newLocation;
-        }
-      });
+      String newLocation =
+          (widget.inputValue == '' || widget.inputValue == null || reset)
+              ? "${currentPosition.latitude}, ${currentPosition.longitude}"
+              : widget.inputValue!;
 
       // Call the onValueChange function with the new coordinates
       onValueChange(newLocation);
@@ -112,8 +110,7 @@ class _CoordinateInputFieldContainerState
       String newLocation = "${position.latitude}, ${position.longitude}";
 
       // Call the onValueChange function with the new coordinates
-      if (widget.inputField.isReadOnly == false &&
-          widget.inputField.disableUpdateLocation == false) {
+      if (widget.inputField.disableLocationAutoUpdate == false) {
         setState(() {
           locationController?.text = newLocation;
         });
@@ -124,7 +121,9 @@ class _CoordinateInputFieldContainerState
 
 // Function to call the onValueChange function
   void onValueChange(String value) {
-    setState(() {});
+    setState(() {
+      locationController?.text = value;
+    });
     widget.onInputValueChange(value.trim());
   }
 
@@ -159,12 +158,11 @@ class _CoordinateInputFieldContainerState
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Visibility(
-                    visible: widget.inputField.disableUpdateLocation == false &&
-                        widget.inputField.isReadOnly == false,
+                    visible: widget.inputField.isReadOnly == false,
                     child: IconButton(
                       icon: const Icon(Icons.my_location),
                       color: widget.inputField.inputColor,
-                      onPressed: _getLocation,
+                      onPressed: () => _getDefaultLocation(reset: true),
                     ),
                   ),
                   IconButton(

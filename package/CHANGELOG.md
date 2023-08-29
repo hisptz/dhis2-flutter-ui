@@ -1,9 +1,20 @@
+## 1.1.6
+
+- Bugfix: Coordinate input field
+  - Fixed the auto-assignment of coordinate when initial value is passed
+
 ## 1.1.5
-- Add support for Coordinate Input field 
+
+- Add support for Coordinate Input field
+
 ## 1.1.4
+
 - Added allowedSelectedLevels in input field
+
 ## 1.1.3
+
 - Bug fixing email input field
+
 ## 1.1.2
 
 - Bug fixing and other improvements
