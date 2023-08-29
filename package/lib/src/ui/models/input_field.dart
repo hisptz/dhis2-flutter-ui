@@ -98,43 +98,43 @@ class InputField {
   List<int> allowedSelectedLevels;
 
   /// State variable for auto updating location
-  bool? disableUpdateLocation;
+  bool? disableLocationAutoUpdate;
 
   ///
   /// This is the default constructor to the `InputField`
   ///
-  InputField(
-      {required this.id,
-      required this.name,
-      required this.valueType,
-      this.translatedName = '',
-      this.description = '',
-      this.hint = '',
-      this.translatedHint = '',
-      this.translatedDescription = '',
-      this.prefixLabel = '',
-      this.suffixLabel = '',
-      this.subInputField,
-      this.maxYear,
-      this.minYear,
-      this.numberOfMonth,
-      this.minDate,
-      this.maxDate,
-      this.inputColor = AppConstants.defaultColor,
-      this.labelColor = const Color(0xFF1A3518),
-      this.background = Colors.transparent,
-      this.options = const [],
-      this.renderAsRadio = false,
-      this.isReadOnly = false,
-      this.hasSubInputField = false,
-      this.isPasswordField = false,
-      this.shouldCapitalize = false,
-      this.hasError = false,
-      this.allowFuturePeriod = false,
-      this.disablePastPeriod = false,
-      this.allowedSelectedLevels = const [],
-      this.disableUpdateLocation = false,
-      });
+  InputField({
+    required this.id,
+    required this.name,
+    required this.valueType,
+    this.translatedName = '',
+    this.description = '',
+    this.hint = '',
+    this.translatedHint = '',
+    this.translatedDescription = '',
+    this.prefixLabel = '',
+    this.suffixLabel = '',
+    this.subInputField,
+    this.maxYear,
+    this.minYear,
+    this.numberOfMonth,
+    this.minDate,
+    this.maxDate,
+    this.inputColor = AppConstants.defaultColor,
+    this.labelColor = const Color(0xFF1A3518),
+    this.background = Colors.transparent,
+    this.options = const [],
+    this.renderAsRadio = false,
+    this.isReadOnly = false,
+    this.hasSubInputField = false,
+    this.isPasswordField = false,
+    this.shouldCapitalize = false,
+    this.hasError = false,
+    this.allowFuturePeriod = false,
+    this.disablePastPeriod = false,
+    this.allowedSelectedLevels = const [],
+    this.disableLocationAutoUpdate = false,
+  });
 
   /// `InputField.toString()` is the method to return the `String` representation of the `InputField`
   @override
