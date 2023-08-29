@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   id: 'id-coordinate',
                   name: 'location',
                   valueType: 'COORDINATE',
-                  disableUpdateLocation: false,
+                  disableLocationAutoUpdate: false,
                 ),
                 onInputValueChange: onInputValueChange,
                 hiddenInputFieldOptions: const {},
