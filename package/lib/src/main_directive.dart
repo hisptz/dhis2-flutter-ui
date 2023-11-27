@@ -57,3 +57,5 @@ export './ui/components/input_fields/email_input_field_container.dart'
     show EmailInputFieldContainer;
 export './ui/components/input_fields/phone_number_input_field_container.dart'
     show PhoneNumberInputFieldContainer;
+export './ui/components/input_fields/coordinate_input_field_container.dart'
+    show CoordinateInputFieldContainer;

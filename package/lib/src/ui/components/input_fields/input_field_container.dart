@@ -20,6 +20,7 @@ import 'phone_number_input_field_container.dart';
 import 'select_input_field.dart';
 import 'text_input_field_container.dart';
 import 'true_only_input_field_container.dart';
+import 'coordinate_input_field_container.dart';
 
 /// `InputFieldContainer` is a generic class for rendering all the supported input fields
 class InputFieldContainer extends StatefulWidget {
@@ -461,9 +462,29 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                                                 value,
                                                               ),
                                                             )
-                                                          : Text(
-                                                              '${inputField.valueType} is not supported',
-                                                            ),
+                                                          : inputField.valueType ==
+                                                                  InputFieldConstants
+                                                                      .coordinate
+                                                              ? CoordinateInputFieldContainer(
+                                                                  inputField:
+                                                                      inputField,
+                                                                  inputValue: widget
+                                                                          .dataObject![
+                                                                      inputField
+                                                                          .id],
+                                                                  onInputValueChange:
+                                                                      (dynamic
+                                                                              value) =>
+                                                                          widget
+                                                                              .onInputValueChange!(
+                                                                    inputField
+                                                                        .id,
+                                                                    value,
+                                                                  ),
+                                                                )
+                                                              : Text(
+                                                                  '${inputField.valueType} is not supported',
+                                                                ),
                 ),
               ],
             )

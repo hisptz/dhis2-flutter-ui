@@ -14,4 +14,5 @@ class InputFieldConstants {
   static const String trueOnly = 'TRUE_ONLY';
   static const String integerZeroOrPositive = 'INTEGER_ZERO_OR_POSITIVE';
   static const String percentage = 'PERCENTAGE';
+  static const String coordinate = 'COORDINATE';
 }

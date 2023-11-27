@@ -62,6 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 mandatoryFieldObject: const {},
                 hiddenFields: const {},
               ),
+              InputFieldContainer(
+                inputField: InputField(
+                  id: 'id-coordinate',
+                  name: 'location',
+                  valueType: 'COORDINATE',
+                  disableLocationAutoUpdate: false,
+                ),
+                onInputValueChange: onInputValueChange,
+                hiddenInputFieldOptions: const {},
+                dataObject: const {},
+                mandatoryFieldObject: const {},
+                hiddenFields: const {},
+              ),
               Form(
                   key: _formKey,
                   child: InputFieldContainer(
