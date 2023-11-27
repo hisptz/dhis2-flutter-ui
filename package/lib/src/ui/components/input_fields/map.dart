@@ -72,6 +72,8 @@ class _MapScreenState extends State<MapScreen> {
           speed: 0.0,
           speedAccuracy: 0.0,
           timestamp: DateTime.now(),
+          altitudeAccuracy: 0.0,
+          headingAccuracy: 0.0,
         );
       }
     });
