@@ -1,3 +1,7 @@
+## 1.1.7
+
+- Fixing missing required paremeter in Map input field
+
 ## 1.1.6
 
 - Bugfix: Coordinate input field
