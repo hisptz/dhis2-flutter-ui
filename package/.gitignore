@@ -31,3 +31,4 @@
 build/
 .metadata
 example/input_fields/.metadata
+.vscode/
