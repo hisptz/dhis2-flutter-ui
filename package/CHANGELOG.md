@@ -1,3 +1,7 @@
+## 1.1.8
+
+- Support to set max character on TEXT input field
+
 ## 1.1.7
 
 - Fixing missing required paremeter in Map input field
