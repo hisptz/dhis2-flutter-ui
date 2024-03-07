@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 hiddenFields: const {},
               ),
               Form(
-                  key: _formKey,
+                  key: formKey,
                   child: InputFieldContainer(
                     inputField: InputField(
                         id: 'id-formatted',
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onError: (err) => {},
                   )),
               ElevatedButton(
-                  onPressed: () => _formKey.currentState!.validate(),
+                  onPressed: () => formKey.currentState!.validate(),
                   child: const Text("Submit")),
               const SearchInput(
                 onSearch: null,
