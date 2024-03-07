@@ -29,4 +29,5 @@ export './src/main_directive.dart'
         FormFieldInputIcon,
         EmailInputFieldContainer,
         PhoneNumberInputFieldContainer,
-        CoordinateInputFieldContainer;
+        CoordinateInputFieldContainer,
+        AppModalUtil;

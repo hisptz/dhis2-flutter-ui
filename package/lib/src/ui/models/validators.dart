@@ -18,7 +18,7 @@ class Validators {
   ///  @return: the method return the `FormValidator` function
   ///
   static FormValidator pattern(String regex, String? message) => () => {
-        "pattern": () => [regex, message]
+        'pattern': () => [regex, message]
       };
 }
 
@@ -36,7 +36,7 @@ extension Validator on String? {
           final validator = e.call();
           if (validator != null) {
             if (validator is Map) {
-              if (validator["pattern"] != null) {
+              if (validator['pattern'] != null) {
                 return () => _pattern(validator);
               }
             }
@@ -49,7 +49,7 @@ extension Validator on String? {
   }
 
   _pattern(Map validator) {
-    final List<String?> pattern = validator["pattern"].call();
+    final List<String?> pattern = validator['pattern'].call();
 
     if (pattern.isEmpty) return null;
 
