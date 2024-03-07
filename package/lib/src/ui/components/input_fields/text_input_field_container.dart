@@ -8,30 +8,30 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../models/input_field.dart';
 import '../../models/validators.dart';
 
-/// `TextInputFieldContainer` is the input field container for a text field
+// `TextInputFieldContainer` is the input field container for a text field
 class TextInputFieldContainer extends StatefulWidget {
-  /// `InputField` is the input field metadata for a text field
+  // `InputField` is the input field metadata for a text field
   final InputField inputField;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function? onInputValueChange;
 
-  /// `String` value for the input field
+  // `String` value for the input field
   final String? inputValue;
 
-  /// `bool` variable to indicate wether or not a check icon for text input should be shown
+  // `bool` variable to indicate wether or not a check icon for text input should be shown
   final bool showInputCheckedIcon;
 
-  /// `List` of `FormValidator` for the text input field
+  // `List` of `FormValidator` for the text input field
   final List<FormValidator>? validators;
 
-  /// `List` of the `TextInputFormatter` for the text input field
+  // `List` of the `TextInputFormatter` for the text input field
   final List<TextInputFormatter>? inputFormatters;
 
-  ///
-  /// this is a default constructor for the `TextInputFieldContainer`
-  /// the constructor accepts `InputField` metadata, `String` value, `List<FormValidator>` of form validators, a callback `Function` that is called when the value changed and a `List<TextInputFormatter>` of text field formatters
-  ///
+  //
+  // this is a default constructor for the `TextInputFieldContainer`
+  // the constructor accepts `InputField` metadata, `String` value, `List<FormValidator>` of form validators, a callback `Function` that is called when the value changed and a `List<TextInputFormatter>` of text field formatters
+  //
   const TextInputFieldContainer({
     Key? key,
     required this.inputField,

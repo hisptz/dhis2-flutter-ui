@@ -5,24 +5,24 @@ import 'package:flutter/material.dart';
 
 import '../../models/input_field.dart';
 
-/// `PercentageInputFieldContainer` is a container for the percentage input fields
+// `PercentageInputFieldContainer` is a container for the percentage input fields
 class PercentageInputFieldContainer extends StatefulWidget {
-  /// `InputField` is the input field metadata for the percentage input field container
+  // `InputField` is the input field metadata for the percentage input field container
   final InputField inputField;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function onInputValueChange;
 
-  /// `Function` callback called to set validation errors
+  // `Function` callback called to set validation errors
   final Function setValidationError;
 
-  /// `String` value for the percentage input field
+  // `String` value for the percentage input field
   final String? inputValue;
 
-  ///
-  /// this is the default constructor for the `PercentageInputFieldContainer`
-  ///  the constructor accepts `Function` callback called to set validation errors, `InputField` that is the input field metadata, `Function` callback called when input values had changed and a `String` value for the percentage input field
-  ///
+  //
+  // this is the default constructor for the `PercentageInputFieldContainer`
+  //  the constructor accepts `Function` callback called to set validation errors, `InputField` that is the input field metadata, `Function` callback called when input values had changed and a `String` value for the percentage input field
+  //
   const PercentageInputFieldContainer({
     Key? key,
     required this.inputField,

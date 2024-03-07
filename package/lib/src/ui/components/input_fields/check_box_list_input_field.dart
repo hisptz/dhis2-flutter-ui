@@ -7,26 +7,26 @@ import '../../models/input_field.dart';
 import '../../models/input_field_option.dart';
 import 'check_box_input_field_container.dart';
 
-///
-/// `CheckBoxListInputField` this is a container widget for displaying a list of check box inputs
-///
+//
+// `CheckBoxListInputField` this is a container widget for displaying a list of check box inputs
+//
 class CheckBoxListInputField extends StatefulWidget {
-  /// `InputField` is the input field metadata for the checkbox input
+  // `InputField` is the input field metadata for the checkbox input
   final InputField inputField;
 
-  /// `Map` key values pair for the values of the form object
+  // `Map` key values pair for the values of the form object
   final Map dataObject;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function? onInputValueChange;
 
-  /// `bool` value to show whether the values are to be rendered as readonly or not
+  // `bool` value to show whether the values are to be rendered as readonly or not
   final bool isReadOnly;
 
-  ///
-  /// this is the default constructor for the `CheckBoxListInputField`
-  /// the parameter accepts `InputField` metadata, `Map` form data objects, `bool` readonly indicators and `Function` callback
-  ///
+  //
+  // this is the default constructor for the `CheckBoxListInputField`
+  // the parameter accepts `InputField` metadata, `Map` form data objects, `bool` readonly indicators and `Function` callback
+  //
   const CheckBoxListInputField({
     Key? key,
     required this.inputField,

@@ -7,23 +7,23 @@ import '../../models/input_field.dart';
 import '../../models/input_field_option.dart';
 import 'radio_input_field_container.dart';
 
-///
-/// `BooleanInputFieldContainer` is a container widget for the Boolean inputs.
-///
+//
+// `BooleanInputFieldContainer` is a container widget for the Boolean inputs.
+//
 class BooleanInputFieldContainer extends StatefulWidget {
-  /// this is the `InputField` object that described the metadata for input field
+  // this is the `InputField` object that described the metadata for input field
   final InputField inputField;
 
-  /// this is the `Function` that gets called when the input value has changed
+  // this is the `Function` that gets called when the input value has changed
   final Function onInputValueChange;
 
-  /// this is a `dynamic` value for the `BooleanInputFieldContainer`
+  // this is a `dynamic` value for the `BooleanInputFieldContainer`
   final dynamic inputValue;
 
-  ///
-  /// this is a default constructor for the `BooleanInputFieldContainer`
-  /// it accepts the input field object, input value and a handler function for when the value change
-  ///
+  //
+  // this is a default constructor for the `BooleanInputFieldContainer`
+  // it accepts the input field object, input value and a handler function for when the value change
+  //
   const BooleanInputFieldContainer({
     Key? key,
     required this.inputField,
@@ -38,9 +38,9 @@ class BooleanInputFieldContainer extends StatefulWidget {
 
 class _BooleanInputFieldContainerState
     extends State<BooleanInputFieldContainer> {
-  ///
-  /// This is the list of `InputFieldOption` that are used as boolean in DHIS2
-  ///
+  //
+  // This is the list of `InputFieldOption` that are used as boolean in DHIS2
+  //
   final List<InputFieldOption> options = [
     InputFieldOption(
       name: 'Yes',
@@ -61,7 +61,7 @@ class _BooleanInputFieldContainerState
     _updateInputFieldState();
   }
 
-  /// this is the function that updates the state of the input value
+  // this is the function that updates the state of the input value
   _updateInputFieldState() {
     setState(() {
       _inputValue =

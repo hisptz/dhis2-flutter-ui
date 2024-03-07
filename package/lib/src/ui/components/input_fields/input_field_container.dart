@@ -22,45 +22,45 @@ import 'text_input_field_container.dart';
 import 'true_only_input_field_container.dart';
 import 'coordinate_input_field_container.dart';
 
-/// `InputFieldContainer` is a generic class for rendering all the supported input fields
+// `InputFieldContainer` is a generic class for rendering all the supported input fields
 class InputFieldContainer extends StatefulWidget {
-  /// `InputField` metadata
+  // `InputField` metadata
   final InputField inputField;
 
-  /// `bool` variable to indicate wether or not the input is editable
+  // `bool` variable to indicate wether or not the input is editable
   final bool? isEditableMode;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function? onInputValueChange;
 
-  /// `Map` key value pair for the input field values, eg `{"key": "value"}`
+  // `Map` key value pair for the input field values, eg `{"key": "value"}`
   final Map? dataObject;
 
-  /// `Map` key value pairs of the mandatory fields, eg `{"name": true}`
+  // `Map` key value pairs of the mandatory fields, eg `{"name": true}`
   final Map? mandatoryFieldObject;
 
-  /// `Map` key value pairs of the hidden options, eg `{"male": true}`
+  // `Map` key value pairs of the hidden options, eg `{"male": true}`
   final Map hiddenInputFieldOptions;
 
-  /// `bool` variable to show wether or not an input field should have a clearing icon
+  // `bool` variable to show wether or not an input field should have a clearing icon
   final bool showClearIcon;
 
-  /// `Map` key value pairs of the hidden options, eg `{"name": true}`
+  // `Map` key value pairs of the hidden options, eg `{"name": true}`
   final Map? hiddenFields;
 
-  /// `List` of `FormValidator` for the input field
+  // `List` of `FormValidator` for the input field
   final List<FormValidator>? validators;
 
-  /// `List` of `TextInputFormatter` for the input field
+  // `List` of `TextInputFormatter` for the input field
   final List<TextInputFormatter>? inputFormatters;
 
-  /// `Function` callback called when an error occurs
+  // `Function` callback called when an error occurs
   final Function(String?)? onError;
 
-  ///
-  /// this is the default constructor for the `InputFieldContainer`
-  /// among the parameters, the `required` parameters for rendering an input are
-  ///
+  //
+  // this is the default constructor for the `InputFieldContainer`
+  // among the parameters, the `required` parameters for rendering an input are
+  //
   const InputFieldContainer({
     Key? key,
     required this.inputField,

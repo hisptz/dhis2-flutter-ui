@@ -7,18 +7,18 @@ import 'package:geolocator/geolocator.dart';
 import 'map.dart';
 
 class CoordinateInputFieldContainer extends StatefulWidget {
-  /// `InputField` metadata for the numerical input field container
+  // `InputField` metadata for the numerical input field container
   final InputField inputField;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function onInputValueChange;
 
-  /// `String` value for the numerical field
+  // `String` value for the numerical field
   final String? inputValue;
 
-  ///
-  /// this is a default constructor for `CoordinateInputFieldContainer`
-  ///
+  //
+  // this is a default constructor for `CoordinateInputFieldContainer`
+  //
   const CoordinateInputFieldContainer({
     Key? key,
     required this.inputField,

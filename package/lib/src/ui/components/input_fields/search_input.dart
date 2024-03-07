@@ -6,21 +6,21 @@ import 'package:flutter/material.dart';
 import '../../core/app_constants.dart';
 import '../../models/input_field.dart';
 
-/// `SearchInput` is the widget for a search input
+// `SearchInput` is the widget for a search input
 class SearchInput extends StatefulWidget {
-  /// a callback `Function` called on searching
+  // a callback `Function` called on searching
   final Function? onSearch;
 
-  ///  `String` placeholder for the search input
+  //  `String` placeholder for the search input
   final String? placeHolder;
 
-  /// `Color` for the search input borders, placeholder and icons
+  // `Color` for the search input borders, placeholder and icons
   final Color? color;
 
-  ///
-  /// is a default constructor for `SearchInput`
-  ///  the constructor accepts a callback `Function` called on searching, `Color` for the search input and `String` placeholder
-  ///
+  //
+  // is a default constructor for `SearchInput`
+  //  the constructor accepts a callback `Function` called on searching, `Color` for the search input and `String` placeholder
+  //
   const SearchInput({
     Key? key,
     this.onSearch,

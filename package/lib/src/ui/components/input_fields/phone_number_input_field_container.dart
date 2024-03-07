@@ -7,21 +7,21 @@ import 'package:flutter/material.dart';
 import '../../models/input_field.dart';
 
 class PhoneNumberInputFieldContainer extends StatefulWidget {
-  /// `InputField` is the input field metadata for the phone number input field container
+  // `InputField` is the input field metadata for the phone number input field container
   final InputField inputField;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function onInputValueChange;
 
-  /// `Function` callback called when value is either valid or not for set validation error
+  // `Function` callback called when value is either valid or not for set validation error
   final Function setValidationError;
 
-  /// `String` value for the phone number field
+  // `String` value for the phone number field
   final String? inputValue;
 
-  ///
-  /// this is a default constructor for the `PhoneNumberInputFieldContainer`
-  /// the constructor accepts `String` value for the phone number field, `Function` callback called when input values had changed and  `InputField` metadata
+  //
+  // this is a default constructor for the `PhoneNumberInputFieldContainer`
+  // the constructor accepts `String` value for the phone number field, `Function` callback called when input values had changed and  `InputField` metadata
   const PhoneNumberInputFieldContainer({
     Key? key,
     required this.inputField,
