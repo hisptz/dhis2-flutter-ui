@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -40,7 +39,7 @@ class _MapScreenState extends State<MapScreen> {
         width: 80.0,
         height: 80.0,
         point: LatLng(latitude, longitude),
-        builder: (ctx) => Icon(
+        child: Icon(
           Icons.location_pin,
           color: widget.color,
           size: 40.0,
@@ -56,7 +55,7 @@ class _MapScreenState extends State<MapScreen> {
           width: 80.0,
           height: 80.0,
           point: coordinate,
-          builder: (BuildContext context) => Icon(
+          child: Icon(
             Icons.location_pin,
             color: widget.color,
             size: 40.0,
@@ -89,7 +88,7 @@ class _MapScreenState extends State<MapScreen> {
       body: FlutterMap(
         mapController: _mapController,
         options: MapOptions(
-          center: widget.locationPoint.isNotEmpty
+          initialCenter: widget.locationPoint.isNotEmpty
               ? LatLng(
                   double.parse(widget.locationPoint.split(',')[0]),
                   double.parse(widget.locationPoint.split(',')[1]),
@@ -99,7 +98,7 @@ class _MapScreenState extends State<MapScreen> {
                   0,
                 ), // Default if input field is empty
           maxZoom: 18,
-          zoom: 18.0,
+          initialZoom: 18.0,
           onTap: _onTapMapCanvas,
         ),
         children: [

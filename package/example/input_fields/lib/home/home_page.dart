@@ -13,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   void onInputValueChange(String id, dynamic value) {
-    debugPrint("$id => $value");
+    debugPrint('$id => $value');
   }
 
   @override
@@ -82,25 +82,25 @@ class _MyHomePageState extends State<MyHomePage> {
                         id: 'id-formatted',
                         name: 'name',
                         valueType: 'TEXT',
-                        prefixLabel: "T—",
-                        hint: "XXXX—XXXX—XXX—X"),
+                        prefixLabel: 'T—',
+                        hint: 'XXXX—XXXX—XXX—X'),
                     onInputValueChange: onInputValueChange,
                     hiddenInputFieldOptions: const {},
                     dataObject: const {},
                     mandatoryFieldObject: const {},
                     hiddenFields: const {},
                     validators: [
-                      Validators.pattern("[0-9]{4}—[0-9]{4}—[0-9]{2}",
-                          "Enter Valid ID number. "),
+                      Validators.pattern('[0-9]{4}—[0-9]{4}—[0-9]{2}',
+                          'Enter Valid ID number. '),
                     ],
                     inputFormatters: [
-                      InputMask(pattern: "XXXX—XXXX—XXX—X", separator: "—"),
+                      InputMask(pattern: 'XXXX—XXXX—XXX—X', separator: '—'),
                     ],
                     onError: (err) => {},
                   )),
               ElevatedButton(
                   onPressed: () => _formKey.currentState!.validate(),
-                  child: const Text("Submit")),
+                  child: const Text('Submit')),
               const SearchInput(
                 onSearch: null,
               ),
