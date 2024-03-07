@@ -1,5 +1,11 @@
 import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
-    show InputField, InputFieldContainer, InputMask, SearchInput, Validators;
+    show
+        AppModalUtil,
+        InputField,
+        InputFieldContainer,
+        InputMask,
+        SearchInput,
+        Validators;
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,6 +22,23 @@ class _MyHomePageState extends State<MyHomePage> {
     debugPrint('$id => $value');
   }
 
+  void showActionSheetContainer(BuildContext context) async {
+    double maxHeightRatio = 0.85;
+    double topBorderRadius = 10.0;
+    var response = await AppModalUtil.showActionSheetModal(
+      context: context,
+      actionSheetContainer: Center(
+        child: Text(
+          'action Sheet container',
+        ),
+      ),
+      maxHeightRatio: maxHeightRatio,
+      initialHeightRatio: maxHeightRatio,
+      topBorderRadius: topBorderRadius,
+    );
+    debugPrint('response => $response');
+  }
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -29,10 +52,18 @@ class _MyHomePageState extends State<MyHomePage> {
             horizontal: 30.0,
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                ),
+                child: TextButton(
+                  onPressed: () => showActionSheetContainer(context),
+                  child: Text(
+                    'Show action Sheet',
+                  ),
+                ),
               ),
               InputFieldContainer(
                 inputField: InputField(
@@ -99,8 +130,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     onError: (err) => {},
                   )),
               ElevatedButton(
-                  onPressed: () => _formKey.currentState!.validate(),
-                  child: const Text('Submit')),
+                onPressed: () => _formKey.currentState!.validate(),
+                child: const Text('Submit'),
+              ),
               const SearchInput(
                 onSearch: null,
               ),
