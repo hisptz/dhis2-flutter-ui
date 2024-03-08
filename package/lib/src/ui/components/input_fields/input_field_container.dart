@@ -223,7 +223,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                 top: 4,
               ),
               child: Text(
-                error ?? "",
+                error ?? '',
                 style: const TextStyle(
                   color: Colors.red,
                 ),
@@ -242,7 +242,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
             ?.where((element) => element.runtimeType == InputMask)
             .map((e) => (e as InputMask).separator)
             .first ??
-        "";
+        '';
   }
 
   Widget _getInputFieldLabel(InputField? inputField) {
@@ -340,7 +340,7 @@ class _InputFieldContainerState extends State<InputFieldContainer> {
                                     widget.onInputValueChange!(
                                         inputField.id,
                                         value.replaceAll(
-                                            getInputMaskSeparator(), ""));
+                                            getInputMaskSeparator(), ''));
                                     error = value.validate(widget.validators);
                                     if (widget.onError != null) {
                                       setState(() {

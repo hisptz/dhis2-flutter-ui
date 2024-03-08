@@ -57,7 +57,7 @@ class _CoordinateInputFieldContainerState
     bool locationEnabled = await Geolocator.isLocationServiceEnabled();
     if (!locationEnabled) {
       // Handle if location services are disabled
-      debugPrint("Location services are disabled.");
+      debugPrint('Location services are disabled.');
       return;
     }
 
@@ -83,13 +83,13 @@ class _CoordinateInputFieldContainerState
 
       String newLocation =
           (widget.inputValue == '' || widget.inputValue == null || reset)
-              ? "${currentPosition.latitude}, ${currentPosition.longitude}"
+              ? '${currentPosition.latitude}, ${currentPosition.longitude}'
               : widget.inputValue!;
 
       // Call the onValueChange function with the new coordinates
       onValueChange(newLocation);
     } catch (e) {
-      debugPrint("Error: ${e.toString()}");
+      debugPrint('Error: ${e.toString()}');
     }
   }
 
@@ -107,7 +107,7 @@ class _CoordinateInputFieldContainerState
       ),
     );
     if (position != null) {
-      String newLocation = "${position.latitude}, ${position.longitude}";
+      String newLocation = '${position.latitude}, ${position.longitude}';
 
       // Call the onValueChange function with the new coordinates
       if (widget.inputField.disableLocationAutoUpdate == false) {

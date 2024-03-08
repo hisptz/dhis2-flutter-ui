@@ -43,7 +43,10 @@ class InputField {
   // this is a `bool` that specifies wether `InputField` is read only or not
   bool? isReadOnly;
 
-  // this is a `bool` that specifies wether `InputField` should be rendered as password input
+  /// this is `int` that specify wether `InputField` has max numbet of characters
+  int? maxLength;
+
+  /// this is a `bool` that specifies wether `InputField` should be rendered as password input
   bool? isPasswordField;
 
   // this is a `bool` that specifies wether `InputField` value should be capitalized or not
@@ -115,6 +118,7 @@ class InputField {
     this.prefixLabel = '',
     this.suffixLabel = '',
     this.subInputField,
+    this.maxLength,
     this.maxYear,
     this.minYear,
     this.numberOfMonth,

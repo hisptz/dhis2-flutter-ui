@@ -112,6 +112,7 @@ class _TextInputFieldContainerState extends State<TextInputFieldContainer> {
                     text: widget.inputValue,
                   )
                 : textController,
+            maxLength: widget.inputField.maxLength,
             onChanged: onValueChange,
             inputFormatters: widget.inputFormatters,
             maxLines: widget.inputField.valueType == 'LONG_TEXT' ? null : 1,

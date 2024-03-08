@@ -6,6 +6,8 @@ export './ui/models/input_field.dart' show InputField;
 export 'ui/models/input_mask.dart' show InputMask;
 export 'ui/models/validators.dart' show Validators;
 
+export './ui/utils/app_modal_util.dart' show AppModalUtil;
+
 /**
  *  general components
  */

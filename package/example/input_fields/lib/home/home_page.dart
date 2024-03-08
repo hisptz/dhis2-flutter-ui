@@ -1,5 +1,11 @@
 import 'package:dhis2_flutter_ui/dhis2_flutter_ui.dart'
-    show InputField, InputFieldContainer, InputMask, SearchInput, Validators;
+    show
+        AppModalUtil,
+        InputField,
+        InputFieldContainer,
+        InputMask,
+        SearchInput,
+        Validators;
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,7 +19,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   void onInputValueChange(String id, dynamic value) {
-    debugPrint("$id => $value");
+    debugPrint('$id => $value');
+  }
+
+  void showActionSheetContainer(BuildContext context) async {
+    double maxHeightRatio = 0.85;
+    double topBorderRadius = 10.0;
+    var response = await AppModalUtil.showActionSheetModal(
+      context: context,
+      actionSheetContainer: Center(
+        child: Text(
+          'action Sheet container',
+        ),
+      ),
+      maxHeightRatio: maxHeightRatio,
+      initialHeightRatio: maxHeightRatio,
+      topBorderRadius: topBorderRadius,
+    );
+    debugPrint('response => $response');
   }
 
   @override
@@ -29,10 +52,18 @@ class _MyHomePageState extends State<MyHomePage> {
             horizontal: 30.0,
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                ),
+                child: TextButton(
+                  onPressed: () => showActionSheetContainer(context),
+                  child: Text(
+                    'Show action Sheet',
+                  ),
+                ),
               ),
               InputFieldContainer(
                 inputField: InputField(
@@ -82,19 +113,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         id: 'id-formatted',
                         name: 'name',
                         valueType: 'TEXT',
-                        prefixLabel: "T—",
-                        hint: "XXXX—XXXX—XXX—X"),
+                        prefixLabel: 'T—',
+                        hint: 'XXXX—XXXX—XXX—X'),
                     onInputValueChange: onInputValueChange,
                     hiddenInputFieldOptions: const {},
                     dataObject: const {},
                     mandatoryFieldObject: const {},
                     hiddenFields: const {},
                     validators: [
-                      Validators.pattern("[0-9]{4}—[0-9]{4}—[0-9]{2}",
-                          "Enter Valid ID number. "),
+                      Validators.pattern('[0-9]{4}—[0-9]{4}—[0-9]{2}',
+                          'Enter Valid ID number. '),
                     ],
                     inputFormatters: [
-                      InputMask(pattern: "XXXX—XXXX—XXX—X", separator: "—"),
+                      InputMask(pattern: 'XXXX—XXXX—XXX—X', separator: '—'),
                     ],
                     onError: (err) => {},
                   )),
