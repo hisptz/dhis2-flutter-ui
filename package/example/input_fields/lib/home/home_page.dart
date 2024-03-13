@@ -22,14 +22,61 @@ class _MyHomePageState extends State<MyHomePage> {
     debugPrint('$id => $value');
   }
 
+  void showPopUpConfirmation(context) {
+    AppModalUtil.showPopUpConfirmation(
+      context,
+      themColor: Colors.green,
+      title: 'Title',
+      confirmActionLabel: 'Confirm',
+      confirmationContent: Container(
+        margin: const EdgeInsets.symmetric(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis, urna vitae lacinia feugiat',
+                style: const TextStyle(color: Color(0xFF1D2B36)),
+              ),
+            ),
+            Container(
+              child: Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis, urna vitae lacinia feugiat',
+                style: const TextStyle(color: Color(0xFF1D2B36)),
+              ),
+            )
+          ],
+        ),
+      ),
+      confirmationButtomThemColor: Colors.green,
+      actionButtomAlignment: MainAxisAlignment.center, // Alignment of actions
+      onConfirm: () => print(
+        'yeas on confirm call back',
+      ), // this is called if default action has been set
+      customConfirmationActionButtons: [], // If you wish to add custom action for implementation
+    );
+  }
+
   void showActionSheetContainer(BuildContext context) async {
     double maxHeightRatio = 0.85;
     double topBorderRadius = 10.0;
     var response = await AppModalUtil.showActionSheetModal(
       context: context,
       actionSheetContainer: Center(
-        child: Text(
-          'action Sheet container',
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'action Sheet container',
+              style: const TextStyle(
+                color: Color(0xFF1D2B36),
+              ),
+            ),
+            TextButton(
+              onPressed: () => showPopUpConfirmation(context),
+              child: Text('Show Pop Up'),
+            )
+          ],
         ),
       ),
       maxHeightRatio: maxHeightRatio,
@@ -56,7 +103,16 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(
-                  vertical: 10.0,
+                  vertical: 5.0,
+                ),
+                child: TextButton(
+                  onPressed: () => showPopUpConfirmation(context),
+                  child: Text('Show Pop Up'),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(
+                  vertical: 5.0,
                 ),
                 child: TextButton(
                   onPressed: () => showActionSheetContainer(context),
