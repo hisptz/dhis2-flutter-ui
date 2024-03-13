@@ -5,21 +5,21 @@ import 'package:flutter/material.dart';
 
 import '../../models/input_field.dart';
 
-/// `NumericalInputFieldContainer` is an input field container for numerical input fields
+// `NumericalInputFieldContainer` is an input field container for numerical input fields
 class NumericalInputFieldContainer extends StatefulWidget {
-  /// `InputField` metadata for the numerical input field container
+  // `InputField` metadata for the numerical input field container
   final InputField inputField;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function onInputValueChange;
 
-  /// `String` value for the numerical field
+  // `String` value for the numerical field
   final String? inputValue;
 
-  ///
-  /// this is a default constructor for `NumericalInputFieldContainer`
-  /// the constructor accepts `String` value for the numerical field, `Function` callback called when input values had changed and `InputField` metadata for the numerical input field container
-  ///
+  //
+  // this is a default constructor for `NumericalInputFieldContainer`
+  // the constructor accepts `String` value for the numerical field, `Function` callback called when input values had changed and `InputField` metadata for the numerical input field container
+  //
   const NumericalInputFieldContainer({
     Key? key,
     required this.inputField,

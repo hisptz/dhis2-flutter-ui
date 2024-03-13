@@ -1,7 +1,7 @@
 // Copyright (c) 2023, HISP Tanzania Developers.
 // All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
-/// `InputFieldConstants` collection of constants for input fields
+// `InputFieldConstants` collection of constants for input fields
 class InputFieldConstants {
   static const String checkBox = 'CHECK_BOX';
   static const String text = 'TEXT';

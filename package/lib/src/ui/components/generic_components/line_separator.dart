@@ -3,24 +3,24 @@
 
 import 'package:flutter/material.dart';
 
-///
-/// `LineSeparator` is the widget for the a line
-///
+//
+// `LineSeparator` is the widget for the a line
+//
 class LineSeparator extends StatelessWidget {
-  ///
-  /// this is the default constructor for the `LineSeparator`
-  /// it accepts the color and height for the line
-  ///
+  //
+  // this is the default constructor for the `LineSeparator`
+  // it accepts the color and height for the line
+  //
   const LineSeparator({
     Key? key,
     required this.color,
     this.height = 2.0,
   }) : super(key: key);
 
-  /// this is a `Color` for the line
+  // this is a `Color` for the line
   final Color color;
 
-  /// this is a `double` for the height of the line, it can be considered as a thickness of line
+  // this is a `double` for the height of the line, it can be considered as a thickness of line
   final double height;
 
   @override

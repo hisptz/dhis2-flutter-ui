@@ -3,15 +3,15 @@
 
 import 'package:flutter/material.dart';
 
-///
-/// `MaterialCard` is a widget for rendering cards. It offers flexibility for elevation and border radius.
-///
+//
+// `MaterialCard` is a widget for rendering cards. It offers flexibility for elevation and border radius.
+//
 
 class MaterialCard extends StatelessWidget {
-  ///
-  /// this is the default constructor for the `MaterialCard`
-  /// it accepts the body widget, card elevation and border radius
-  ///
+  //
+  // this is the default constructor for the `MaterialCard`
+  // it accepts the body widget, card elevation and border radius
+  //
   const MaterialCard({
     Key? key,
     required this.body,
@@ -19,13 +19,13 @@ class MaterialCard extends StatelessWidget {
     this.borderRadius = 12.0,
   }) : super(key: key);
 
-  /// this is a `Widget` that is the body for the `MaterialCard`
+  // this is a `Widget` that is the body for the `MaterialCard`
   final Widget body;
 
-  /// this is a `double` that represents the elevation of the `MaterialCard`
+  // this is a `double` that represents the elevation of the `MaterialCard`
   final double elevation;
 
-  /// this is a `double` for the border radius of the `MaterialCard`
+  // this is a `double` for the border radius of the `MaterialCard`
   final double borderRadius;
 
   @override

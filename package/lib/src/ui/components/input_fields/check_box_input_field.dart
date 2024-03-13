@@ -3,29 +3,29 @@
 
 import 'package:flutter/material.dart';
 
-///
-/// `CheckBoxInputField` is a widget for rendering check box inputs
-///
+//
+// `CheckBoxInputField` is a widget for rendering check box inputs
+//
 class CheckBoxInputField extends StatefulWidget {
-  /// this is a `Function` that is called when the input value has changed
+  // this is a `Function` that is called when the input value has changed
   final Function onInputValueChange;
 
-  /// this is a `String` label for a check box
+  // this is a `String` label for a check box
   final String? label;
 
-  /// this is a `Color` for when the input is checked
+  // this is a `Color` for when the input is checked
   final Color? color;
 
-  /// this is a `dynamic` value for the check box
+  // this is a `dynamic` value for the check box
   final dynamic value;
 
-  /// this is a `bool` that indicates wether the check box is readonly or not
+  // this is a `bool` that indicates wether the check box is readonly or not
   final bool isReadOnly;
 
-  ///
-  /// this is a default constructor for the check box input fields
-  /// the constructor takes the label, value, color, readonly decision and a function for when the value is changed
-  ///
+  //
+  // this is a default constructor for the check box input fields
+  // the constructor takes the label, value, color, readonly decision and a function for when the value is changed
+  //
   const CheckBoxInputField({
     Key? key,
     required this.onInputValueChange,
@@ -48,7 +48,7 @@ class _CheckBoxInputFieldState extends State<CheckBoxInputField> {
     updateInputValueState();
   }
 
-  /// this function is called when the the input value is changed
+  // this function is called when the the input value is changed
   updateInputValueState() {
     setState(() {
       _inputValue = widget.value != null && '${widget.value}' == 'true';

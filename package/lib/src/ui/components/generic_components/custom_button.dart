@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 
 import 'material_card.dart';
 
-///
-/// `CustomButton` is a widget to have custom buttons
-///
+//
+// `CustomButton` is a widget to have custom buttons
+//
 class CustomButton extends StatelessWidget {
-  ///
-  /// this is a default constructor for the `CustomButton`
-  ///  it accepts parameters for the button label, highlight color and an on tap function
-  ///
+  //
+  // this is a default constructor for the `CustomButton`
+  //  it accepts parameters for the button label, highlight color and an on tap function
+  //
   const CustomButton({
     Key? key,
     required this.onTap,
@@ -20,13 +20,13 @@ class CustomButton extends StatelessWidget {
     this.highlightedColor = Colors.white10,
   }) : super(key: key);
 
-  /// this is a `VoidCallback` function that gets called whenever the button is tapped
+  // this is a `VoidCallback` function that gets called whenever the button is tapped
   final VoidCallback onTap;
 
-  /// this is a `String` label for the
+  // this is a `String` label for the
   final String label;
 
-  /// this is a `Color` for the highlight button color
+  // this is a `Color` for the highlight button color
   final Color highlightedColor;
 
   // TODO: add support for icon button

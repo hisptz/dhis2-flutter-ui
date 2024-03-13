@@ -6,41 +6,41 @@ import 'package:flutter/material.dart';
 import '../core/app_constants.dart';
 import 'input_field_option.dart';
 
-///
-/// `InputField` is the class for the input fields
-///
+//
+// `InputField` is the class for the input fields
+//
 class InputField {
-  /// this is the `String` representation of the id for the field's input
+  // this is the `String` representation of the id for the field's input
   String id;
 
-  /// this is the `String` representation of the display name for the field data input
+  // this is the `String` representation of the display name for the field data input
   String name;
 
-  /// this is optional `String` translated display name for the input field
+  // this is optional `String` translated display name for the input field
   String? translatedName;
 
-  /// this is a `String` description for the input field
+  // this is a `String` description for the input field
   String? description;
 
-  /// this is a `String` translated description for the input field
+  // this is a `String` translated description for the input field
   String? translatedDescription;
 
-  /// this is a `String` value type as per DHIS2 standards
+  // this is a `String` value type as per DHIS2 standards
   String valueType;
 
-  /// this is a `Color` for the input labels
+  // this is a `Color` for the input labels
   Color? labelColor;
 
-  /// this is a `Color` for the input borders
+  // this is a `Color` for the input borders
   Color? inputColor;
 
-  /// this is a background `Color` for the input field
+  // this is a background `Color` for the input field
   Color? background;
 
-  /// this is a `bool` that specifies wether `InputField` should render its option as radio or not
+  // this is a `bool` that specifies wether `InputField` should render its option as radio or not
   bool? renderAsRadio;
 
-  /// this is a `bool` that specifies wether `InputField` is read only or not
+  // this is a `bool` that specifies wether `InputField` is read only or not
   bool? isReadOnly;
 
   /// this is `int` that specify wether `InputField` has max numbet of characters
@@ -49,63 +49,63 @@ class InputField {
   /// this is a `bool` that specifies wether `InputField` should be rendered as password input
   bool? isPasswordField;
 
-  /// this is a `bool` that specifies wether `InputField` value should be capitalized or not
+  // this is a `bool` that specifies wether `InputField` value should be capitalized or not
   bool? shouldCapitalize;
 
-  /// this is a `bool` that specifies wether `InputField` should allow future dates if its of type `DATE`
+  // this is a `bool` that specifies wether `InputField` should allow future dates if its of type `DATE`
   bool? allowFuturePeriod;
 
-  /// this is a `bool` that specifies wether `InputField` should allow past dates if its of type `DATE`
+  // this is a `bool` that specifies wether `InputField` should allow past dates if its of type `DATE`
   bool? disablePastPeriod;
 
-  /// this is a `bool` that specifies wether `InputField` should show an error
+  // this is a `bool` that specifies wether `InputField` should show an error
   bool? hasError;
 
-  /// this is an `int` that specifies years that is minimum years that can be captured by the `InputField`
+  // this is an `int` that specifies years that is minimum years that can be captured by the `InputField`
   int? minYear;
 
-  /// this is an `int` that specifies years that is maximum years that can be captured by the `InputField`
+  // this is an `int` that specifies years that is maximum years that can be captured by the `InputField`
   int? maxYear;
 
-  /// this is an `int` that specifies the minimum number of months that can be captured by the `InputField`
+  // this is an `int` that specifies the minimum number of months that can be captured by the `InputField`
   int? numberOfMonth;
 
-  /// this is a `String` label that is displayed as a suffix to the `InputField`
+  // this is a `String` label that is displayed as a suffix to the `InputField`
   String? suffixLabel;
 
-  /// this is a `String` label that is displayed as a prefix to the `InputField`
+  // this is a `String` label that is displayed as a prefix to the `InputField`
   String? prefixLabel;
 
-  /// this is a `String` representation of a hint to the `InputField`
+  // this is a `String` representation of a hint to the `InputField`
   String? hint;
 
-  /// this is a `String` representation of a translated hint to the `InputField`
+  // this is a `String` representation of a translated hint to the `InputField`
   String? translatedHint;
 
-  /// this is a `List` of `InputFieldOption` for the `InputField`
+  // this is a `List` of `InputFieldOption` for the `InputField`
   List<InputFieldOption>? options;
 
-  /// this is a `bool` that indicates wether an input has a sub-input field
+  // this is a `bool` that indicates wether an input has a sub-input field
   bool? hasSubInputField;
 
-  /// this is an `InputField` that represents a sub-input field
+  // this is an `InputField` that represents a sub-input field
   InputField? subInputField;
 
-  /// this is a `DateTime` that represents a minimum date allowed to be captured by a `DATE` field
+  // this is a `DateTime` that represents a minimum date allowed to be captured by a `DATE` field
   DateTime? minDate;
 
-  /// this is a `DateTime` that represents a maximum date allowed to be captured by a `DATE` field
+  // this is a `DateTime` that represents a maximum date allowed to be captured by a `DATE` field
   DateTime? maxDate;
 
-  /// this is selected levels field
+  // this is selected levels field
   List<int> allowedSelectedLevels;
 
-  /// State variable for auto updating location
+  // State variable for auto updating location
   bool? disableLocationAutoUpdate;
 
-  ///
-  /// This is the default constructor to the `InputField`
-  ///
+  //
+  // This is the default constructor to the `InputField`
+  //
   InputField({
     required this.id,
     required this.name,
@@ -140,7 +140,7 @@ class InputField {
     this.disableLocationAutoUpdate = false,
   });
 
-  /// `InputField.toString()` is the method to return the `String` representation of the `InputField`
+  // `InputField.toString()` is the method to return the `String` representation of the `InputField`
   @override
   String toString() {
     return '$id - $name - $isReadOnly';

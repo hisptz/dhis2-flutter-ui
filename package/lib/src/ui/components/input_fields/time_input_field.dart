@@ -6,23 +6,23 @@ import 'package:flutter/material.dart';
 import '../../models/input_field.dart';
 import '../../utils/entry_form_util.dart';
 
-///
-/// `TimeInputFieldContainer` is an input field container for time
-///
+//
+// `TimeInputFieldContainer` is an input field container for time
+//
 class TimeInputFieldContainer extends StatefulWidget {
-  /// `InputField` is the input field metadata for the time input
+  // `InputField` is the input field metadata for the time input
   final InputField inputField;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function onInputValueChange;
 
-  /// `String` value of the time input
+  // `String` value of the time input
   final String? inputValue;
 
-  /// `String` value for the invalid time error message
+  // `String` value for the invalid time error message
   final String? errorInvalidText;
 
-  /// this is  a default constructor for the `TimeInputFieldContainer`
+  // this is  a default constructor for the `TimeInputFieldContainer`
   const TimeInputFieldContainer({
     Key? key,
     required this.inputField,
