@@ -19,7 +19,7 @@ class InputMask extends TextInputFormatter {
   // This is a `String` separator signs for the input mask
   final String separator;
 
-  /// This is a `String` for the placeholder
+  // This is a `String` for the placeholder
   final String placeholder = '';
 
   //  This is the default constructor for `InputMask` class
