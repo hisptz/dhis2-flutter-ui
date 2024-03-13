@@ -20,7 +20,7 @@ class InputMask extends TextInputFormatter {
   final String separator;
 
   /// This is a `String` for the placeholder
-  final String placeholder = "";
+  final String placeholder = '';
 
   ///  This is the default constructor for `InputMask` class
   InputMask({
@@ -108,7 +108,7 @@ class InputMask extends TextInputFormatter {
       if (pattern[index] == separator) {
         if (index < text.length && text[index] != separator) {
           if (onPattern != null) onPattern(index);
-          return "$separator${text[index]}";
+          return '$separator${text[index]}';
         }
         return separator;
       }

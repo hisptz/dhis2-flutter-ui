@@ -78,7 +78,7 @@ class EntryFormUtil {
   /// @return: the method return a `TimeOfDay` representation of the input time.
   ///
   static TimeOfDay getTimeIntoDTimeOfDayFormat(String time) {
-    List<String> timeArray = time.split(":");
+    List<String> timeArray = time.split(':');
     int hour = TimeOfDay.now().hour;
     int minute = TimeOfDay.now().minute;
     if (timeArray.length > 1) {
