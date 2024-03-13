@@ -3,38 +3,38 @@
 
 import 'package:flutter/services.dart';
 
-///
-/// `Pattern` is the type definition for the pattern that is a function that accepts an `int` separator index
-///
+//
+// `Pattern` is the type definition for the pattern that is a function that accepts an `int` separator index
+//
 typedef Pattern = Function(int separatorIndex);
 
-///
-/// `InputMask` is a class that extends the `TextInputFormatter` class
-/// The class allows adding masking on the input fields
-///
+//
+// `InputMask` is a class that extends the `TextInputFormatter` class
+// The class allows adding masking on the input fields
+//
 class InputMask extends TextInputFormatter {
-  /// This is a `String` pattern for the input mask
+  // This is a `String` pattern for the input mask
   final String pattern;
 
-  /// This is a `String` separator signs for the input mask
+  // This is a `String` separator signs for the input mask
   final String separator;
 
-  /// This is a `String` for the placeholder
+  // This is a `String` for the placeholder
   final String placeholder = '';
 
-  ///  This is the default constructor for `InputMask` class
+  //  This is the default constructor for `InputMask` class
   InputMask({
     required this.pattern,
     required this.separator,
   });
 
-  ///
-  /// `formatEditUpdate` is the function for applying the mask on input value changes
-  /// @params: oldValue : `TextEditingValue` for the old value for the input field
-  /// @params: newValue :  `TextEditingValue` for the new value of the input field
-  ///
-  /// @return: the function returns a `TextEditingValue`
-  ///
+  //
+  // `formatEditUpdate` is the function for applying the mask on input value changes
+  // @params: oldValue : `TextEditingValue` for the old value for the input field
+  // @params: newValue :  `TextEditingValue` for the new value of the input field
+  //
+  // @return: the function returns a `TextEditingValue`
+  //
   @override
   TextEditingValue formatEditUpdate(
     TextEditingValue oldValue,
@@ -68,13 +68,13 @@ class InputMask extends TextInputFormatter {
     return newValue;
   }
 
-  ///
-  /// `getFormatText` is the function for getting the formatted text
-  /// @params: oldValue : `TextEditingValue` for the old value for the input field
-  /// @params: newValue :  `TextEditingValue` for the new value of the input field
-  ///
-  /// @return: the function returns `TextEditingValue` formatted value
-  ///
+  //
+  // `getFormatText` is the function for getting the formatted text
+  // @params: oldValue : `TextEditingValue` for the old value for the input field
+  // @params: newValue :  `TextEditingValue` for the new value of the input field
+  //
+  // @return: the function returns `TextEditingValue` formatted value
+  //
   TextEditingValue getFormatText(
     TextEditingValue oldValue,
     TextEditingValue newValue,
@@ -96,13 +96,13 @@ class InputMask extends TextInputFormatter {
     );
   }
 
-  ///
-  /// `getFormatText` is the function for getting the formatted text
-  /// @params: text : `String` value for the text to be transformed
-  /// @params: pattern :  `Pattern` for transforming the text
-  ///
-  /// @return: the function returns the transformed `String` value
-  ///
+  //
+  // `getFormatText` is the function for getting the formatted text
+  // @params: text : `String` value for the text to be transformed
+  // @params: pattern :  `Pattern` for transforming the text
+  //
+  // @return: the function returns the transformed `String` value
+  //
   String transformText({required String text, Pattern? onPattern}) {
     return List.generate(pattern.length, (index) {
       if (pattern[index] == separator) {
@@ -121,14 +121,14 @@ class InputMask extends TextInputFormatter {
     }).join();
   }
 
-  ///
-  ///  `getOffset` is the function for getting the offset for a text value between the old and new value
-  ///   @params: oldValue : `TextEditingValue` for the old value for the input field
-  ///   @params: newValue :  `TextEditingValue` for the new value for the input field
-  ///   @params: text : `String` text whose offset needs evaluations
-  ///
-  ///   @return: the function returns `int` offset for the text
-  ///
+  //
+  //  `getOffset` is the function for getting the offset for a text value between the old and new value
+  //   @params: oldValue : `TextEditingValue` for the old value for the input field
+  //   @params: newValue :  `TextEditingValue` for the new value for the input field
+  //   @params: text : `String` text whose offset needs evaluations
+  //
+  //   @return: the function returns `int` offset for the text
+  //
   int getOffset(
     TextEditingValue oldValue,
     TextEditingValue newValue,

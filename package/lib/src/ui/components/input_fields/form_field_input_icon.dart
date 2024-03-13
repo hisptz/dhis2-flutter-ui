@@ -4,18 +4,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-/// `FormFieldInputIcon` is an input icon in the form field
+// `FormFieldInputIcon` is an input icon in the form field
 class FormFieldInputIcon extends StatelessWidget {
-  /// this is the `String` representation of svg icon path
+  // this is the `String` representation of svg icon path
   final String? svgIcon;
 
-  /// this is a background `Color` for the icon
+  // this is a background `Color` for the icon
   final Color? backGroundColor;
 
-  ///
-  /// this is a default constructor for the `FormFieldInputIcon`
-  /// It accepts a `String` svg icon path and a background `Color`
-  ///
+  //
+  // this is a default constructor for the `FormFieldInputIcon`
+  // It accepts a `String` svg icon path and a background `Color`
+  //
   const FormFieldInputIcon({
     Key? key,
     this.svgIcon,

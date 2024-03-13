@@ -5,36 +5,36 @@ import 'package:dhis2_flutter_ui/src/main_directive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-/// `SelectInputField` is a select input field for rendering selectable options
+// `SelectInputField` is a select input field for rendering selectable options
 class SelectInputField extends StatefulWidget {
-  /// `Color` for the select
+  // `Color` for the select
   final Color? color;
 
-  /// `bool` to show wether or not a select input is readonly
+  // `bool` to show wether or not a select input is readonly
   final bool? isReadOnly;
 
-  ///  `List<InputFieldOption>` that is a list of options on the select input
+  //  `List<InputFieldOption>` that is a list of options on the select input
   final List<InputFieldOption>? options;
 
-  /// `dynamic` value of the selected option
+  // `dynamic` value of the selected option
   final dynamic selectedOption;
 
-  /// `Function` callback called when input values had changed
+  // `Function` callback called when input values had changed
   final Function onInputValueChange;
 
-  /// `bool` to show wether or not a select input is rendered as radio
+  // `bool` to show wether or not a select input is rendered as radio
   final bool? renderAsRadio;
 
-  /// `Map` if input field options that are hidden
-  ///  example `{"inputId": true}`
-  ///
+  // `Map` if input field options that are hidden
+  //  example `{"inputId": true}`
+  //
   final Map hiddenInputFieldOptions;
 
-  ///
-  /// this is a default constructor for the `SelectInputField`
-  /// the constructor accepts `List<InputFieldOption>`, `dynamic` selected value, `bool` to show if input is readonly, `bool` if the input is rendered as radio and `Map` of hidden options
-  ///
-  ///
+  //
+  // this is a default constructor for the `SelectInputField`
+  // the constructor accepts `List<InputFieldOption>`, `dynamic` selected value, `bool` to show if input is readonly, `bool` if the input is rendered as radio and `Map` of hidden options
+  //
+  //
   const SelectInputField({
     Key? key,
     this.color,

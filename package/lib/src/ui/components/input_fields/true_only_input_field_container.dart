@@ -5,26 +5,26 @@ import 'package:flutter/cupertino.dart';
 
 import '../../models/input_field.dart';
 
-///
-/// `TrueOnlyInputFieldContainer` is a class for true only input fields containers
-///
+//
+// `TrueOnlyInputFieldContainer` is a class for true only input fields containers
+//
 class TrueOnlyInputFieldContainer extends StatefulWidget {
-  /// `InputField` is the input field metadata
+  // `InputField` is the input field metadata
   final InputField inputField;
 
-  /// `bool` to indicate wether or not the input label should be shown
+  // `bool` to indicate wether or not the input label should be shown
   final bool hideInputLabel;
 
-  /// a callback `Function` called when the input value has changed
+  // a callback `Function` called when the input value has changed
   final Function onInputValueChange;
 
-  /// a `dynamic` value for the true only input container
+  // a `dynamic` value for the true only input container
   final dynamic inputValue;
 
-  ///
-  /// this is a default constructor for the `TrueOnlyInputFieldContainer`
-  /// the constructor accepts an `InputField`, `dynamic` input value, a callback `Function` when an input changed, and `bool` that decides wether or not a label should be displayed
-  ///
+  //
+  // this is a default constructor for the `TrueOnlyInputFieldContainer`
+  // the constructor accepts an `InputField`, `dynamic` input value, a callback `Function` when an input changed, and `bool` that decides wether or not a label should be displayed
+  //
   const TrueOnlyInputFieldContainer({
     Key? key,
     required this.inputField,
