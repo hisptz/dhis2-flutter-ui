@@ -1,5 +1,11 @@
-## 1.1.9
+## 1.2.0
 - Fix android version for geolocator_android v4.6.0
+- Package update & upgrades
+
+## 1.1.9
+- Add support for Custom Action Sheet
+- Add support for Custom confirmation Modal
+- Package update and fixings
 
 ## 1.1.8
 
