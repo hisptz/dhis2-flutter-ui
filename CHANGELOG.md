@@ -1,3 +1,6 @@
+## 1.1.9
+- Fix android version for geolocator_android v4.6.0
+
 ## 1.1.8
 
 - Support to set max character on TEXT input field
